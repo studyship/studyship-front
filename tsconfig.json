@@ -1,9 +1,17 @@
 {
   "compilerOptions": {
+    "plugins": [
+      {
+        "transform": "typescript-plugin-styled-components",
+        "type": "config",
+        "ssr": false,
+        "minify": true
+      }
+    ],
     "target": "es5",
     "module": "commonjs",
     "lib": ["DOM", "ES2015", "ES2016", "ES2017", "ES2018", "ES2019", "ES2020"],
-    "types": ["react"],
+    "types": ["react", "node"],
     "jsx": "react",
     "baseUrl": ".",
     "strict": true,
