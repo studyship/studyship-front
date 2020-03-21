@@ -24,6 +24,9 @@ const getClientEnvironment = require('./env')
 const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin')
 const ForkTsCheckerWebpackPlugin = require('react-dev-utils/ForkTsCheckerWebpackPlugin')
 const typescriptFormatter = require('react-dev-utils/typescriptFormatter')
+const createStyledComponentsTransformer = require('typescript-plugin-styled-components')
+  .default
+const styledComponentsTransformer = createStyledComponentsTransformer()
 
 const postcssNormalize = require('postcss-normalize')
 
@@ -501,9 +504,13 @@ module.exports = function(webpackEnv) {
               },
             },
             {
-              test: /\.(ts|tsx)$/,
-              exclude: /node_modules/,
+              test: /\.tsx?$/,
               loader: 'ts-loader',
+              options: {
+                getCustomTransformers: () => ({
+                  before: [styledComponentsTransformer],
+                }),
+              },
             },
             // ** STOP ** Are you adding a new loader?
             // Make sure to add the new loader(s) before the "file" loader.
