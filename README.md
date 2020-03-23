@@ -1,11 +1,14 @@
 # TODO
 
-## Routes
+### Routes
 
 - [x] HOME
 
-## Config
+### Config
 
-- [x] Typescript
-- [x] Redux
+- [x] add TS" on webpack
+- [x] add "typescript-plugin-styled-components" on webpack
+- [x] add "babel-plugin-styled-components" on webpack
+- [x] set Redux configure
+- [x] apply reset-css
 - [ ] Docker
