@@ -6,10 +6,12 @@ const Banner = styled.section`
   position: relative;
   width: 100%;
   min-height: 100vh;
-  background: url('https://images.unsplash.com/photo-1517048676732-d65bc937f952?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3300&q=80');
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('https://images.unsplash.com/photo-1517048676732-d65bc937f952?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3300&q=80');
   background-size: cover;
   display: flex;
   align-items: center;
+  justify-content: center;
 `
 
 const IntroduceViewer = () => {
