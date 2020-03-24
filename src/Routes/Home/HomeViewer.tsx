@@ -1,22 +1,21 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Header, Introduce } from 'src/Components/Molecules'
+import { Introduce, Content } from 'src/Components/Molecules'
+import FadeIn from 'react-fade-in'
 
 const Container = styled.div``
 
-interface IHome {
-  screenHeight: boolean
-}
-
-const HomeViewer = ({ screenHeight }: IHome) => {
+const HomeViewer = () => {
   return (
-    <Container>
-      {/* header */}
-      <Header screenHeight={screenHeight} />
+    <FadeIn delay={100}>
+      <Container>
+        {/* header */}
 
-      {/* banner */}
-      <Introduce />
-    </Container>
+        {/* banner */}
+        <Introduce />
+        <Content />
+      </Container>
+    </FadeIn>
   )
 }
 

@@ -2,11 +2,16 @@ import React from 'react'
 import GlobalStyles from 'src/styles/GlobalStyles'
 import Router from '../Router'
 
-const AppViewer = () => {
+interface IApp {
+  screenHeight: boolean
+}
+
+const AppViewer = ({ screenHeight }: IApp) => {
   return (
     <>
       <GlobalStyles />
-      <Router />
+
+      <Router screenHeight={screenHeight} />
     </>
   )
 }
