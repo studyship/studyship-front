@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
+import { Icon } from 'src/Components/Atoms'
 
 const Header = styled.header`
   position: fixed;
@@ -28,6 +29,8 @@ const List = styled.li`
 `
 const LogoLink = styled(Link)`
   position: relative;
+  width: 200px;
+  height: 30px;
   font-weight: 700;
   font-size: 2em;
   text-transform: uppercase;
@@ -48,7 +51,9 @@ interface IHeader {
 const HeaderViewer = ({ screenHeight }: IHeader) => {
   return (
     <Header screenHeight={screenHeight}>
-      <LogoLink to="#LOGO">LOGO</LogoLink>
+      <LogoLink to="#LOGO">
+        <Icon />
+      </LogoLink>
       <Nav>
         <List>
           <SLink to="#HOME">HOME</SLink>
