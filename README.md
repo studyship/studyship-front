@@ -11,5 +11,5 @@
 - [x] add "babel-plugin-styled-components" on webpack
 - [x] set Redux configure
 - [x] apply reset-css
-- [ ] apply font
+- [x] apply font
 - [ ] Docker
