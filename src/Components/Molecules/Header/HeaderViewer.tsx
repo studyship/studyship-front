@@ -2,6 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import { Icon } from 'src/Components/Atoms'
+import LogoWhiteS from 'src/styles/icons/SS_Logo_whiteS.png'
+import LogoColorS from 'src/styles/icons/SS_Logo_colorS.png'
+import { IHeader } from './types'
 
 const Header = styled.header`
   position: fixed;
@@ -44,15 +47,11 @@ const SLink = styled(Link)`
   font-weight: 300;
 `
 
-interface IHeader {
-  screenHeight: boolean
-}
-
 const HeaderViewer = ({ screenHeight }: IHeader) => {
   return (
     <Header screenHeight={screenHeight}>
       <LogoLink to="#LOGO">
-        <Icon />
+        <Icon imgSrc={screenHeight ? LogoColorS : LogoWhiteS} />
       </LogoLink>
       <Nav>
         <List>
