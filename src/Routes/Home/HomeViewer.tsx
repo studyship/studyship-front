@@ -1,21 +1,25 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Introduce, Content } from 'src/Components/Molecules'
+import { Introduce, Content, IntroSection } from 'src/Components/Molecules'
 import FadeIn from 'react-fade-in'
+import { HomeTemplate } from 'src/Components/App/Templates'
 
 const Container = styled.div``
 
 const HomeViewer = () => {
   return (
-    <FadeIn delay={100}>
-      <Container>
-        {/* header */}
+    <HomeTemplate>
+      <FadeIn delay={100}>
+        <Container>
+          {/* header */}
 
-        {/* banner */}
-        <Introduce />
-        <Content />
-      </Container>
-    </FadeIn>
+          {/* banner */}
+          <IntroSection />
+          <Introduce />
+          <Content />
+        </Container>
+      </FadeIn>
+    </HomeTemplate>
   )
 }
 
