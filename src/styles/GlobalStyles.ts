@@ -20,9 +20,9 @@ const globalStyle = createGlobalStyle`
     @font-face { font-family: 'DM Sans'; src: url('./fonts/DMSans-Bold.ttf') format('truetype'); font-weight: normal; font-style: normal; }
     @font-face { font-family: 'DM Sans'; src: url('./fonts/DMSans-Regular.ttf') format('truetype'); font-weight: normal; font-style: normal; }
     @font-face { font-family: 'DM Sans'; src: url('./fonts/DMSans-Medium.ttf') format('truetype'); font-weight: normal; font-style: normal; }
-    @font-face { font-family: 'Noto Sans KR'; src: url('./fonts/NotoSansKR-Bold.woff2') format('woff2'); font-weight: normal; font-style: normal; }
-    @font-face { font-family: 'Noto Sans KR'; src: url('./fonts/NotoSansKR-Regular.woff2') format('woff2'); font-weight: normal; font-style: normal; }
-    @font-face { font-family: 'Noto Sans KR'; src: url('./fonts/NotoSansKR-Thin.woff2') format('woff2'); font-weight: normal; font-style: normal; }
+    @font-face { font-family: 'Noto Sans KR'; src: url('./fonts/NotoSansKR-Bold.woff') format('font-woff'); font-weight: normal; font-style: normal; }
+    @font-face { font-family: 'Noto Sans KR'; src: url('./fonts/NotoSansKR-Regular.woff') format('font-woff'); font-weight: normal; font-style: normal; }
+    @font-face { font-family: 'Noto Sans KR'; src: url('./fonts/NotoSansKR-Thin.woff') format('font-woff'); font-weight: normal; font-style: normal; }
 
     *:lang(en) { 
     font-family: Noto Sans KR; 
