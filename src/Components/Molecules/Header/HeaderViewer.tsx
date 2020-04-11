@@ -1,25 +1,25 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import { Icon } from 'src/Components/Atoms'
+import { Icon, InputHover } from 'src/Components/Atoms'
 import LogoWhiteS from 'src/styles/icons/SS_Logo_whiteS.png'
 import LogoColorS from 'src/styles/icons/SS_Logo_colorS.png'
 import { IHeader } from './types'
 
 const Header = styled.header`
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 40px 100px;
+  padding: 40px 160px;
+  width: 100%;
+  top: 0;
+  left: 0;
   z-index: 100;
   transition: 0.6s;
   ${(props: IHeader) =>
     props.screenHeight &&
-    'padding: 10px 100px; background-color:white; border-bottom:1px solid (0,0,0,.1); color:black;'}
+    'padding: 10px 160px; background-color:white; border-bottom:1px solid (0,0,0,.1); color:black;'}
 `
 const Nav = styled.ul`
   position: relative;
@@ -44,27 +44,30 @@ const SLink = styled(Link)`
   position: relative;
   margin: 0 15px;
   letter-spacing: 2px;
-  font-weight: 300;
+  :hover {
+    font-weight: bold;
+  }
 `
 
 const HeaderViewer = ({ screenHeight }: IHeader) => {
   return (
     <Header screenHeight={screenHeight}>
       <LogoLink to="#LOGO">
-        <Icon imgSrc={screenHeight ? LogoColorS : LogoWhiteS} />
+        <Icon imgSrc={screenHeight ? LogoColorS : LogoColorS} />
       </LogoLink>
       <Nav>
+        <InputHover />
         <List>
-          <SLink to="#HOME">HOME</SLink>
+          <SLink to="#HOME">카테고리</SLink>
         </List>
         <List>
-          <SLink to="#About">About</SLink>
+          <SLink to="#About">스터디 만들기</SLink>
         </List>
         <List>
-          <SLink to="#Services">Services</SLink>
+          <SLink to="#Services">About</SLink>
         </List>
         <List>
-          <SLink to="#Team">Team</SLink>
+          <SLink to="#Team">로그인/회원가입</SLink>
         </List>
       </Nav>
     </Header>
