@@ -13,3 +13,8 @@
 - [x] apply reset-css
 - [x] apply font
 - [ ] Docker
+
+### Loading
+
+- [ ] Lazy loading
+- [ ] Skeleton

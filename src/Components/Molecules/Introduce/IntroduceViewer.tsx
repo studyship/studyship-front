@@ -19,7 +19,7 @@ const IntroduceViewer = () => {
   return (
     <Banner>
       <JumboTitle>
-        <Title text="제목 텍스트" />
+        <Title text="제목 텍스트" type="bold" />
       </JumboTitle>
     </Banner>
   )

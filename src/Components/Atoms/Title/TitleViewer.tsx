@@ -1,17 +1,19 @@
 import React from 'react'
 import styled from 'styled-components'
+import { ITitle, IFontStyles } from './types'
 
 const Container = styled.span`
-  font-weight: bold;
-  font-size: 22px;
+  font-weight: ${(props: IFontStyles) =>
+    props.type !== 'thin' ? props.type : '300'};
+  font-size: ${(props: IFontStyles) => (props.size ? props.size : '22px')};
 `
 
-interface ITitle {
-  text: string
-}
-
-const TitleViewer = ({ text }: ITitle) => {
-  return <Container>{text}</Container>
+const TitleViewer = ({ className, text, type, size }: ITitle) => {
+  return (
+    <Container className={className} type={type} size={size}>
+      {text}
+    </Container>
+  )
 }
 
 export default TitleViewer
