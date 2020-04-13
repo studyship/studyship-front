@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import { Icon, InputHover } from 'src/Components/Atoms'
+import { Icon, InputHover, VerticalBar } from 'src/Components/Atoms'
 import LogoWhiteS from 'src/styles/icons/SS_Logo_whiteS.png'
 import LogoColorS from 'src/styles/icons/SS_Logo_colorS.png'
 import { IHeader } from './types'
@@ -66,6 +66,7 @@ const HeaderViewer = ({ screenHeight }: IHeader) => {
         <List>
           <SLink to="#Services">About</SLink>
         </List>
+        <VerticalBar />
         <List>
           <SLink to="#Team">로그인/회원가입</SLink>
         </List>

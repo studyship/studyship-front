@@ -1,13 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
 import { mainColorBlue } from 'src/styles/Colors'
+import { HomeTemplate, SectionTemplate } from 'src/Components/Templates'
 
 const Container = styled.section`
+  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  width: 100%;
-  min-height: 100vh;
+  background: url('https://images.unsplash.com/photo-1517048676732-d65bc937f952?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3300&q=80');
 `
 // Coulumn Row Box
 const CategoryContainer = styled.div`
@@ -45,26 +46,30 @@ const CircularItem = styled.li`
 
 const IntroSectionViewer = () => {
   return (
-    <Container>
-      <CategoryContainer>
-        <CategoryBox span={1}>
-          <CircularItem>CATEGORY</CircularItem>
-          <CategoryName>개발</CategoryName>
-        </CategoryBox>
-        <CategoryBox span={1}>
-          <CircularItem>CATEGORY</CircularItem>
-          <CategoryName>디자인</CategoryName>
-        </CategoryBox>
-        <CategoryBox span={1}>
-          <CircularItem>CATEGORY</CircularItem>
-          <CategoryName>외국어</CategoryName>
-        </CategoryBox>
-        <CategoryBox span={1}>
-          <CircularItem>CATEGORY</CircularItem>
-          <CategoryName>취업준비</CategoryName>
-        </CategoryBox>
-      </CategoryContainer>
-    </Container>
+    <SectionTemplate>
+      <Container>
+        <HomeTemplate>
+          <CategoryContainer>
+            <CategoryBox span={1}>
+              <CircularItem>CATEGORY</CircularItem>
+              <CategoryName>개발</CategoryName>
+            </CategoryBox>
+            <CategoryBox span={1}>
+              <CircularItem>CATEGORY</CircularItem>
+              <CategoryName>디자인</CategoryName>
+            </CategoryBox>
+            <CategoryBox span={1}>
+              <CircularItem>CATEGORY</CircularItem>
+              <CategoryName>외국어</CategoryName>
+            </CategoryBox>
+            <CategoryBox span={1}>
+              <CircularItem>CATEGORY</CircularItem>
+              <CategoryName>취업준비</CategoryName>
+            </CategoryBox>
+          </CategoryContainer>
+        </HomeTemplate>
+      </Container>
+    </SectionTemplate>
   )
 }
 

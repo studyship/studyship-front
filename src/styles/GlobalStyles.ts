@@ -16,7 +16,7 @@ const globalStyle = createGlobalStyle`
         font-size:14px;
         font-weight:normal;
         min-height:1000px;
-        background-color: #f0f0ed;
+        background-color: #ffffff;
         color:${mainColorBlack};
     }
     @font-face { font-family: 'DM Sans'; src: url('./fonts/DMSans-Bold.ttf') format('truetype'); font-weight: normal; font-style: normal; }
