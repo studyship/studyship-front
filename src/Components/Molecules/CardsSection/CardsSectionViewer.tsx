@@ -24,9 +24,13 @@ const ArrowIconBox = styled.div`
   flex-direction: row;
 `
 const CardBox = styled.div`
-  display: flex;
+  /* display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-between; */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(355px, 1fr));
+  align-content: center;
+  align-items: center;
 `
 
 const CardsSectionViewer = () => {
@@ -42,6 +46,13 @@ const CardsSectionViewer = () => {
             </ArrowIconBox>
           </TitleBox>
           <CardBox>
+            <Card
+              titleStyles={{
+                type: 'normal',
+                size: '14px',
+                text: '스터디 제목',
+              }}
+            />
             <Card
               titleStyles={{
                 type: 'normal',
