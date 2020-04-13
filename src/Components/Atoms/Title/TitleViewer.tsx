@@ -1,17 +1,17 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const Container = styled.div``
-const Block = styled.div``
+const Container = styled.span`
+  font-weight: bold;
+  font-size: 22px;
+`
 
-const TitleViewer = () => {
-  return (
-    <Container>
-      Get on
-      <Block>board</Block>
-      Studyship
-    </Container>
-  )
+interface ITitle {
+  text: string
+}
+
+const TitleViewer = ({ text }: ITitle) => {
+  return <Container>{text}</Container>
 }
 
 export default TitleViewer
