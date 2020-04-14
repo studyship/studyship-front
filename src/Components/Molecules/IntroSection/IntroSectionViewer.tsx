@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { mainColorBlue } from 'src/styles/Colors'
 import { HomeTemplate, SectionTemplate } from 'src/Components/Templates'
+import { isMobile } from 'react-device-detect'
 
 const Container = styled.section`
   flex: 1;
@@ -14,6 +15,14 @@ const Container = styled.section`
 const CategoryContainer = styled.div`
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  @media screen and (max-width: 450px) {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    justify-content: space-around;
+  }
 `
 const CategoryBox = styled.ul`
   display: flex;
@@ -22,7 +31,8 @@ const CategoryBox = styled.ul`
   flex-direction: column;
   align-items: center;
   float: left;
-  width: ${(props: ISpan) => (props.span ? (props.span / 10) * 100 : '8.33')}%;
+  width: ${(props: ISpan) =>
+    isMobile ? (props.span / 4) * 100 : (props.span / 10) * 100}%;
   padding: 1rem;
 `
 interface ISpan {
@@ -31,6 +41,7 @@ interface ISpan {
 const CategoryName = styled.div`
   margin-top: 9px;
   font-size: 15px;
+  word-break: keep-all;
 `
 
 // circular item
@@ -50,22 +61,12 @@ const IntroSectionViewer = () => {
       <Container>
         <HomeTemplate>
           <CategoryContainer>
-            <CategoryBox span={1}>
-              <CircularItem>CATEGORY</CircularItem>
-              <CategoryName>개발</CategoryName>
-            </CategoryBox>
-            <CategoryBox span={1}>
-              <CircularItem>CATEGORY</CircularItem>
-              <CategoryName>디자인</CategoryName>
-            </CategoryBox>
-            <CategoryBox span={1}>
-              <CircularItem>CATEGORY</CircularItem>
-              <CategoryName>외국어</CategoryName>
-            </CategoryBox>
-            <CategoryBox span={1}>
-              <CircularItem>CATEGORY</CircularItem>
-              <CategoryName>취업준비</CategoryName>
-            </CategoryBox>
+            {Array.from({ length: 10 }, () => (
+              <CategoryBox span={1}>
+                <CircularItem>CATEGORY</CircularItem>
+                <CategoryName>개발</CategoryName>
+              </CategoryBox>
+            ))}
           </CategoryContainer>
         </HomeTemplate>
       </Container>

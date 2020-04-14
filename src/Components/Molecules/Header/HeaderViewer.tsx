@@ -2,9 +2,10 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import { Icon, InputHover, VerticalBar } from 'src/Components/Atoms'
-import LogoWhiteS from 'src/styles/icons/SS_Logo_whiteS.png'
 import LogoColorS from 'src/styles/icons/SS_Logo_colorS.png'
+import LogoOnlyColor from 'src/styles/icons/SS_Logo_only.png'
 import { IHeader } from './types'
+import { isMobile } from 'react-device-detect'
 
 const Header = styled.header`
   position: fixed;
@@ -20,6 +21,10 @@ const Header = styled.header`
   ${(props: IHeader) =>
     props.screenHeight &&
     'padding: 10px 160px; background-color:white; border-bottom:1px solid (0,0,0,.1); color:black;'}
+  @media screen and (max-width: 450px) {
+    flex-direction: column;
+    padding: 20px 20px;
+  }
 `
 const Nav = styled.ul`
   position: relative;
@@ -39,6 +44,10 @@ const LogoLink = styled(Link)`
   text-transform: uppercase;
   letter-spacing: 2px;
   transition: 0.6s;
+  @media screen and (max-width: 450px) {
+    width: 50px;
+    height: 50px;
+  }
 `
 const SLink = styled(Link)`
   position: relative;
@@ -47,13 +56,20 @@ const SLink = styled(Link)`
   :hover {
     font-weight: bold;
   }
+  @media screen and (max-width: 450px) {
+    margin: 0 5px;
+  }
 `
 
 const HeaderViewer = ({ screenHeight }: IHeader) => {
   return (
     <Header screenHeight={screenHeight}>
       <LogoLink to="#LOGO">
-        <Icon imgSrc={screenHeight ? LogoColorS : LogoColorS} />
+        {isMobile ? (
+          <Icon imgSrc={screenHeight ? LogoOnlyColor : LogoOnlyColor} />
+        ) : (
+          <Icon imgSrc={screenHeight ? LogoColorS : LogoColorS} />
+        )}
       </LogoLink>
       <Nav>
         <InputHover />
@@ -68,7 +84,7 @@ const HeaderViewer = ({ screenHeight }: IHeader) => {
         </List>
         <VerticalBar />
         <List>
-          <SLink to="#Team">로그인/회원가입</SLink>
+          <SLink to="#Team">로그인</SLink>
         </List>
       </Nav>
     </Header>

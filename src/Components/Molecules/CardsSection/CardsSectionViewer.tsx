@@ -24,13 +24,12 @@ const ArrowIconBox = styled.div`
   flex-direction: row;
 `
 const CardBox = styled.div`
-  /* display: flex;
+  display: flex;
   flex-direction: row;
-  justify-content: space-between; */
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(355px, 1fr));
-  align-content: center;
-  align-items: center;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  justify-content: space-between;
+  margin-bottom: 90px;
 `
 
 const CardsSectionViewer = () => {
@@ -46,41 +45,33 @@ const CardsSectionViewer = () => {
             </ArrowIconBox>
           </TitleBox>
           <CardBox>
-            <Card
-              titleStyles={{
-                type: 'normal',
-                size: '14px',
-                text: '스터디 제목',
-              }}
-            />
-            <Card
-              titleStyles={{
-                type: 'normal',
-                size: '14px',
-                text: '스터디 제목',
-              }}
-            />
-            <Card
-              titleStyles={{
-                type: 'normal',
-                size: '14px',
-                text: '스터디 제목',
-              }}
-            />
-            <Card
-              titleStyles={{
-                type: 'normal',
-                size: '14px',
-                text: '스터디 제목',
-              }}
-            />
-            <Card
-              titleStyles={{
-                type: 'normal',
-                size: '14px',
-                text: '스터디 제목',
-              }}
-            />
+            {Array.from({ length: 10 }, () => (
+              <Card
+                titleStyles={{
+                  type: 'normal',
+                  size: '14px',
+                  text: '스터디 제목',
+                }}
+              />
+            ))}
+          </CardBox>
+          <TitleBox>
+            <STitle text="새로 생긴 스터디" type="normal" />
+            <ArrowIconBox>
+              <LeftOutlined style={{ fontSize: '30px' }} />
+              <RightOutlined />
+            </ArrowIconBox>
+          </TitleBox>
+          <CardBox>
+            {Array.from({ length: 10 }, () => (
+              <Card
+                titleStyles={{
+                  type: 'normal',
+                  size: '14px',
+                  text: '스터디 제목',
+                }}
+              />
+            ))}
           </CardBox>
         </HomeTemplate>
       </Container>
