@@ -30,6 +30,9 @@ const CardBox = styled.div`
   overflow-x: auto;
   justify-content: space-between;
   margin-bottom: 90px;
+  ::-webkit-scrollbar {
+    display: none;
+  }
 `
 
 const CardsSectionViewer = () => {

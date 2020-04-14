@@ -23,6 +23,9 @@ const CategoryContainer = styled.div`
     overflow-x: auto;
     justify-content: space-around;
   }
+  ::-webkit-scrollbar {
+    display: none;
+  }
 `
 const CategoryBox = styled.ul`
   display: flex;
