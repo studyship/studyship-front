@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import {
   Introduce,
@@ -11,6 +11,12 @@ import FadeIn from 'react-fade-in'
 const Container = styled.div``
 
 const HomeViewer = () => {
+  const [count, setCount] = useState(0)
+  useEffect(() => {
+    console.log('count', count)
+    setCount(count)
+    console.log('setCount', count)
+  }, [count])
   return (
     <FadeIn delay={100}>
       <Container>
