@@ -1,11 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import {
-  Introduce,
-  Content,
-  IntroSection,
-  CardsSection,
-} from 'src/Components/Molecules'
+import { Content, IntroSection, CardsSection } from 'src/Components/Molecules'
 import FadeIn from 'react-fade-in'
 
 const Container = styled.div``
