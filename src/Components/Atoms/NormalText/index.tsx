@@ -1,3 +1,3 @@
-import NormarTextViewer from './NormarTextViewer'
+import NormalTextViewer from './NormalTextViewer'
 
-export default NormarTextViewer
+export default NormalTextViewer

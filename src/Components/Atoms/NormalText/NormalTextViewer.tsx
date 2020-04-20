@@ -10,13 +10,13 @@ interface INormalText extends INormalTextStyle {
   text: string
 }
 
-const Container = styled.span`
+const Container = styled.h3`
   font-weight: normal;
   font-size: ${(props: INormalTextStyle) =>
     props.fontSize ? props.fontSize : '22px'};
 `
 
-const NormarTextViewer = ({ className, fontSize, text }: INormalText) => {
+const NormalTextViewer = ({ className, fontSize, text }: INormalText) => {
   return (
     <Container className={className} fontSize={fontSize}>
       {text}
@@ -24,4 +24,4 @@ const NormarTextViewer = ({ className, fontSize, text }: INormalText) => {
   )
 }
 
-export default NormarTextViewer
+export default NormalTextViewer
