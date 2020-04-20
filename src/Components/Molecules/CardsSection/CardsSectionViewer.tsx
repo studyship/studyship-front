@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Title } from 'src/Components/Atoms'
-import { LeftOutlined, RightOutlined } from '@ant-design/icons'
 import { SectionTemplate, HomeTemplate } from 'src/Components/Templates'
 import { Card } from 'src/Components/Molecules'
 
@@ -18,10 +17,6 @@ const TitleBox = styled.div`
 `
 const STitle = styled(Title)`
   margin-bottom: 27px;
-`
-const ArrowIconBox = styled.div`
-  display: flex;
-  flex-direction: row;
 `
 const CardBox = styled.div`
   display: flex;
@@ -48,13 +43,7 @@ const CardsSectionViewer = () => {
           </TitleBox>
           <CardBox>
             {Array.from({ length: 6 }, () => (
-              <Card
-                titleStyles={{
-                  type: 'normal',
-                  size: '14px',
-                  text: '스터디 제목',
-                }}
-              />
+              <Card />
             ))}
           </CardBox>
           <TitleBox>
@@ -62,13 +51,7 @@ const CardsSectionViewer = () => {
           </TitleBox>
           <CardBox>
             {Array.from({ length: 6 }, () => (
-              <Card
-                titleStyles={{
-                  type: 'normal',
-                  size: '14px',
-                  text: '스터디 제목',
-                }}
-              />
+              <Card />
             ))}
           </CardBox>
         </HomeTemplate>

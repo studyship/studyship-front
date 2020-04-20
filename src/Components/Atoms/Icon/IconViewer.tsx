@@ -7,6 +7,7 @@ const SLazyLoad = styled(LazyLoad)``
 const Image = styled.img`
   width: 100%;
   height: 100%;
+  border-radius: inherit;
 `
 
 const IconViewer = ({ imgSrc }: IIconViewer) => {

@@ -1,16 +1,18 @@
 import React from 'react'
 import styled from 'styled-components'
 import {
-  Title,
   Icon,
   BoldText,
-  NormarText,
+  NormalText,
   HorizontalBar,
+  CircularItem,
 } from 'src/Components/Atoms'
-import { ITitle } from 'src/Components/Atoms/Title/types'
 import { descriptionColor } from 'src/styles/Colors'
 import BockmarkIcon from 'src/styles/icons/icon_bookmark_fill.svg'
 import ReactLogo from 'src/styles/images/react-logo.png'
+import Darkness from 'src/styles/images/darkness.png'
+import sampleIcon from 'src/styles/icons/users.png'
+import { subColorLightGrey } from 'src/styles/Colors'
 
 const Container = styled.div`
   display: flex;
@@ -30,15 +32,12 @@ const Container = styled.div`
     scroll-snap-align: start;
   }
 `
-const STitle = styled(Title)`
-  margin-bottom: 27px;
-`
-const CategoryBox = styled.div`
+const CategoryBox = styled.ul`
   display: flex;
   flex-direction: row;
   width: 100%;
 `
-const Category = styled.div`
+const Category = styled.li`
   color: ${descriptionColor};
   font-size: 14px;
   margin-bottom: 18px;
@@ -53,7 +52,22 @@ const TitleBox = styled.div`
   justify-content: space-between;
   align-items: center;
 `
-const IconBox = styled.div`
+const TitleTag = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  > *:nth-child(1) {
+    margin-right: 15px;
+  }
+  > *:nth-child(2) {
+    margin-top: 10px;
+  }
+`
+const Timezone = styled(NormalText)`
+  color: ${subColorLightGrey};
+`
+const Bookmark = styled.div`
   width: 18px;
   height: 25px;
 `
@@ -67,15 +81,33 @@ const CardSection = styled.div`
 const Target = styled.div`
   display: flex;
   flex-direction: row;
+  margin-bottom: 20px;
   > *:nth-child(1) {
     margin-right: 5px;
   }
 `
-interface ICard {
-  titleStyles: ITitle
-}
+const DescriptionBox = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 20px;
+`
+const Description = styled.div`
+  display: flex;
+  flex-direction: row;
+  > *:nth-child(1) {
+    margin-right: 5px;
+  }
+`
+const DescriptionIcon = styled.div`
+  width: 15px;
+  height: 13px;
+`
+const DescriptionText = styled(NormalText)`
+  color: ${subColorLightGrey};
+`
 
-const CardViewer = ({ titleStyles }: ICard) => {
+const CardViewer = () => {
   return (
     <Container>
       <CardSection>
@@ -85,9 +117,12 @@ const CardViewer = ({ titleStyles }: ICard) => {
       <CardSection>
         <TitleBox>
           <BoldText fontSize="18px" text="스터디 제목입니다" />
-          <IconBox>
-            <img src={BockmarkIcon} />
-          </IconBox>
+          <TitleTag>
+            <Timezone fontSize="11px" text="16시간전" />
+            <Bookmark>
+              <Icon imgSrc={BockmarkIcon} />
+            </Bookmark>
+          </TitleTag>
         </TitleBox>
         <CategoryBox>
           <Category>qwe</Category>
@@ -96,8 +131,21 @@ const CardViewer = ({ titleStyles }: ICard) => {
         </CategoryBox>
         <Target>
           <BoldText fontSize="14px" text="목표" />
-          <NormarText fontSize="14px" text="페이스북 클론 코딩" />
+          <NormalText fontSize="14px" text="페이스북 클론 코딩" />
         </Target>
+        <DescriptionBox>
+          {Array.from({ length: 4 }, () => (
+            <Description>
+              <DescriptionIcon>
+                <Icon imgSrc={sampleIcon}></Icon>
+              </DescriptionIcon>
+              <DescriptionText fontSize="14px" text="3/5명" />
+            </Description>
+          ))}
+        </DescriptionBox>
+        <CircularItem area="20px">
+          <Icon imgSrc={Darkness}></Icon>
+        </CircularItem>
       </CardSection>
     </Container>
   )
