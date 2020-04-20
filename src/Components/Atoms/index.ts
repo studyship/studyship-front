@@ -6,7 +6,7 @@ import VerticalBar from './VerticalBar'
 import BoldText from './BoldText'
 import ThinText from './ThinText'
 import NormarText from './NormalText/NormarTextViewer'
-
+import HorizontalBar from './HorizontalBar'
 export {
   JumboTitle,
   Title,
@@ -16,4 +16,5 @@ export {
   BoldText,
   ThinText,
   NormarText,
+  HorizontalBar,
 }
