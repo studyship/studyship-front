@@ -26,12 +26,15 @@ const ArrowIconBox = styled.div`
 const CardBox = styled.div`
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  /* overflow-x: auto; */
   margin-bottom: 90px;
   ::-webkit-scrollbar {
     display: none;
+  }
+  @media screen and (max-width: 450px) {
+    flex-wrap: nowrap;
+    overflow-x: auto;
   }
 `
 
@@ -42,13 +45,9 @@ const CardsSectionViewer = () => {
         <HomeTemplate>
           <TitleBox>
             <STitle text="스터디쉽이 추천하는 스터디" type="normal" />
-            <ArrowIconBox>
-              <LeftOutlined style={{ fontSize: '30px' }} />
-              <RightOutlined />
-            </ArrowIconBox>
           </TitleBox>
           <CardBox>
-            {Array.from({ length: 10 }, () => (
+            {Array.from({ length: 6 }, () => (
               <Card
                 titleStyles={{
                   type: 'normal',
@@ -60,13 +59,9 @@ const CardsSectionViewer = () => {
           </CardBox>
           <TitleBox>
             <STitle text="새로 생긴 스터디" type="normal" />
-            <ArrowIconBox>
-              <LeftOutlined style={{ fontSize: '30px' }} />
-              <RightOutlined />
-            </ArrowIconBox>
           </TitleBox>
           <CardBox>
-            {Array.from({ length: 10 }, () => (
+            {Array.from({ length: 6 }, () => (
               <Card
                 titleStyles={{
                   type: 'normal',

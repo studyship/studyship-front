@@ -1,17 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { Content, IntroSection, CardsSection } from 'src/Components/Molecules'
 import FadeIn from 'react-fade-in'
+import { ModalTemplate, useModalHandler } from '@devgw-react/blank-modal'
 
 const Container = styled.div``
 
 const HomeViewer = () => {
-  const [count, setCount] = useState(0)
-  useEffect(() => {
-    console.log('count', count)
-    setCount(count)
-    console.log('setCount', count)
-  }, [count])
+  const { isVisible, toggleModalStatus } = useModalHandler()
   return (
     <FadeIn delay={100}>
       <Container>
