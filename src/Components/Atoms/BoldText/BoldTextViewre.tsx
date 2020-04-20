@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 interface IBoldTextStyle {
-  className: string
+  className?: string
   fontSize: string
 }
 
