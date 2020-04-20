@@ -10,7 +10,7 @@ interface IThinText extends IThinTextStyle {
   text: string
 }
 
-const Container = styled.span`
+const Container = styled.h4`
   font-weight: 300;
   font-size: ${(props: IThinTextStyle) =>
     props.fontSize ? props.fontSize : '22px'};

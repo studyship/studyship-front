@@ -10,7 +10,7 @@ interface IBoldText extends IBoldTextStyle {
   text: string
 }
 
-const Container = styled.span`
+const Container = styled.h2`
   font-weight: bold;
   font-size: ${(props: IBoldTextStyle) =>
     props.fontSize ? props.fontSize : '22px'};

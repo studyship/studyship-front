@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { ITitle, IFontStyles } from './types'
 
-const Container = styled.span`
+const Container = styled.h1`
   font-weight: ${(props: IFontStyles) =>
     props.type !== 'thin' ? props.type : '300'};
   font-size: ${(props: IFontStyles) => (props.size ? props.size : '22px')};

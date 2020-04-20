@@ -5,8 +5,10 @@ import InputHover from './InputHover'
 import VerticalBar from './VerticalBar'
 import BoldText from './BoldText'
 import ThinText from './ThinText'
-import NormarText from './NormalText/NormarTextViewer'
+import NormalText from './NormalText'
 import HorizontalBar from './HorizontalBar'
+import CircularItem from './CircularItem'
+
 export {
   JumboTitle,
   Title,
@@ -15,6 +17,7 @@ export {
   VerticalBar,
   BoldText,
   ThinText,
-  NormarText,
+  NormalText,
   HorizontalBar,
+  CircularItem,
 }
