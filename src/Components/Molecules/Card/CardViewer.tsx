@@ -20,7 +20,6 @@ const Container = styled.div`
   width: 360px;
   height: 360px;
   border: 0.5px solid #e3e3e0;
-  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.08);
   border-radius: 10px;
   margin: 1rem;
   @media screen and (max-width: 450px) {
