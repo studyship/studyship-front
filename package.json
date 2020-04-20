@@ -61,7 +61,6 @@
     "react-fade-in": "^0.1.8",
     "react-lazyload": "^2.6.6",
     "react-router-dom": "^5.1.2",
-    "react-scrolllock": "^5.0.1",
     "redux": "^4.0.5",
     "resolve": "1.15.0",
     "resolve-url-loader": "3.1.1",

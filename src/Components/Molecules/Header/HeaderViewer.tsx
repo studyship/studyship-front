@@ -6,6 +6,8 @@ import LogoColorS from 'src/styles/icons/SS_Logo_colorS.png'
 import LogoOnlyColor from 'src/styles/icons/SS_Logo_only.png'
 import { IHeader } from './types'
 import { isMobile } from 'react-device-detect'
+import { ModalTemplate, useModalHandler } from '@devgw-react/blank-modal'
+import { AccountModalTemplate } from 'src/Components/Templates'
 
 const Header = styled.header`
   position: fixed;
@@ -62,32 +64,43 @@ const SLink = styled(Link)`
 `
 
 const HeaderViewer = ({ screenHeight }: IHeader) => {
+  const { isVisible, toggleModalStatus } = useModalHandler()
   return (
-    <Header screenHeight={screenHeight}>
-      <LogoLink to="#LOGO">
-        {isMobile ? (
-          <Icon imgSrc={screenHeight ? LogoOnlyColor : LogoOnlyColor} />
-        ) : (
-          <Icon imgSrc={screenHeight ? LogoColorS : LogoColorS} />
-        )}
-      </LogoLink>
-      <Nav>
-        <InputHover />
-        <List>
-          <SLink to="#HOME">카테고리</SLink>
-        </List>
-        <List>
-          <SLink to="#About">스터디 만들기</SLink>
-        </List>
-        <List>
-          <SLink to="#Services">About</SLink>
-        </List>
-        <VerticalBar />
-        <List>
-          <SLink to="#Team">로그인</SLink>
-        </List>
-      </Nav>
-    </Header>
+    <>
+      <ModalTemplate
+        isVisible={isVisible}
+        modalVisibleHandler={toggleModalStatus}
+      >
+        <AccountModalTemplate />
+      </ModalTemplate>
+      <Header screenHeight={screenHeight}>
+        <LogoLink to="#LOGO">
+          {isMobile ? (
+            <Icon imgSrc={screenHeight ? LogoOnlyColor : LogoOnlyColor} />
+          ) : (
+            <Icon imgSrc={screenHeight ? LogoColorS : LogoColorS} />
+          )}
+        </LogoLink>
+        <Nav>
+          <InputHover />
+          <List>
+            <SLink to="#HOME">카테고리</SLink>
+          </List>
+          <List>
+            <SLink to="#About">스터디 만들기</SLink>
+          </List>
+          <List>
+            <SLink to="#Services">About</SLink>
+          </List>
+          <VerticalBar />
+          <List>
+            <SLink to="#Team" onClick={toggleModalStatus}>
+              로그인
+            </SLink>
+          </List>
+        </Nav>
+      </Header>
+    </>
   )
 }
 
