@@ -1,3 +1,3 @@
-import HeaderViewer from './HeaderViewer'
+import HeaderContainer from './HeaderContainer'
 
-export default HeaderViewer
+export default HeaderContainer

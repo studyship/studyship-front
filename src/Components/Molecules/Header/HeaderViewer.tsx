@@ -4,12 +4,12 @@ import { Link } from 'react-router-dom'
 import { Icon, InputHover, VerticalBar } from 'src/Components/Atoms'
 import LogoColorS from 'src/styles/icons/SS_Logo_colorS.png'
 import LogoOnlyColor from 'src/styles/icons/SS_Logo_only.png'
-import { IHeader } from './types'
+import { IHeader, ITopNav } from './types'
 import { isMobile } from 'react-device-detect'
 import { ModalTemplate, useModalHandler } from '@devgw-react/blank-modal'
 import { AccountModalTemplate } from 'src/Components/Templates'
 
-const Header = styled.header`
+const TopNav = styled.header`
   position: fixed;
   display: flex;
   justify-content: space-between;
@@ -20,7 +20,7 @@ const Header = styled.header`
   left: 0;
   z-index: 100;
   transition: 0.6s;
-  ${(props: IHeader) =>
+  ${(props: ITopNav) =>
     props.screenHeight &&
     'padding: 10px 160px; background-color:white; border-bottom:1px solid (0,0,0,.1); color:black;'}
   @media screen and (max-width: 450px) {
@@ -63,17 +63,42 @@ const SLink = styled(Link)`
   }
 `
 
-const HeaderViewer = ({ screenHeight }: IHeader) => {
-  const { isVisible, toggleModalStatus } = useModalHandler()
+const HeaderViewer = ({
+  screenHeight,
+  loginModalIsVisible,
+  joinModalIsVisible,
+  handleLoginModalActive,
+  handleJoinModalActive,
+  handleLoginModalInactive,
+  handleJoinModalInactive,
+}: IHeader) => {
   return (
     <>
       <ModalTemplate
-        isVisible={isVisible}
-        modalVisibleHandler={toggleModalStatus}
+        isVisible={loginModalIsVisible}
+        handleModalInactive={handleLoginModalInactive}
+        borderRadius="20px"
       >
-        <AccountModalTemplate />
+        <AccountModalTemplate
+          title="이메일 로그인"
+          handleModalInactive={handleLoginModalInactive}
+        >
+          <div>HELLOW</div>
+        </AccountModalTemplate>
       </ModalTemplate>
-      <Header screenHeight={screenHeight}>
+      <ModalTemplate
+        isVisible={joinModalIsVisible}
+        handleModalInactive={handleJoinModalInactive}
+        borderRadius="20px"
+      >
+        <AccountModalTemplate
+          title="회원가입"
+          handleModalInactive={handleJoinModalInactive}
+        >
+          <div>HELLOW</div>
+        </AccountModalTemplate>
+      </ModalTemplate>
+      <TopNav screenHeight={screenHeight}>
         <LogoLink to="#LOGO">
           {isMobile ? (
             <Icon imgSrc={screenHeight ? LogoOnlyColor : LogoOnlyColor} />
@@ -94,12 +119,15 @@ const HeaderViewer = ({ screenHeight }: IHeader) => {
           </List>
           <VerticalBar />
           <List>
-            <SLink to="#Team" onClick={toggleModalStatus}>
+            <SLink to="#Team" onClick={handleLoginModalActive}>
               로그인
+            </SLink>
+            <SLink to="#Team" onClick={handleJoinModalActive}>
+              회원가입
             </SLink>
           </List>
         </Nav>
-      </Header>
+      </TopNav>
     </>
   )
 }
