@@ -7,6 +7,7 @@ const VerticalBar = styled.span`
     props.horizonSapce ? props.horizonSapce : '5px'};
   margin-right: ${(props: IVerticalBar) =>
     props.horizonSapce ? props.horizonSapce : '5px'};
+  color: inherit;
 `
 const VerticalBarViewer = ({ horizonSapce }: IVerticalBar) => {
   return <VerticalBar horizonSapce={horizonSapce}>|</VerticalBar>

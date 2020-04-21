@@ -123,7 +123,7 @@ const CardViewer = () => {
       <CardSection>
         <Icon imgSrc={ReactLogo} />
       </CardSection>
-      <HorizontalBar />
+      <HorizontalBar color="#e6e6e6" />
       <CardSection>
         <TitleBox>
           <BoldText fontSize="18px" text="스터디 제목입니다" />

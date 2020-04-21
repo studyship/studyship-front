@@ -1,14 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import { Icon, InputHover, VerticalBar } from 'src/Components/Atoms'
+import { Icon, InputHover, VerticalBar, RowBox } from 'src/Components/Atoms'
 import LogoColorS from 'src/styles/icons/SS_Logo_colorS.png'
 import LogoOnlyColor from 'src/styles/icons/SS_Logo_only.png'
 import { IHeader, ITopNav } from './types'
 import { isMobile } from 'react-device-detect'
-import { ModalTemplate, useModalHandler } from '@devgw-react/blank-modal'
+import { ModalTemplate } from '@devgw-react/blank-modal'
 import { AccountModalTemplate } from 'src/Components/Templates'
 import { LoginForm } from '..'
+import { mainColorBlue } from 'src/styles/Colors'
 
 const TopNav = styled.header`
   position: fixed;
@@ -53,15 +54,34 @@ const LogoLink = styled(Link)`
   }
 `
 const SLink = styled(Link)`
-  position: relative;
   margin: 0 15px;
-  letter-spacing: 2px;
   :hover {
     font-weight: bold;
+    color: ${mainColorBlue};
   }
   @media screen and (max-width: 450px) {
     margin: 0 5px;
   }
+`
+const AccountBox = styled(RowBox)`
+  > * :nth-child(1) {
+    margin-left: 15px;
+    margin-right: 5px;
+  }
+  > * :nth-child(3) {
+    margin-left: 5px;
+  }
+`
+const Account = styled.div`
+  transition: 0.4s;
+  :hover {
+    font-weight: bold;
+    color: ${mainColorBlue};
+  }
+  @media screen and (max-width: 450px) {
+    margin: 0 5px;
+  }
+  cursor: pointer;
 `
 
 const HeaderViewer = ({
@@ -120,12 +140,11 @@ const HeaderViewer = ({
           </List>
           <VerticalBar />
           <List>
-            <SLink to="#Team" onClick={handleLoginModalActive}>
-              로그인
-            </SLink>
-            <SLink to="#Team" onClick={handleJoinModalActive}>
-              회원가입
-            </SLink>
+            <AccountBox>
+              <Account onClick={handleLoginModalActive}>로그인</Account>
+              <p>/</p>
+              <Account onClick={handleJoinModalActive}>회원가입</Account>
+            </AccountBox>
           </List>
         </Nav>
       </TopNav>

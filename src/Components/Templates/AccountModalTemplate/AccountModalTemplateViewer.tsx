@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { NormalText } from 'src/Components/Atoms'
+import { NormalText, RowBox } from 'src/Components/Atoms'
 
 const Container = styled.div`
   display: flex;
@@ -8,11 +8,8 @@ const Container = styled.div`
   width: 452px;
   padding: 24px 40px;
 `
-const TopBox = styled.div`
-  display: flex;
-  flex-direction: row;
+const TopBox = styled(RowBox)`
   justify-content: space-between;
-  align-items: center;
   margin-bottom: 39px;
 `
 const Logo = styled.div`
