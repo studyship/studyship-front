@@ -7,7 +7,7 @@ const Container = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  background: url('https://images.unsplash.com/photo-1517048676732-d65bc937f952?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3300&q=80');
+  /* background: url('https://images.unsplash.com/photo-1517048676732-d65bc937f952?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3300&q=80'); */
 `
 const H1 = styled.h1`
   font-size: 30px;

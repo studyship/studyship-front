@@ -8,6 +8,7 @@ import { IHeader, ITopNav } from './types'
 import { isMobile } from 'react-device-detect'
 import { ModalTemplate, useModalHandler } from '@devgw-react/blank-modal'
 import { AccountModalTemplate } from 'src/Components/Templates'
+import { LoginForm } from '..'
 
 const TopNav = styled.header`
   position: fixed;
@@ -83,7 +84,7 @@ const HeaderViewer = ({
           title="이메일 로그인"
           handleModalInactive={handleLoginModalInactive}
         >
-          <div>HELLOW</div>
+          <LoginForm />
         </AccountModalTemplate>
       </ModalTemplate>
       <ModalTemplate
