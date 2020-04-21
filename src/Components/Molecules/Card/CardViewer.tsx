@@ -6,6 +6,7 @@ import {
   NormalText,
   HorizontalBar,
   CircularItem,
+  RowBox,
 } from 'src/Components/Atoms'
 import { descriptionColor } from 'src/styles/Colors'
 import BockmarkIcon from 'src/styles/icons/icon_bookmark_fill.svg'
@@ -44,12 +45,13 @@ const Container = styled.div`
 const CategoryBox = styled.ul`
   display: flex;
   flex-direction: row;
+  margin-bottom: 18px;
   width: 100%;
 `
 const Category = styled.li`
   color: ${descriptionColor};
   font-size: 14px;
-  margin-bottom: 18px;
+
   :nth-child(2n) {
     margin-left: 5px;
     margin-right: 5px;
@@ -80,27 +82,37 @@ const Bookmark = styled.div`
   width: 18px;
   height: 25px;
 `
-const CardSection = styled.div`
+const ImageSection = styled.div`
   width: 100%;
   height: 180px;
   border-radius: inherit;
-  :nth-child(3) {
-    padding: 11px 18px;
+`
+const ContetSection = styled.div`
+  width: 100%;
+  height: 130px;
+  padding: 11px 18px;
+`
+const WriterSection = styled(RowBox)`
+  width: 100%;
+  height: 50px;
+  padding: 11px 18px;
+  > * :nth-child(1) {
+    margin-right: 5px;
+  }
+  > * :nth-child(2) {
+    margin-right: 3px;
   }
 `
 const Target = styled.div`
   display: flex;
   flex-direction: row;
-  margin-bottom: 20px;
-  > *:nth-child(1) {
-    margin-right: 5px;
-  }
+  margin-bottom: 16px;
 `
 const DescriptionBox = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 `
 const Description = styled.div`
   display: flex;
@@ -116,15 +128,19 @@ const DescriptionIcon = styled.div`
 const DescriptionText = styled(NormalText)`
   color: ${subColorLightGrey};
 `
+const DescriptionInfo = styled(RowBox)`
+  justify-content: space-between;
+  width: 40%;
+`
 
 const CardViewer = () => {
   return (
     <Container>
-      <CardSection>
+      <ImageSection>
         <Icon imgSrc={ReactLogo} />
-      </CardSection>
+      </ImageSection>
       <HorizontalBar color="#e6e6e6" />
-      <CardSection>
+      <ContetSection>
         <TitleBox>
           <BoldText fontSize="18px" text="스터디 제목입니다" />
           <TitleTag>
@@ -140,11 +156,20 @@ const CardViewer = () => {
           <Category>123</Category>
         </CategoryBox>
         <Target>
-          <BoldText fontSize="14px" text="목표" />
           <NormalText fontSize="14px" text="페이스북 클론 코딩" />
         </Target>
         <DescriptionBox>
-          {Array.from({ length: 4 }, () => (
+          <DescriptionInfo>
+            {Array.from({ length: 2 }, () => (
+              <Description>
+                <DescriptionIcon>
+                  <Icon imgSrc={sampleIcon}></Icon>
+                </DescriptionIcon>
+                <DescriptionText fontSize="14px" text="3/5명" />
+              </Description>
+            ))}
+          </DescriptionInfo>
+          {Array.from({ length: 1 }, () => (
             <Description>
               <DescriptionIcon>
                 <Icon imgSrc={sampleIcon}></Icon>
@@ -153,10 +178,15 @@ const CardViewer = () => {
             </Description>
           ))}
         </DescriptionBox>
+      </ContetSection>
+      <HorizontalBar color="#e6e6e6" />
+      <WriterSection>
         <CircularItem area="20px">
           <Icon imgSrc={Darkness}></Icon>
         </CircularItem>
-      </CardSection>
+        <NormalText fontSize="13px" text="선장" />
+        <BoldText fontSize="13px" text="김수민" />
+      </WriterSection>
     </Container>
   )
 }
