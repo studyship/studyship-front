@@ -8,6 +8,7 @@ import ThinText from './ThinText'
 import NormalText from './NormalText'
 import HorizontalBar from './HorizontalBar'
 import CircularItem from './CircularItem'
+import Input from './Input'
 
 export {
   JumboTitle,
@@ -20,4 +21,5 @@ export {
   NormalText,
   HorizontalBar,
   CircularItem,
+  Input,
 }
