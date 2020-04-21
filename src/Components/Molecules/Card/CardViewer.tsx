@@ -15,11 +15,13 @@ import sampleIcon from 'src/styles/icons/users.png'
 import { subColorLightGrey } from 'src/styles/Colors'
 
 const Container = styled.div`
+  position: relative;
+  top: 0;
   display: flex;
   flex-direction: column;
   width: 360px;
   height: 360px;
-  border: 0.5px solid #e3e3e0;
+  border: 1px solid #e6e6e6;
   border-radius: 10px;
   margin: 1rem;
   @media screen and (max-width: 450px) {
@@ -29,6 +31,12 @@ const Container = styled.div`
     -webkit-overflow-scrolling: touch; /* 끝에서 바운스 되도록*/
     scroll-snap-type: x mandatory;
     scroll-snap-align: start;
+  }
+  transition: 0.25s;
+  :hover {
+    position: relative;
+    top: -10px;
+    box-shadow: 0 7px 2px -2px rgba(0, 0, 0, 0.04);
   }
 `
 const CategoryBox = styled.ul`
@@ -73,6 +81,7 @@ const Bookmark = styled.div`
 const CardSection = styled.div`
   width: 100%;
   height: 180px;
+  border-radius: inherit;
   :nth-child(3) {
     padding: 11px 18px;
   }
