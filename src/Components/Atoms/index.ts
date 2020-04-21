@@ -10,6 +10,7 @@ import HorizontalBar from './HorizontalBar'
 import CircularItem from './CircularItem'
 import Input from './Input'
 import Button from './Button'
+import RowBox from './RowBox'
 
 export {
   JumboTitle,
@@ -24,4 +25,5 @@ export {
   CircularItem,
   Input,
   Button,
+  RowBox,
 }
