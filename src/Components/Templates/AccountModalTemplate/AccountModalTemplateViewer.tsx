@@ -23,20 +23,15 @@ const Close = styled.div`
   background-color: grey;
   cursor: pointer;
 `
-const Title = styled(NormalText)`
-  margin-bottom: 16px;
-`
 
 type TAccountModal = {
   children: React.ReactNode
   handleModalInactive: () => void
-  title: string
 }
 
 const AccountModalTemplateViewer = ({
   children,
   handleModalInactive,
-  title,
 }: TAccountModal) => {
   return (
     <Container>
@@ -44,7 +39,6 @@ const AccountModalTemplateViewer = ({
         <Logo />
         <Close onClick={handleModalInactive} />
       </TopBox>
-      <Title text={title} fontSize="20px" />
       {children}
     </Container>
   )

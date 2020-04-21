@@ -7,8 +7,7 @@ import LogoOnlyColor from 'src/styles/icons/SS_Logo_only.png'
 import { IHeader, ITopNav } from './types'
 import { isMobile } from 'react-device-detect'
 import { ModalTemplate } from '@devgw-react/blank-modal'
-import { AccountModalTemplate } from 'src/Components/Templates'
-import { LoginForm } from '..'
+import { LoginForm, AccountForm } from '..'
 import { mainColorBlue } from 'src/styles/Colors'
 
 const TopNav = styled.header`
@@ -100,24 +99,14 @@ const HeaderViewer = ({
         handleModalInactive={handleLoginModalInactive}
         borderRadius="20px"
       >
-        <AccountModalTemplate
-          title="이메일 로그인"
-          handleModalInactive={handleLoginModalInactive}
-        >
-          <LoginForm />
-        </AccountModalTemplate>
+        <LoginForm handleModalInactive={handleLoginModalInactive} />
       </ModalTemplate>
       <ModalTemplate
         isVisible={joinModalIsVisible}
         handleModalInactive={handleJoinModalInactive}
         borderRadius="20px"
       >
-        <AccountModalTemplate
-          title="회원가입"
-          handleModalInactive={handleJoinModalInactive}
-        >
-          <div>HELLOW</div>
-        </AccountModalTemplate>
+        <AccountForm handleModalInactive={handleJoinModalInactive} />
       </ModalTemplate>
       <TopNav screenHeight={screenHeight}>
         <LogoLink to="#LOGO">

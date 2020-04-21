@@ -5,6 +5,7 @@ import IntroSection from './IntroSection'
 import CardsSection from './CardsSection'
 import Card from './Card'
 import LoginForm from './LoginForm'
+import AccountForm from './AccountForm'
 
 export {
   Header,
@@ -14,4 +15,5 @@ export {
   CardsSection,
   Card,
   LoginForm,
+  AccountForm,
 }
