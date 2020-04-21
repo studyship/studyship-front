@@ -9,6 +9,9 @@ const Container = styled.div`
   @media screen and (max-width: 1919px) {
     width: 1176px;
   }
+  @media screen and (max-width: 1313px) {
+    width: 800px;
+  }
   @media screen and (max-width: 450px) {
     padding: 0px 10px;
   }

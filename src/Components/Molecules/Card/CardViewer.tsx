@@ -21,22 +21,24 @@ const Container = styled.div`
   flex-direction: column;
   width: 360px;
   height: 360px;
+  background-color: #fff;
   border: 1px solid #e6e6e6;
   border-radius: 10px;
   margin: 1rem;
+  transition: 0.25s;
+  cursor: pointer;
+  :hover {
+    position: relative;
+    top: -10px;
+    box-shadow: 0 7px 2px -2px rgba(0, 0, 0, 0.04);
+  }
   @media screen and (max-width: 450px) {
-    flex: 0 0 90%;
+    flex: 0 0 40%;
     display: flex;
     margin: 0px 10px;
     -webkit-overflow-scrolling: touch; /* 끝에서 바운스 되도록*/
     scroll-snap-type: x mandatory;
     scroll-snap-align: start;
-  }
-  transition: 0.25s;
-  :hover {
-    position: relative;
-    top: -10px;
-    box-shadow: 0 7px 2px -2px rgba(0, 0, 0, 0.04);
   }
 `
 const CategoryBox = styled.ul`
