@@ -8,6 +8,7 @@ interface IBoldTextStyle {
 
 interface IBoldText extends IBoldTextStyle {
   text: string
+  onClick?: () => void
 }
 
 const Container = styled.h2`
@@ -16,9 +17,9 @@ const Container = styled.h2`
     props.fontSize ? props.fontSize : '22px'};
 `
 
-const BoldTextViewer = ({ className, fontSize, text }: IBoldText) => {
+const BoldTextViewer = ({ className, fontSize, text, onClick }: IBoldText) => {
   return (
-    <Container className={className} fontSize={fontSize}>
+    <Container className={className} fontSize={fontSize} onClick={onClick}>
       {text}
     </Container>
   )
