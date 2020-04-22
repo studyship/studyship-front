@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import { Icon, InputHover, VerticalBar, RowBox } from 'src/Components/Atoms'
 import LogoColorS from 'src/styles/icons/SS_Logo_colorS.png'
-import LogoOnlyColor from 'src/styles/icons/SS_Logo_only.png'
 import { IHeader, ITopNav } from './types'
 import { isMobile } from 'react-device-detect'
 import { ModalTemplate } from '@devgw-react/blank-modal'
@@ -106,7 +105,7 @@ const HeaderViewer = ({
       <TopNav screenHeight={screenHeight}>
         <LogoLink to="#LOGO">
           {isMobile ? (
-            <Icon imgSrc={screenHeight ? LogoOnlyColor : LogoOnlyColor} />
+            <Icon imgSrc={screenHeight ? LogoColorS : LogoColorS} />
           ) : (
             <Icon imgSrc={screenHeight ? LogoColorS : LogoColorS} />
           )}

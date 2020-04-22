@@ -10,7 +10,7 @@ const Image = styled.img`
   border-radius: inherit;
 `
 
-const IconViewer = ({ imgSrc }: IIconViewer) => {
+const IconViewer = ({ imgSrc, onClick }: IIconViewer) => {
   // 레이지로딩 시 이미지가 새로 렌더링이 되지 않는 문재 해결 해야함
   return (
     <SLazyLoad>
