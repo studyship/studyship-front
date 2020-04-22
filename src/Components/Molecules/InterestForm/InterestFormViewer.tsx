@@ -11,6 +11,7 @@ import { mainColorBlue, mainColorBlack } from 'src/styles/Colors'
 import { IUnit, TInterestFormViewer } from './types'
 import closeBlueIcon from 'src/styles/icons/close_blue.png'
 import checkExistenceOfItem from 'src/lib/checkExistenceOfItem'
+import { dragLock } from 'src/styles/StylesOptions'
 
 const Container = styled.div``
 const TitleBox = styled(RowBox)`
@@ -53,6 +54,7 @@ const Unit = styled.li`
   text-align: center;
   font-size: 15px;
   color: #b3b3b3;
+  ${dragLock};
   ${(props: IUnit) =>
     props.isActive === 'true' && `color:${mainColorBlack}; font-weight:bold;`};
   cursor: pointer;
