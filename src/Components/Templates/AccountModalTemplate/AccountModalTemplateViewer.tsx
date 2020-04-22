@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import { NormalText, RowBox } from 'src/Components/Atoms'
+import { RowBox, Icon } from 'src/Components/Atoms'
+import onlyShipLogo from 'src/styles/icons/ss_logo_only_ship.png'
+import closeIcon from 'src/styles/icons/close.png'
 
 const Container = styled.div`
   display: flex;
@@ -13,14 +15,12 @@ const TopBox = styled(RowBox)`
   margin-bottom: 39px;
 `
 const Logo = styled.div`
-  width: 30px;
-  height: 30px;
-  background-color: black;
+  width: 60px;
+  height: 33px;
 `
 const Close = styled.div`
-  width: 30px;
-  height: 30px;
-  background-color: grey;
+  width: 19px;
+  height: 19px;
   cursor: pointer;
 `
 
@@ -36,8 +36,12 @@ const AccountModalTemplateViewer = ({
   return (
     <Container>
       <TopBox>
-        <Logo />
-        <Close onClick={handleModalInactive} />
+        <Logo>
+          <Icon imgSrc={onlyShipLogo} />
+        </Logo>
+        <Close onClick={handleModalInactive}>
+          <Icon imgSrc={closeIcon} />
+        </Close>
       </TopBox>
       {children}
     </Container>
