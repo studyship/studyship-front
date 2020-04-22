@@ -1,3 +1,3 @@
-import AccountFormViewer from './AccountFormViewer'
+import AccountFormContainer from './AccountFormContainer'
 
-export default AccountFormViewer
+export default AccountFormContainer
