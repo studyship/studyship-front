@@ -45,6 +45,7 @@ const Unit = styled.li`
   margin-bottom: 30px;
   text-align: center;
   color: #b3b3b3;
+  cursor: pointer;
 `
 const FinishBtn = styled(Button)`
   background-color: ${mainColorBlue};
