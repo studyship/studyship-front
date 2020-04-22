@@ -42,16 +42,16 @@ const CardsSectionViewer = () => {
             <STitle text="스터디쉽이 추천하는 스터디" type="normal" />
           </TitleBox>
           <CardBox>
-            {Array.from({ length: 6 }, () => (
-              <Card />
+            {Array.from({ length: 6 }, (item, index) => (
+              <Card key={`${index}key`} />
             ))}
           </CardBox>
           <TitleBox>
             <STitle text="새로 생긴 스터디" type="normal" />
           </TitleBox>
           <CardBox>
-            {Array.from({ length: 6 }, () => (
-              <Card />
+            {Array.from({ length: 6 }, (item, index) => (
+              <Card key={`${index}key`} />
             ))}
           </CardBox>
         </HomeTemplate>

@@ -160,8 +160,8 @@ const CardViewer = () => {
         </Target>
         <DescriptionBox>
           <DescriptionInfo>
-            {Array.from({ length: 2 }, () => (
-              <Description>
+            {Array.from({ length: 2 }, (item, index) => (
+              <Description key={`${index}key`}>
                 <DescriptionIcon>
                   <Icon imgSrc={sampleIcon}></Icon>
                 </DescriptionIcon>
@@ -169,8 +169,8 @@ const CardViewer = () => {
               </Description>
             ))}
           </DescriptionInfo>
-          {Array.from({ length: 1 }, () => (
-            <Description>
+          {Array.from({ length: 1 }, (item, index) => (
+            <Description key={`${index}key`}>
               <DescriptionIcon>
                 <Icon imgSrc={sampleIcon}></Icon>
               </DescriptionIcon>
