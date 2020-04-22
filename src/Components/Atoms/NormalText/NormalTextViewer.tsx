@@ -8,6 +8,7 @@ interface INormalTextStyle {
 
 interface INormalText extends INormalTextStyle {
   text: string
+  onClick?: () => void
 }
 
 const Container = styled.h3`
@@ -16,9 +17,14 @@ const Container = styled.h3`
     props.fontSize ? props.fontSize : '22px'};
 `
 
-const NormalTextViewer = ({ className, fontSize, text }: INormalText) => {
+const NormalTextViewer = ({
+  className,
+  fontSize,
+  text,
+  onClick,
+}: INormalText) => {
   return (
-    <Container className={className} fontSize={fontSize}>
+    <Container className={className} fontSize={fontSize} onClick={onClick}>
       {text}
     </Container>
   )

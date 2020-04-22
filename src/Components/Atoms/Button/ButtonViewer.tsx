@@ -18,10 +18,15 @@ const Button = styled.button`
 type TButton = {
   className?: string
   text: string
+  onClick?: () => void
 }
 
-const ButtonViewer = ({ className, text }: TButton) => {
-  return <Button className={className}>{text}</Button>
+const ButtonViewer = ({ className, text, onClick }: TButton) => {
+  return (
+    <Button className={className} onClick={onClick}>
+      {text}
+    </Button>
+  )
 }
 
 export default ButtonViewer

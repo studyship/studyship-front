@@ -1,11 +1,15 @@
 export interface ITopNav {
   screenHeight: boolean
 }
+
+type TTabs = {
+  tab: string
+  form: React.ReactNode
+}
 export interface IHeader extends ITopNav {
-  loginModalIsVisible: boolean
-  joinModalIsVisible: boolean
-  handleLoginModalActive: () => void
-  handleJoinModalActive: () => void
-  handleLoginModalInactive: () => void
-  handleJoinModalInactive: () => void
+  isVisible: boolean
+  handleModalActive: () => void
+  handleModalInactive: () => void
+  handleNextStage: (nextTab: string) => void
+  currentTab: TTabs
 }
