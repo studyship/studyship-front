@@ -1,7 +1,11 @@
 import React, { useState } from 'react'
 import InterestFormViewer from './InterestFormViewer'
 import { IInterestList } from './types'
-import { arrayToUnique, deleteSelectedItemInArray } from 'src/lib'
+import {
+  arrayToUnique,
+  deleteSelectedItemInArray,
+  arrayLengthLimits,
+} from 'src/lib'
 
 const InterestFormContainer = () => {
   const [selectedInterest, setSelectedInterest] = useState<Array<string>>([])
@@ -28,7 +32,8 @@ const InterestFormContainer = () => {
   }
   const handleSelectedInterest = (current: string) => {
     const updateCurrentTab = arrayToUnique([...selectedInterest, current])
-    setSelectedInterest(updateCurrentTab)
+    const limits = arrayLengthLimits(updateCurrentTab, 5)
+    setSelectedInterest(limits)
   }
   const handleRemoveInterest = (selectedIndex: number) => {
     const updateSelectedInterest = deleteSelectedItemInArray(
