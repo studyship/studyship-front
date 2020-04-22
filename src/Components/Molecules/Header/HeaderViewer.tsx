@@ -7,7 +7,7 @@ import LogoOnlyColor from 'src/styles/icons/SS_Logo_only.png'
 import { IHeader, ITopNav } from './types'
 import { isMobile } from 'react-device-detect'
 import { ModalTemplate } from '@devgw-react/blank-modal'
-import { LoginForm, AccountForm } from '..'
+import { AccountForm } from '..'
 import { mainColorBlue } from 'src/styles/Colors'
 
 const TopNav = styled.header`
@@ -85,28 +85,23 @@ const Account = styled.div`
 
 const HeaderViewer = ({
   screenHeight,
-  loginModalIsVisible,
-  joinModalIsVisible,
-  handleLoginModalActive,
-  handleJoinModalActive,
-  handleLoginModalInactive,
-  handleJoinModalInactive,
+  isVisible,
+  handleModalActive,
+  handleModalInactive,
+  handleNextStage,
+  currentTab,
 }: IHeader) => {
   return (
     <>
       <ModalTemplate
-        isVisible={loginModalIsVisible}
-        handleModalInactive={handleLoginModalInactive}
+        isVisible={isVisible}
+        handleModalInactive={handleModalInactive}
         borderRadius="20px"
       >
-        <LoginForm handleModalInactive={handleLoginModalInactive} />
-      </ModalTemplate>
-      <ModalTemplate
-        isVisible={joinModalIsVisible}
-        handleModalInactive={handleJoinModalInactive}
-        borderRadius="20px"
-      >
-        <AccountForm handleModalInactive={handleJoinModalInactive} />
+        <AccountForm
+          handleModalInactive={handleModalInactive}
+          currentTab={currentTab}
+        />
       </ModalTemplate>
       <TopNav screenHeight={screenHeight}>
         <LogoLink to="#LOGO">
@@ -130,9 +125,23 @@ const HeaderViewer = ({
           <VerticalBar />
           <List>
             <AccountBox>
-              <Account onClick={handleLoginModalActive}>로그인</Account>
+              <Account
+                onClick={() => {
+                  handleNextStage('login')
+                  handleModalActive()
+                }}
+              >
+                로그인
+              </Account>
               <p>/</p>
-              <Account onClick={handleJoinModalActive}>회원가입</Account>
+              <Account
+                onClick={() => {
+                  handleNextStage('join')
+                  handleModalActive()
+                }}
+              >
+                회원가입
+              </Account>
             </AccountBox>
           </List>
         </Nav>

@@ -1,29 +1,37 @@
-import React from 'react'
+import React, { useState } from 'react'
 import HeaderViewer from './HeaderViewer'
 import { ITopNav } from './types'
 import { useModalHandler } from '@devgw-react/blank-modal'
+import EmailForm from '../EmailForm'
+import { LoginForm } from '..'
 
 const HeaderContainer = ({ screenHeight }: ITopNav) => {
   const {
-    isVisible: loginModalIsVisible,
-    handleModalActive: handleLoginModalActive,
-    handleModalInactive: handleLoginModalInactive,
+    isVisible,
+    handleModalActive,
+    handleModalInactive,
   } = useModalHandler()
-  const {
-    isVisible: joinModalIsVisible,
-    handleModalActive: handleJoinModalActive,
-    handleModalInactive: handleJoinModalInactive,
-  } = useModalHandler()
+
+  const handleNextStage = (nextTab: string) => {
+    const choicedTab = tabs.filter((item) => item.tab === nextTab)
+    setCurrentTab(choicedTab[0])
+  }
+
+  const [tabs, setTabs] = useState([
+    { tab: 'login', form: <LoginForm handleNextStage={handleNextStage} /> },
+    { tab: 'join', form: <EmailForm handleNextStage={handleNextStage} /> },
+    { tab: 'interest', form: <div>INTEREST FORM</div> },
+  ])
+  const [currentTab, setCurrentTab] = useState(tabs[0])
 
   return (
     <HeaderViewer
       screenHeight={screenHeight}
-      loginModalIsVisible={loginModalIsVisible}
-      joinModalIsVisible={joinModalIsVisible}
-      handleLoginModalActive={handleLoginModalActive}
-      handleJoinModalActive={handleJoinModalActive}
-      handleLoginModalInactive={handleLoginModalInactive}
-      handleJoinModalInactive={handleJoinModalInactive}
+      isVisible={isVisible}
+      handleModalActive={handleModalActive}
+      handleModalInactive={handleModalInactive}
+      handleNextStage={handleNextStage}
+      currentTab={currentTab}
     />
   )
 }
