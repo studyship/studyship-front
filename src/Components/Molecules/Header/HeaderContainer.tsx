@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import HeaderViewer from './HeaderViewer'
 import { ITopNav } from './types'
 import { useModalHandler } from '@devgw-react/blank-modal'
-import { LoginForm, InterestForm, EmailForm } from '..'
+import { LoginForm, InterestForm, EmailForm, SelfIntroduceForm } from '..'
 
 const HeaderContainer = ({ screenHeight }: ITopNav) => {
   const {
@@ -19,7 +19,14 @@ const HeaderContainer = ({ screenHeight }: ITopNav) => {
   const [tabs, setTabs] = useState([
     { tab: 'login', form: <LoginForm handleNextStage={handleNextStage} /> },
     { tab: 'join', form: <EmailForm handleNextStage={handleNextStage} /> },
-    { tab: 'interest', form: <InterestForm /> },
+    {
+      tab: 'interest',
+      form: <InterestForm handleNextStage={handleNextStage} />,
+    },
+    {
+      tab: 'selfIntro',
+      form: <SelfIntroduceForm handleNextStage={handleNextStage} />,
+    },
   ])
   const [currentTab, setCurrentTab] = useState(tabs[0])
 

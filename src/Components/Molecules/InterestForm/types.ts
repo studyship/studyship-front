@@ -7,10 +7,13 @@ export interface IInterestList {
   list: Array<string>
   isActive: boolean
 }
-export type TInterestFormViewer = {
+export interface IInterestFormViewer extends IInterestForm {
   interestList: Array<IInterestList>
   selectedInterest: Array<string>
   handleCurrentTab: (interest: IInterestList) => void
   handleSelectedInterest: (currentTab: string) => void
   handleRemoveInterest: (selectedIndex: number) => void
+}
+export interface IInterestForm {
+  handleNextStage: (nextTab: string) => void
 }

@@ -8,7 +8,7 @@ import {
   Icon,
 } from 'src/Components/Atoms'
 import { mainColorBlue, mainColorBlack } from 'src/styles/Colors'
-import { IUnit, TInterestFormViewer } from './types'
+import { IUnit, IInterestFormViewer } from './types'
 import closeBlueIcon from 'src/styles/icons/close_blue.png'
 import checkExistenceOfItem from 'src/lib/checkExistenceOfItem'
 import { dragLock } from 'src/styles/StylesOptions'
@@ -89,12 +89,19 @@ const InterestFormViewer = ({
   handleSelectedInterest,
   selectedInterest,
   handleRemoveInterest,
-}: TInterestFormViewer) => {
+  handleNextStage,
+}: IInterestFormViewer) => {
   return (
     <Container>
       <TitleBox>
         <Title text="관심사 설정하기" fontSize="20px" />
-        <Jump text="건너뛰기" fontSize="14px" />
+        <Jump
+          text="건너뛰기"
+          fontSize="14px"
+          onClick={() => {
+            handleNextStage('selfIntro')
+          }}
+        />
       </TitleBox>
       <Info text="무엇을 배우고 싶으세요? (최대 5개)" fontSize="14px" />
       <Category>
@@ -144,7 +151,12 @@ const InterestFormViewer = ({
           ))}
         </SelectBox>
       )}
-      <FinishBtn text="다음~?" />
+      <FinishBtn
+        text="다음~?"
+        onClick={() => {
+          handleNextStage('selfIntro')
+        }}
+      />
     </Container>
   )
 }

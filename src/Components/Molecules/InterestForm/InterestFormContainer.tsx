@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import InterestFormViewer from './InterestFormViewer'
-import { IInterestList } from './types'
+import { IInterestList, IInterestForm } from './types'
 import {
   arrayToUnique,
   deleteSelectedItemInArray,
   arrayLengthLimits,
 } from 'src/lib'
 
-const InterestFormContainer = () => {
+const InterestFormContainer = ({ handleNextStage }: IInterestForm) => {
   const [selectedInterest, setSelectedInterest] = useState<Array<string>>([])
   const [interestList, setInterestList] = useState([
     {
@@ -49,6 +49,7 @@ const InterestFormContainer = () => {
       handleSelectedInterest={handleSelectedInterest}
       selectedInterest={selectedInterest}
       handleRemoveInterest={handleRemoveInterest}
+      handleNextStage={handleNextStage}
     />
   )
 }

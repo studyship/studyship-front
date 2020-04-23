@@ -8,6 +8,7 @@ import LoginForm from './LoginForm'
 import AccountForm from './AccountForm'
 import InterestForm from './InterestForm'
 import EmailForm from './EmailForm'
+import SelfIntroduceForm from './SelfIntroduceForm'
 
 export {
   Header,
@@ -20,4 +21,5 @@ export {
   AccountForm,
   InterestForm,
   EmailForm,
+  SelfIntroduceForm,
 }
