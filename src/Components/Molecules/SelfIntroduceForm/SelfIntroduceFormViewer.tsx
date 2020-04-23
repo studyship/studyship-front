@@ -46,6 +46,7 @@ const FinishBtn = styled(Button)`
 
 const SelfIntroduceFormViewer = ({
   handleNextStage,
+  bind,
 }: ISelfIntroduceFormViewer) => {
   return (
     <Container>
@@ -54,8 +55,11 @@ const SelfIntroduceFormViewer = ({
         <Jump text="건너뛰기" fontSize="14px" />
       </TitleBox>
       <Info text="한줄이라도 좋아요, 나를 소개 해주세요." fontSize="14px" />
-      <STextareaAutosize placeholder="ex) 개발하는 디자이너가 되고 싶은 김수민입니다." />
-      <TextLimits fontSize="18px" text="0/50" />
+      <STextareaAutosize
+        placeholder="ex) 개발하는 디자이너가 되고 싶은 김수민입니다."
+        {...bind}
+      />
+      <TextLimits fontSize="18px" text={`${bind.value.length}/50`} />
       <FinishBtn
         text="다음~?"
         onClick={() => {
