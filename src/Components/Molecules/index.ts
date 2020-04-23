@@ -9,6 +9,7 @@ import AccountForm from './AccountForm'
 import InterestForm from './InterestForm'
 import EmailForm from './EmailForm'
 import SelfIntroduceForm from './SelfIntroduceForm'
+import MailVertifyForm from './MailVertifyForm'
 
 export {
   Header,
@@ -22,4 +23,5 @@ export {
   InterestForm,
   EmailForm,
   SelfIntroduceForm,
+  MailVertifyForm,
 }
