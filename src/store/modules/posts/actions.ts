@@ -1,4 +1,4 @@
-import { createAction, createAsyncAction } from 'typesafe-actions'
+import { createAsyncAction } from 'typesafe-actions'
 import { AxiosResponse, AxiosError } from 'axios'
 
 export const LOAD_POST = 'studyship/LOAD_POST'

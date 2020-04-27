@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { RowBox, Icon } from 'src/Components/Atoms'
-import onlyShipLogo from 'src/styles/icons/ss_logo_only_ship.png'
+import textLogoBlack from 'src/styles/icons/ss_logo_black_text.png'
 import closeIcon from 'src/styles/icons/close.png'
 
 const Container = styled.div`
@@ -12,11 +12,11 @@ const Container = styled.div`
 `
 const TopBox = styled(RowBox)`
   justify-content: space-between;
-  margin-bottom: 39px;
+  margin-bottom: 26px;
 `
 const Logo = styled.div`
-  width: 60px;
-  height: 33px;
+  width: 84px;
+  height: 16px;
 `
 const Close = styled.div`
   width: 19px;
@@ -37,7 +37,7 @@ const AccountModalTemplateViewer = ({
     <Container>
       <TopBox>
         <Logo>
-          <Icon imgSrc={onlyShipLogo} />
+          <Icon imgSrc={textLogoBlack} />
         </Logo>
         <Close onClick={handleModalInactive}>
           <Icon imgSrc={closeIcon} />

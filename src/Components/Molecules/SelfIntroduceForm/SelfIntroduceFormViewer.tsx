@@ -63,7 +63,7 @@ const SelfIntroduceFormViewer = ({
       <FinishBtn
         text="다음~?"
         onClick={() => {
-          handleNextStage('selfIntro')
+          handleNextStage('vertify')
         }}
       />
     </Container>

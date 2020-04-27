@@ -23,8 +23,7 @@ const HeaderContainer = ({ screenHeight }: ITopNav) => {
   }
 
   const [tabs, setTabs] = useState([
-    // { tab: 'login', form: <LoginForm handleNextStage={handleNextStage} /> },
-    { tab: 'login', form: <MailVertifyForm /> },
+    { tab: 'login', form: <LoginForm handleNextStage={handleNextStage} /> },
     { tab: 'join', form: <EmailForm handleNextStage={handleNextStage} /> },
     {
       tab: 'interest',
@@ -34,6 +33,7 @@ const HeaderContainer = ({ screenHeight }: ITopNav) => {
       tab: 'selfIntro',
       form: <SelfIntroduceForm handleNextStage={handleNextStage} />,
     },
+    { tab: 'vertify', form: <MailVertifyForm /> },
   ])
   const [currentTab, setCurrentTab] = useState(tabs[0])
 
