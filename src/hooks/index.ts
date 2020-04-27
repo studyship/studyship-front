@@ -1,3 +1,4 @@
-import useInputHandler from './useInputHandler'
+import useInputText from './useInputText'
+import useInputCheckbox from './useInputCheckbox'
 
-export { useInputHandler }
+export { useInputText, useInputCheckbox }

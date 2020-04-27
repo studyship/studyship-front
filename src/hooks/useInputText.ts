@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react'
 
-const useInputHandler = (
+const useInputText = (
   initialValue: string,
   validator: (value: string) => boolean,
 ) => {
@@ -13,8 +13,6 @@ const useInputHandler = (
       } = e
       willUpdate = validator(value)
       if (willUpdate) {
-        console.log('@@@')
-
         setValue(value)
       }
     },
@@ -29,4 +27,4 @@ const useInputHandler = (
   }
 }
 
-export default useInputHandler
+export default useInputText
