@@ -6,11 +6,10 @@ import {
   NormalText,
   RowBox,
   VerticalBar,
+  YellowCheckbox,
 } from 'src/Components/Atoms'
-import { Checkbox } from 'antd'
-import { CheckboxChangeEvent } from 'antd/lib/checkbox'
-import 'antd/dist/antd.css'
-import { mainColorBlue, mainColorBlack } from 'src/styles/Colors'
+import { mainColorBlue, mainColorBlack, darkGrey } from 'src/styles/Colors'
+import { ILoginFormViewer } from './types'
 
 const Container = styled.div`
   > input:nth-child(2) {
@@ -23,6 +22,7 @@ const Container = styled.div`
 const LoginButton = styled(Button)`
   margin-bottom: 8px;
   background-color: ${mainColorBlue};
+  border-radius: 33px;
 `
 const GoogleLoginButton = styled(Button)`
   margin-bottom: 10px;
@@ -35,11 +35,9 @@ const KakaoLoginButton = styled(Button)`
 const LoginKeep = styled(RowBox)`
   margin-bottom: 45px;
 `
-const SCheckbox = styled(Checkbox)`
-  margin-right: 5px;
-`
 const SimpleLogin = styled(NormalText)`
-  margin-bottom: 19px;
+  margin-left: 4px;
+  color: ${darkGrey};
 `
 const FooterBox = styled(RowBox)`
   justify-content: center;
@@ -56,26 +54,21 @@ const Title = styled(NormalText)`
   margin-bottom: 16px;
 `
 
-type TLoginForm = {
-  handleNextStage: (tab: string) => void
-}
-
-const LoginFormViewer = ({ handleNextStage }: TLoginForm) => {
+const LoginFormViewer = ({
+  handleNextStage,
+  bindCheckbox,
+  handleSubmit,
+}: ILoginFormViewer) => {
   return (
     <Container>
-      <Title text="로그인" fontSize="20px" />
+      <Title text="이메일로 로그인" fontSize="15px" />
       <Input placeholder="이메일" />
       <Input placeholder="비밀번호" />
-      <LoginButton text="로그인" />
+      <LoginButton text="로그인" onClick={handleSubmit} />
       <LoginKeep>
-        <SCheckbox
-          onChange={(e: CheckboxChangeEvent) => {
-            console.log(e.target.checked)
-          }}
-        />
-        <NormalText fontSize="15px" text="로그인 상태 유지" />
+        <YellowCheckbox bindCheckbox={bindCheckbox} />
+        <SimpleLogin fontSize="13px" text="로그인 상태 유지" />
       </LoginKeep>
-      <SimpleLogin fontSize="20px" text="간편 로그인" />
       <GoogleLoginButton text="구글 로그인" />
       <KakaoLoginButton text="카카오 로그인" />
       <FooterBox>

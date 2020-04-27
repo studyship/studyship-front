@@ -1,3 +1,3 @@
-import LoginFormViewer from './LoginFormViewer'
+import LoginFormContainer from './LoginFormContainer'
 
-export default LoginFormViewer
+export default LoginFormContainer
