@@ -11,7 +11,7 @@ import CircularItem from './CircularItem'
 import Input from './Input'
 import Button from './Button'
 import RowBox from './RowBox'
-
+import YellowCheckbox from './YellowCheckbox'
 export {
   JumboTitle,
   Title,
@@ -26,4 +26,5 @@ export {
   Input,
   Button,
   RowBox,
+  YellowCheckbox,
 }
