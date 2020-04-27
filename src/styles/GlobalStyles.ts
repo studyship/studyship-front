@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 import reset from 'styled-reset'
-import { mainColorBlack } from './Colors'
+import { mainColorBlack, backgroundColor } from './Colors'
 
 const globalStyle = createGlobalStyle`
     ${reset}
@@ -16,7 +16,7 @@ const globalStyle = createGlobalStyle`
         font-size:14px;
         font-weight:normal;
         min-height:1000px;
-        background-color: #F8F9FA;
+        background-color: ${backgroundColor};
         color:${mainColorBlack};
     }
     @font-face { font-family: 'DM Sans'; src: url('./fonts/DMSans-Bold.ttf') format('truetype'); font-weight: normal; font-style: normal; }

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { RowBox, Icon } from 'src/Components/Atoms'
+import { RowBox, Icon, NormalText } from 'src/Components/Atoms'
 import textLogoBlack from 'src/styles/icons/ss_logo_black_text.png'
 import closeIcon from 'src/styles/icons/close.png'
 
@@ -23,6 +23,12 @@ const Close = styled.div`
   height: 19px;
   cursor: pointer;
 `
+const InfoSentence = styled(NormalText)`
+  line-height: 27px;
+  :nth-child(3) {
+    margin-bottom: 27px;
+  }
+`
 
 type TAccountModal = {
   children: React.ReactNode
@@ -43,6 +49,8 @@ const AccountModalTemplateViewer = ({
           <Icon imgSrc={closeIcon} />
         </Close>
       </TopBox>
+      <InfoSentence text="나랑 잘 맞는 스터디메이트," fontSize="20px" />
+      <InfoSentence text="스터디쉽에서 구해보세요!" fontSize="20px" />
       {children}
     </Container>
   )

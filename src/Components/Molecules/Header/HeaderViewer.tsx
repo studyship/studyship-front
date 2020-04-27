@@ -1,13 +1,25 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import { Icon, InputHover, VerticalBar, RowBox } from 'src/Components/Atoms'
+import {
+  Icon,
+  InputHover,
+  VerticalBar,
+  RowBox,
+  Button,
+} from 'src/Components/Atoms'
 import LogoColorS from 'src/styles/icons/SS_Logo_colorS.png'
 import { IHeader, ITopNav } from './types'
 import { isMobile } from 'react-device-detect'
 import { ModalTemplate } from '@devgw-react/blank-modal'
 import { AccountForm } from '..'
-import { mainColorBlue } from 'src/styles/Colors'
+import {
+  mainColorBlue,
+  backgroundColor,
+  mainColorBlack,
+  mainColorYellow,
+  whiteColor,
+} from 'src/styles/Colors'
 
 const TopNav = styled.header`
   position: fixed;
@@ -66,20 +78,15 @@ const AccountBox = styled(RowBox)`
     margin-left: 15px;
     margin-right: 5px;
   }
-  > * :nth-child(3) {
-    margin-left: 5px;
-  }
 `
-const Account = styled.div`
-  transition: 0.4s;
-  :hover {
-    font-weight: bold;
-    color: ${mainColorBlue};
+const Account = styled(Button)`
+  padding: 4px 10px;
+  :nth-child(1) {
+    border: 1px solid black;
   }
   @media screen and (max-width: 450px) {
     margin: 0 5px;
   }
-  cursor: pointer;
 `
 
 const HeaderViewer = ({
@@ -129,18 +136,21 @@ const HeaderViewer = ({
                   handleNextStage('login')
                   handleModalActive()
                 }}
-              >
-                로그인
-              </Account>
-              <p>/</p>
+                text="로그인"
+                bgColor={backgroundColor}
+                fontColor={mainColorBlack}
+                fontSize="14px"
+              />
               <Account
                 onClick={() => {
                   handleNextStage('join')
                   handleModalActive()
                 }}
-              >
-                회원가입
-              </Account>
+                text="회원가입"
+                bgColor={mainColorYellow}
+                fontColor={whiteColor}
+                fontSize="14px"
+              />
             </AccountBox>
           </List>
         </Nav>
