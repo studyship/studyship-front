@@ -91,6 +91,12 @@ const Account = styled(Button)`
     margin: 0 5px;
   }
 `
+const IconRow = styled(RowBox)`
+  > * :nth-child(2) {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+`
 const IconBox = styled.div`
   width: 20px;
   height: 20px;
@@ -139,7 +145,7 @@ const HeaderViewer = ({
           <VerticalBar />
           <List>
             {isLoggedIn ? (
-              <RowBox>
+              <IconRow>
                 <IconBox>
                   <Icon imgSrc={messageLogo} />
                 </IconBox>
@@ -149,7 +155,7 @@ const HeaderViewer = ({
                 <IconBox>
                   <Icon imgSrc={profileLogo} />
                 </IconBox>
-              </RowBox>
+              </IconRow>
             ) : (
               <AccountBox>
                 <Account
