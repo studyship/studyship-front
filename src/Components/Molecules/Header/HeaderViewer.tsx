@@ -9,6 +9,9 @@ import {
   Button,
 } from 'src/Components/Atoms'
 import LogoColorS from 'src/styles/icons/SS_Logo_colorS.png'
+import notificationLogo from 'src/styles/icons/ss_icon_notification.svg'
+import profileLogo from 'src/styles/icons/ss_icon_profile.svg'
+import messageLogo from 'src/styles/icons/ss_icon_message.svg'
 import { IHeader, ITopNav } from './types'
 import { isMobile } from 'react-device-detect'
 import { ModalTemplate } from '@devgw-react/blank-modal'
@@ -88,6 +91,10 @@ const Account = styled(Button)`
     margin: 0 5px;
   }
 `
+const IconBox = styled.div`
+  width: 20px;
+  height: 20px;
+`
 
 const HeaderViewer = ({
   screenHeight,
@@ -96,6 +103,7 @@ const HeaderViewer = ({
   handleModalInactive,
   handleNextStage,
   currentTab,
+  isLoggedIn,
 }: IHeader) => {
   return (
     <>
@@ -130,28 +138,42 @@ const HeaderViewer = ({
           </List>
           <VerticalBar />
           <List>
-            <AccountBox>
-              <Account
-                onClick={() => {
-                  handleNextStage('login')
-                  handleModalActive()
-                }}
-                text="로그인"
-                bgColor={backgroundColor}
-                fontColor={mainColorBlack}
-                fontSize="14px"
-              />
-              <Account
-                onClick={() => {
-                  handleNextStage('join')
-                  handleModalActive()
-                }}
-                text="회원가입"
-                bgColor={mainColorYellow}
-                fontColor={whiteColor}
-                fontSize="14px"
-              />
-            </AccountBox>
+            {true ? (
+              <RowBox>
+                <IconBox>
+                  <Icon imgSrc={messageLogo} />
+                </IconBox>
+                <IconBox>
+                  <Icon imgSrc={notificationLogo} />
+                </IconBox>
+                <IconBox>
+                  <Icon imgSrc={profileLogo} />
+                </IconBox>
+              </RowBox>
+            ) : (
+              <AccountBox>
+                <Account
+                  onClick={() => {
+                    handleNextStage('login')
+                    handleModalActive()
+                  }}
+                  text="로그인"
+                  bgColor={backgroundColor}
+                  fontColor={mainColorBlack}
+                  fontSize="14px"
+                />
+                <Account
+                  onClick={() => {
+                    handleNextStage('join')
+                    handleModalActive()
+                  }}
+                  text="회원가입"
+                  bgColor={mainColorYellow}
+                  fontColor={whiteColor}
+                  fontSize="14px"
+                />
+              </AccountBox>
+            )}
           </List>
         </Nav>
       </TopNav>

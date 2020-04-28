@@ -9,6 +9,8 @@ import {
   SelfIntroduceForm,
   MailVertifyForm,
 } from '..'
+import { useSelector } from 'react-redux'
+import { RootState } from 'src/store/modules'
 
 const HeaderContainer = ({ screenHeight }: ITopNav) => {
   const {
@@ -16,6 +18,8 @@ const HeaderContainer = ({ screenHeight }: ITopNav) => {
     handleModalActive,
     handleModalInactive,
   } = useModalHandler()
+
+  const { isLoggedIn } = useSelector((state: RootState) => state.users)
 
   const handleNextStage = (nextTab: string) => {
     const choicedTab = tabs.filter((item) => item.tab === nextTab)
@@ -45,6 +49,7 @@ const HeaderContainer = ({ screenHeight }: ITopNav) => {
       handleModalInactive={handleModalInactive}
       handleNextStage={handleNextStage}
       currentTab={currentTab}
+      isLoggedIn={isLoggedIn}
     />
   )
 }

@@ -12,4 +12,5 @@ export interface IHeader extends ITopNav {
   handleModalInactive: () => void
   handleNextStage: (nextTab: string) => void
   currentTab: TTabs
+  isLoggedIn: boolean
 }
