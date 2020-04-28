@@ -1,5 +1,6 @@
 export interface ILoginForm {
   handleNextStage: (tab: string) => void
+  handleModalInactive: () => void
 }
 
 export interface ILoginFormViewer extends ILoginForm {

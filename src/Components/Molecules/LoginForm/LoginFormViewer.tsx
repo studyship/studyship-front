@@ -58,13 +58,20 @@ const LoginFormViewer = ({
   handleNextStage,
   bindCheckbox,
   handleSubmit,
+  handleModalInactive,
 }: ILoginFormViewer) => {
   return (
     <Container>
       <Title text="이메일로 로그인" fontSize="15px" />
       <Input placeholder="이메일" />
       <Input placeholder="비밀번호" />
-      <LoginButton text="로그인" onClick={handleSubmit} />
+      <LoginButton
+        text="로그인"
+        onClick={() => {
+          handleModalInactive()
+          handleSubmit()
+        }}
+      />
       <LoginKeep>
         <YellowCheckbox bindCheckbox={bindCheckbox} />
         <SimpleLogin fontSize="13px" text="로그인 상태 유지" />

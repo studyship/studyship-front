@@ -27,7 +27,15 @@ const HeaderContainer = ({ screenHeight }: ITopNav) => {
   }
 
   const [tabs, setTabs] = useState([
-    { tab: 'login', form: <LoginForm handleNextStage={handleNextStage} /> },
+    {
+      tab: 'login',
+      form: (
+        <LoginForm
+          handleNextStage={handleNextStage}
+          handleModalInactive={handleModalInactive}
+        />
+      ),
+    },
     { tab: 'join', form: <EmailForm handleNextStage={handleNextStage} /> },
     {
       tab: 'interest',
