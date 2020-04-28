@@ -138,7 +138,7 @@ const HeaderViewer = ({
           </List>
           <VerticalBar />
           <List>
-            {true ? (
+            {isLoggedIn ? (
               <RowBox>
                 <IconBox>
                   <Icon imgSrc={messageLogo} />
