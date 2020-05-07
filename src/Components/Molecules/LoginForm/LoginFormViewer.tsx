@@ -7,15 +7,18 @@ import {
   RowBox,
   VerticalBar,
   YellowCheckbox,
+  ColumnBox,
 } from 'src/Components/Atoms'
 import { mainColorBlue, mainColorBlack, darkGrey } from 'src/styles/Colors'
 import { ILoginFormViewer } from './types'
+import googleIcon from 'src/styles/icons/ss_icon_google.svg'
+import kakaoIcon from 'src/styles/icons/ss_icon_kakao.svg'
 
 const Container = styled.div`
-  > input:nth-child(2) {
+  > input:nth-child(3) {
     margin-bottom: 10px;
   }
-  > input:nth-child(3) {
+  > input:nth-child(4) {
     margin-bottom: 16px;
   }
 `
@@ -24,13 +27,13 @@ const LoginButton = styled(Button)`
   background-color: ${mainColorBlue};
   border-radius: 33px;
 `
-const GoogleLoginButton = styled(Button)`
+const SocialLoginButton = styled(Button)`
   margin-bottom: 10px;
-  background-color: #ff4c41;
-`
-const KakaoLoginButton = styled(Button)`
-  margin-bottom: 65px;
-  background-color: #ffe141;
+  border-radius: 33px;
+  border-color: #e6e6e6;
+  color: black;
+  font-weight: bold;
+  font-size: 14px;
 `
 const LoginKeep = styled(RowBox)`
   margin-bottom: 45px;
@@ -53,6 +56,17 @@ const Footer = styled(NormalText)`
 const Title = styled(NormalText)`
   margin-bottom: 16px;
 `
+const SentenceBox = styled(ColumnBox)`
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 28px;
+`
+const InfoSentence = styled(NormalText)`
+  line-height: 27px;
+  :nth-child(3) {
+    margin-bottom: 27px;
+  }
+`
 
 const LoginFormViewer = ({
   handleNextStage,
@@ -62,6 +76,13 @@ const LoginFormViewer = ({
 }: ILoginFormViewer) => {
   return (
     <Container>
+      <SentenceBox>
+        <InfoSentence text="나랑 잘 맞는 스터디 메이트," fontSize="20px" />
+        <InfoSentence
+          text="스터디 쉽에서 간편하게 구해보세요!"
+          fontSize="20px"
+        />
+      </SentenceBox>
       <Title text="이메일로 로그인" fontSize="15px" />
       <Input placeholder="이메일" />
       <Input placeholder="비밀번호" />
@@ -76,8 +97,8 @@ const LoginFormViewer = ({
         <YellowCheckbox bindCheckbox={bindCheckbox} />
         <SimpleLogin fontSize="13px" text="로그인 상태 유지" />
       </LoginKeep>
-      <GoogleLoginButton text="구글 로그인" />
-      <KakaoLoginButton text="카카오 로그인" />
+      <SocialLoginButton text="구글 계정으로 로그인" imgSrc={googleIcon} />
+      <SocialLoginButton text="카카오 계정으로 로그인" imgSrc={kakaoIcon} />
       <FooterBox>
         <Footer
           fontSize="15px"

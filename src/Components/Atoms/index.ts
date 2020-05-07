@@ -12,6 +12,8 @@ import Input from './Input'
 import Button from './Button'
 import RowBox from './RowBox'
 import YellowCheckbox from './YellowCheckbox'
+import ColumnBox from './ColumnBox'
+
 export {
   JumboTitle,
   Title,
@@ -27,4 +29,5 @@ export {
   Button,
   RowBox,
   YellowCheckbox,
+  ColumnBox,
 }
