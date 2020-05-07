@@ -172,7 +172,7 @@ const HeaderViewer = ({
                 />
                 <Account
                   onClick={() => {
-                    handleNextStage('join')
+                    handleNextStage('choice')
                     handleModalActive()
                   }}
                   text="회원가입"

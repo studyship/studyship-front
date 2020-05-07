@@ -104,7 +104,7 @@ const LoginFormViewer = ({
           fontSize="15px"
           text="⚓️지금 바로 회원가입"
           onClick={() => {
-            handleNextStage('join')
+            handleNextStage('choice')
           }}
         />
         <VerticalBar horizonSapce="5px" />
