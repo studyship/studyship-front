@@ -1,3 +1,3 @@
-import EmailFormViewer from './EmailFormViewer'
+import EmailFormContainer from './EmailFormContainer'
 
-export default EmailFormViewer
+export default EmailFormContainer
