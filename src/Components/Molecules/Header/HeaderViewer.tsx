@@ -50,6 +50,7 @@ const Nav = styled.ul`
   align-items: center;
 `
 const List = styled.li`
+  display: flex;
   position: relative;
 `
 const LogoLink = styled(Link)`
@@ -67,6 +68,7 @@ const LogoLink = styled(Link)`
   }
 `
 const SLink = styled(Link)`
+  min-width: 38px;
   margin: 0 15px;
   :hover {
     font-weight: bold;
@@ -116,7 +118,7 @@ const HeaderViewer = ({
       <ModalTemplate
         isVisible={isVisible}
         handleModalInactive={handleModalInactive}
-        borderRadius="20px"
+        borderRadius="10px"
       >
         <AccountForm
           handleModalInactive={handleModalInactive}
