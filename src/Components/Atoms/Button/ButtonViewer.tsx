@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Icon } from '..'
 
 const Button = styled.button`
   padding: 14px 0px;
@@ -15,9 +16,18 @@ const Button = styled.button`
     props.fontColor ? props.fontColor : '#ffffff'};
   background-color: ${(props: IButtonStyle) =>
     props.bgColor ? props.bgColor : props.bgColor};
-  border: none;
+  border-color: transparent;
   outline: none;
   cursor: pointer;
+`
+const RowBox = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  > :nth-child(1) {
+    margin-right: 15px;
+  }
 `
 
 interface IButtonStyle {
@@ -29,6 +39,7 @@ interface IButton extends IButtonStyle {
   className?: string
   text: string
   onClick?: () => void
+  imgSrc?: string
 }
 
 const ButtonViewer = ({
@@ -38,6 +49,7 @@ const ButtonViewer = ({
   fontSize,
   fontColor,
   bgColor,
+  imgSrc,
 }: IButton) => {
   return (
     <Button
@@ -47,7 +59,14 @@ const ButtonViewer = ({
       fontColor={fontColor}
       bgColor={bgColor}
     >
-      {text}
+      {imgSrc ? (
+        <RowBox>
+          <Icon imgSrc={imgSrc} />
+          {text}
+        </RowBox>
+      ) : (
+        text
+      )}
     </Button>
   )
 }
