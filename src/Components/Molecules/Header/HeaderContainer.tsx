@@ -8,6 +8,7 @@ import {
   EmailForm,
   SelfIntroduceForm,
   MailVertifyForm,
+  AccountChoiceForm,
 } from '..'
 import { useSelector } from 'react-redux'
 import { RootState } from 'src/store/modules'
@@ -35,6 +36,10 @@ const HeaderContainer = ({ screenHeight }: ITopNav) => {
           handleModalInactive={handleModalInactive}
         />
       ),
+    },
+    {
+      tab: 'choice',
+      form: <AccountChoiceForm handleNextStage={handleNextStage} />,
     },
     { tab: 'join', form: <EmailForm handleNextStage={handleNextStage} /> },
     {
