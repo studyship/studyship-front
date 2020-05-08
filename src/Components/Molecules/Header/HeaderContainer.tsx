@@ -39,7 +39,8 @@ const HeaderContainer = ({ screenHeight }: ITopNav) => {
     },
     {
       tab: 'choice',
-      form: <AccountChoiceForm handleNextStage={handleNextStage} />,
+      // form: <AccountChoiceForm handleNextStage={handleNextStage} />,
+      form: <InterestForm handleNextStage={handleNextStage} />,
     },
     { tab: 'join', form: <EmailForm handleNextStage={handleNextStage} /> },
     {

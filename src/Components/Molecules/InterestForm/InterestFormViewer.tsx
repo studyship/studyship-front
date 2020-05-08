@@ -13,7 +13,9 @@ import closeBlueIcon from 'src/styles/icons/close_blue.png'
 import checkExistenceOfItem from 'src/lib/checkExistenceOfItem'
 import { dragLock } from 'src/styles/StylesOptions'
 
-const Container = styled.div``
+const Container = styled.div`
+  padding: 0px 14px;
+`
 const TitleBox = styled(RowBox)`
   justify-content: space-between;
 `
@@ -29,39 +31,55 @@ const Info = styled(NormalText)`
   color: #666666;
 `
 const Category = styled(RowBox)`
+  flex-wrap: wrap;
   margin-bottom: 23px;
+  border: 1px solid ${mainColorBlue};
+  border-radius: 5px;
 `
 const TabBox = styled.div`
   display: flex;
   justify-content: center;
+  padding: 8px 26px;
   width: 25%;
-`
-const Tab = styled(BoldText)`
-  display: inline-block;
-  border-bottom: 4px solid transparent;
+  border-right: 1px solid ${mainColorBlue};
+  color: ${mainColorBlue};
+  font-size: 12px;
+  white-space: nowrap;
+  cursor: pointer;
+  ${(props: IUnit) =>
+    props.isBorderStyle === 'true' &&
+    `border-bottom: 1px solid ${mainColorBlue};`};
   ${(props: IUnit) =>
     props.isActive === 'true' &&
-    `color:${mainColorBlue}; border-bottom:4px solid ${mainColorBlue}`};
-  cursor: pointer;
+    `background-color:${mainColorBlue}; color:white;`};
+  :nth-of-type(4n) {
+    border-right: none;
+  }
 `
 const List = styled.ul`
   display: flex;
   flex-wrap: wrap;
 `
 const Unit = styled.li`
-  width: 25%;
-  margin-bottom: 30px;
+  margin-bottom: 8px;
+  margin-right: 8px;
+  padding: 6px 10px;
   text-align: center;
-  font-size: 15px;
+  font-weight: normal;
+  font-size: 12px;
   color: #b3b3b3;
   ${dragLock};
-  ${(props: IUnit) =>
-    props.isActive === 'true' && `color:${mainColorBlack}; font-weight:bold;`};
+  ${(props: IUnit) => props.isActive === 'true' && `color:${mainColorBlack};`};
+  border-radius: 15px;
+  border: 1px solid #b3b3b3;
   cursor: pointer;
 `
 const SelectBox = styled(RowBox)`
   flex-wrap: wrap;
+  min-height: 76px;
   margin-bottom: 25px;
+  border: 1px solid #e6e6e6;
+  border-radius: 5px;
 `
 const Select = styled.div`
   display: flex;
@@ -78,6 +96,8 @@ const ChoiceItem = styled(BoldText)`
   color: ${mainColorBlue};
 `
 const FinishBtn = styled(Button)`
+  border-radius: 33px;
+  font-weight: bold;
   background-color: ${mainColorBlue};
 `
 const CloseBlueIcon = styled.div`
@@ -106,15 +126,20 @@ const InterestFormViewer = ({
       <Info text="무엇을 배우고 싶으세요? (최대 5개)" fontSize="14px" />
       <Category>
         {interestList.map((interest, index) => (
-          <TabBox key={`${index}key`}>
-            <Tab
-              onClick={() => {
-                handleCurrentTab(interest)
-              }}
-              isActive={`${interest.isActive}`}
-              fontSize="18px"
+          <TabBox
+            key={`${index}key`}
+            isBorderStyle={`${index < 4 && interestList.length < 4}`}
+            isActive={`${interest.isActive}`}
+            onClick={() => {
+              handleCurrentTab(interest)
+            }}
+          >
+            {/* <Tab
+              
+              fontSize="12px"
               text={interest.category}
-            />
+            /> */}
+            {interest.category}
           </TabBox>
         ))}
       </Category>
@@ -135,9 +160,9 @@ const InterestFormViewer = ({
             )),
         )}
       </List>
-      {selectedInterest.length > 0 && (
-        <SelectBox>
-          {selectedInterest.map((item, index) => (
+      <SelectBox>
+        {selectedInterest.length > 0 &&
+          selectedInterest.map((item, index) => (
             <Select key={`${index}key`}>
               <ChoiceItem text={item} fontSize="15px" />
               <CloseBlueIcon
@@ -149,10 +174,9 @@ const InterestFormViewer = ({
               </CloseBlueIcon>
             </Select>
           ))}
-        </SelectBox>
-      )}
+      </SelectBox>
       <FinishBtn
-        text="다음~?"
+        text="완료"
         onClick={() => {
           handleNextStage('selfIntro')
         }}

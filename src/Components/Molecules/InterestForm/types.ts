@@ -1,5 +1,6 @@
 export interface IUnit {
   isActive: string
+  isBorderStyle?: string
 }
 
 export interface IInterestList {

@@ -20,6 +20,23 @@ const InterestFormContainer = ({ handleNextStage }: IInterestForm) => {
       list: ['dev1', 'dev2', 'dev3', 'dev4', 'dev5', 'dev6'],
       isActive: false,
     },
+    {
+      category: '외국어',
+      list: [
+        'foreign1',
+        'foreign2',
+        'foreign3',
+        'foreign4',
+        'foreign5',
+        'foreign6',
+      ],
+      isActive: false,
+    },
+    {
+      category: '취업',
+      list: ['job1', 'job2', 'job3', 'job4', 'job5', 'job6'],
+      isActive: false,
+    },
   ])
 
   const handleCurrentTab = (interest: IInterestList) => {
