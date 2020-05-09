@@ -32,14 +32,14 @@ const InfoSentence = styled(NormalText)`
 const AccountChoiceFormViewer = ({ handleNextStage }: IAccountChoiceForm) => {
   return (
     <Container>
-      <SentenceBox>
+      {/* <SentenceBox>
         <InfoSentence text="나랑 잘 맞는 스터디 메이트," fontSize="20px" />
         <InfoSentence
           text="스터디 쉽에서 간편하게 구해보세요!"
           fontSize="20px"
         />
         <InfoSentence text="물 흐르듯 쉽고 간단한 회원가입" fontSize="14px" />
-      </SentenceBox>
+      </SentenceBox> */}
       <LoginButton
         text="회원가입"
         onClick={() => {

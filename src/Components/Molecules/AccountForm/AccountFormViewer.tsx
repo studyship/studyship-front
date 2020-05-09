@@ -7,7 +7,12 @@ const AccountFormViewer = ({
   currentTab,
 }: IAccountFormViewer) => {
   return (
-    <AccountModalTemplate handleModalInactive={handleModalInactive}>
+    <AccountModalTemplate
+      handleModalInactive={handleModalInactive}
+      title={currentTab.title}
+      subTitle={currentTab.subTitle}
+      horizontal={currentTab.horizontal}
+    >
       {currentTab.form}
     </AccountModalTemplate>
   )

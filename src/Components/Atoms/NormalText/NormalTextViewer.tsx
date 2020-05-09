@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 interface INormalTextStyle {
   className?: string
-  fontSize: string
+  fontSize?: string
 }
 
 interface INormalText extends INormalTextStyle {

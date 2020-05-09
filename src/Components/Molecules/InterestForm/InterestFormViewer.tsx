@@ -113,7 +113,7 @@ const InterestFormViewer = ({
 }: IInterestFormViewer) => {
   return (
     <Container>
-      <TitleBox>
+      {/* <TitleBox>
         <Title text="관심사 설정하기" fontSize="20px" />
         <Jump
           text="건너뛰기"
@@ -123,7 +123,7 @@ const InterestFormViewer = ({
           }}
         />
       </TitleBox>
-      <Info text="무엇을 배우고 싶으세요? (최대 5개)" fontSize="14px" />
+      <Info text="무엇을 배우고 싶으세요? (최대 5개)" fontSize="14px" /> */}
       <Category>
         {interestList.map((interest, index) => (
           <TabBox

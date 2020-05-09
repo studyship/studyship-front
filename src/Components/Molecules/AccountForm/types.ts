@@ -7,13 +7,15 @@ type TInterests = {
   category: string
   contents: Array<string>
 }
-type TTabs = {
+export type TTabs = {
+  title: string | Array<string>
+  subTitle: string
+  horizontal: string
   tab: string
   form: React.ReactNode
 }
 
 export interface IAccountFormViewer extends TAccountForm {
   currentTab: TTabs
-  // handleNextStage: () => void
   handleModalInactive: () => void
 }

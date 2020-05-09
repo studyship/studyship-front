@@ -76,13 +76,13 @@ const LoginFormViewer = ({
 }: ILoginFormViewer) => {
   return (
     <Container>
-      <SentenceBox>
+      {/* <SentenceBox>
         <InfoSentence text="나랑 잘 맞는 스터디 메이트," fontSize="20px" />
         <InfoSentence
           text="스터디 쉽에서 간편하게 구해보세요!"
           fontSize="20px"
         />
-      </SentenceBox>
+      </SentenceBox> */}
       <Title text="이메일로 로그인" fontSize="15px" />
       <Input placeholder="이메일" />
       <Input placeholder="비밀번호" />

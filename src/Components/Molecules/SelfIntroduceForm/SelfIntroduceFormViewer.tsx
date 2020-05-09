@@ -50,11 +50,11 @@ const SelfIntroduceFormViewer = ({
 }: ISelfIntroduceFormViewer) => {
   return (
     <Container>
-      <TitleBox>
+      {/* <TitleBox>
         <Title text="자기소개" fontSize="20px" />
         <Jump text="건너뛰기" fontSize="14px" />
       </TitleBox>
-      <Info text="한줄이라도 좋아요, 나를 소개 해주세요." fontSize="14px" />
+      <Info text="한줄이라도 좋아요, 나를 소개 해주세요." fontSize="14px" /> */}
       <STextareaAutosize
         placeholder="ex) 개발하는 디자이너가 되고 싶은 김수민입니다."
         {...bind}
