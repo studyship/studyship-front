@@ -8,12 +8,14 @@ import {
   CircularItem,
   RowBox,
 } from 'src/Components/Atoms'
-import { descriptionColor } from 'src/styles/Colors'
 import BockmarkIcon from 'src/styles/icons/icon_bookmark_fill.svg'
 import ReactLogo from 'src/styles/images/react-logo.png'
 import Darkness from 'src/styles/images/darkness.png'
-import sampleIcon from 'src/styles/icons/users.png'
-import { subColorLightGrey } from 'src/styles/Colors'
+import clockIcon from 'src/styles/icons/ss_icon_clock.svg'
+import locationIcon from 'src/styles/icons/ss_icon_location.svg'
+import groupIcon from 'src/styles/icons/ss_icon_group.svg'
+import whatchIcon from 'src/styles/icons/ss_icon_whatch.svg'
+import commentIcon from 'src/styles/icons/ss_icon_message.svg'
 
 const Container = styled.div`
   position: relative;
@@ -45,12 +47,12 @@ const Container = styled.div`
 const CategoryBox = styled.ul`
   display: flex;
   flex-direction: row;
-  margin-bottom: 18px;
+  margin-bottom: 13px;
   width: 100%;
 `
 const Category = styled.li`
-  color: ${descriptionColor};
-  font-size: 14px;
+  color: #b3b3b3b3;
+  font-size: 12px;
 
   :nth-child(2n) {
     margin-left: 5px;
@@ -76,7 +78,7 @@ const TitleTag = styled.div`
   }
 `
 const Timezone = styled(NormalText)`
-  color: ${subColorLightGrey};
+  color: #b3b3b3b3;
 `
 const Bookmark = styled.div`
   width: 18px;
@@ -93,14 +95,24 @@ const ContetSection = styled.div`
   padding: 11px 18px;
 `
 const WriterSection = styled(RowBox)`
-  width: 100%;
-  height: 50px;
+  width: 50%;
   padding: 11px 18px;
   > * :nth-child(1) {
     margin-right: 5px;
   }
   > * :nth-child(2) {
     margin-right: 3px;
+  }
+`
+const PostInfomation = styled(RowBox)`
+  width: 50%;
+  justify-content: flex-end;
+  padding: 11px 18px;
+  > * :nth-child(1) {
+    margin-right: 5px;
+  }
+  > * :nth-child(2) {
+    margin-right: 5px;
   }
 `
 const Target = styled.div`
@@ -112,25 +124,25 @@ const DescriptionBox = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-bottom: 16px;
 `
 const Description = styled.div`
   display: flex;
   flex-direction: row;
-  > *:nth-child(1) {
-    margin-right: 5px;
-  }
+  justify-content: center;
+  align-items: center;
 `
 const DescriptionIcon = styled.div`
-  width: 15px;
-  height: 13px;
+  margin-right: 3px;
 `
 const DescriptionText = styled(NormalText)`
-  color: ${subColorLightGrey};
+  color: #b3b3b3b3;
 `
 const DescriptionInfo = styled(RowBox)`
   justify-content: space-between;
-  width: 40%;
+  width: 35%;
+`
+const Nickname = styled(BoldText)`
+  margin-right: 13px;
 `
 
 const CardViewer = () => {
@@ -143,50 +155,66 @@ const CardViewer = () => {
       <ContetSection>
         <TitleBox>
           <BoldText fontSize="18px" text="스터디 제목입니다" />
-          <TitleTag>
-            <Timezone fontSize="11px" text="16시간전" />
-            <Bookmark>
-              <Icon imgSrc={BockmarkIcon} />
-            </Bookmark>
-          </TitleTag>
+          <Bookmark>
+            <Icon imgSrc={BockmarkIcon} />
+          </Bookmark>
         </TitleBox>
         <CategoryBox>
-          <Category>qwe</Category>
+          <Category>디자인</Category>
           <Category>></Category>
-          <Category>123</Category>
+          <Category>UXUI</Category>
         </CategoryBox>
         <Target>
           <NormalText fontSize="14px" text="페이스북 클론 코딩" />
         </Target>
         <DescriptionBox>
           <DescriptionInfo>
-            {Array.from({ length: 2 }, (item, index) => (
-              <Description key={`${index}key`}>
-                <DescriptionIcon>
-                  <Icon imgSrc={sampleIcon}></Icon>
-                </DescriptionIcon>
-                <DescriptionText fontSize="14px" text="3/5명" />
-              </Description>
-            ))}
-          </DescriptionInfo>
-          {Array.from({ length: 1 }, (item, index) => (
-            <Description key={`${index}key`}>
+            <Description>
               <DescriptionIcon>
-                <Icon imgSrc={sampleIcon}></Icon>
+                <Icon imgSrc={clockIcon}></Icon>
               </DescriptionIcon>
-              <DescriptionText fontSize="14px" text="3/5명" />
+              <DescriptionText fontSize="12px" text="토, 일" />
             </Description>
-          ))}
+            <Description>
+              <DescriptionIcon>
+                <Icon imgSrc={locationIcon}></Icon>
+              </DescriptionIcon>
+              <DescriptionText fontSize="12px" text="3/5명" />
+            </Description>
+          </DescriptionInfo>
+          <Timezone fontSize="12px" text="16시간전" />
         </DescriptionBox>
       </ContetSection>
       <HorizontalBar color="#e6e6e6" />
-      <WriterSection>
-        <CircularItem area="20px">
-          <Icon imgSrc={Darkness}></Icon>
-        </CircularItem>
-        <NormalText fontSize="13px" text="선장" />
-        <BoldText fontSize="13px" text="김수민" />
-      </WriterSection>
+      <RowBox>
+        <WriterSection>
+          <CircularItem area="20px">
+            <Icon imgSrc={Darkness}></Icon>
+          </CircularItem>
+          <NormalText fontSize="12px" text="선장" />
+          <Nickname fontSize="12px" text="김수민" />
+          <Description>
+            <DescriptionIcon>
+              <Icon imgSrc={groupIcon} />
+            </DescriptionIcon>
+            <DescriptionText fontSize="12px" text="3/5명" />
+          </Description>
+        </WriterSection>
+        <PostInfomation>
+          <Description>
+            <DescriptionIcon>
+              <Icon imgSrc={whatchIcon} />
+            </DescriptionIcon>
+            <DescriptionText fontSize="12px" text="206" />
+          </Description>
+          <Description>
+            <DescriptionIcon>
+              <Icon imgSrc={commentIcon} />
+            </DescriptionIcon>
+            <DescriptionText fontSize="12px" text="9" />
+          </Description>
+        </PostInfomation>
+      </RowBox>
     </Container>
   )
 }
