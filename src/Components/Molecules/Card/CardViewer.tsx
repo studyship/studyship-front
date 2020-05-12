@@ -65,18 +65,6 @@ const TitleBox = styled.div`
   justify-content: space-between;
   align-items: center;
 `
-const TitleTag = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  > *:nth-child(1) {
-    margin-right: 15px;
-  }
-  > *:nth-child(2) {
-    margin-top: 10px;
-  }
-`
 const Timezone = styled(NormalText)`
   color: #b3b3b3b3;
 `

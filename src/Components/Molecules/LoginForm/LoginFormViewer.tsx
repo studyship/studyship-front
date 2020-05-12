@@ -7,7 +7,6 @@ import {
   RowBox,
   VerticalBar,
   YellowCheckbox,
-  ColumnBox,
 } from 'src/Components/Atoms'
 import { mainColorBlue, mainColorBlack, darkGrey } from 'src/styles/Colors'
 import { ILoginFormViewer } from './types'
@@ -56,17 +55,6 @@ const Footer = styled(NormalText)`
 const Title = styled(NormalText)`
   margin-bottom: 16px;
 `
-const SentenceBox = styled(ColumnBox)`
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 28px;
-`
-const InfoSentence = styled(NormalText)`
-  line-height: 27px;
-  :nth-child(3) {
-    margin-bottom: 27px;
-  }
-`
 
 const LoginFormViewer = ({
   handleNextStage,
@@ -76,13 +64,6 @@ const LoginFormViewer = ({
 }: ILoginFormViewer) => {
   return (
     <Container>
-      {/* <SentenceBox>
-        <InfoSentence text="나랑 잘 맞는 스터디 메이트," fontSize="20px" />
-        <InfoSentence
-          text="스터디 쉽에서 간편하게 구해보세요!"
-          fontSize="20px"
-        />
-      </SentenceBox> */}
       <Title text="이메일로 로그인" fontSize="15px" />
       <Input placeholder="이메일" />
       <Input placeholder="비밀번호" />

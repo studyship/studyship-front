@@ -1,12 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import {
-  NormalText,
-  Button,
-  RowBox,
-  BoldText,
-  Icon,
-} from 'src/Components/Atoms'
+import { Button, RowBox, BoldText, Icon } from 'src/Components/Atoms'
 import { mainColorBlue, mainColorBlack } from 'src/styles/Colors'
 import { IUnit, IInterestFormViewer } from './types'
 import closeBlueIcon from 'src/styles/icons/close_blue.png'
@@ -15,20 +9,6 @@ import { dragLock } from 'src/styles/StylesOptions'
 
 const Container = styled.div`
   padding: 0px 14px;
-`
-const TitleBox = styled(RowBox)`
-  justify-content: space-between;
-`
-const Title = styled(NormalText)`
-  margin-bottom: 4px;
-`
-const Jump = styled(NormalText)`
-  color: #b3b3b3;
-  cursor: pointer;
-`
-const Info = styled(NormalText)`
-  margin-bottom: 28px;
-  color: #666666;
 `
 const Category = styled(RowBox)`
   flex-wrap: wrap;
