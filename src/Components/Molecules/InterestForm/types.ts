@@ -3,6 +3,16 @@ export interface IUnit {
   isBorderStyle?: string
 }
 
+export interface List {
+  groupName: string
+  groupItems: GroupItem[]
+}
+
+export interface GroupItem {
+  type: string
+  isActive: boolean
+}
+
 export interface IInterestList {
   category: string
   list: Array<string>

@@ -12,29 +12,85 @@ const InterestFormContainer = ({ handleNextStage }: IInterestForm) => {
   const [interestList, setInterestList] = useState([
     {
       category: '디자인',
-      list: ['design1', 'design2', 'design3', 'design4', 'design5', 'design6'],
+      list: [
+        {
+          groupName: 'Design',
+          groupItems: [
+            { type: '디자인 전체', isActive: false },
+            { type: 'UX · UI · GUI', isActive: false },
+            { type: '공모전', isActive: false },
+            { type: '3D', isActive: false },
+            { type: '게임 · AR · VR', isActive: false },
+            { type: 'Adobe 툴', isActive: false },
+            { type: '기타', isActive: false },
+          ],
+        },
+      ],
       isActive: true,
     },
     {
       category: '개발',
-      list: ['dev1', 'dev2', 'dev3', 'dev4', 'dev5', 'dev6'],
-      isActive: false,
-    },
-    {
-      category: '외국어',
       list: [
-        'foreign1',
-        'foreign2',
-        'foreign3',
-        'foreign4',
-        'foreign5',
-        'foreign6',
+        {
+          groupName: 'Frontend',
+          groupItems: [
+            { type: 'React', isActive: false },
+            { type: 'Vue', isActive: false },
+            { type: 'AngularJs', isActive: false },
+            { type: 'Svelt', isActive: false },
+            { type: 'Jquery', isActive: false },
+            { type: 'HTML · CSS', isActive: false },
+            { type: '기타', isActive: false },
+          ],
+        },
+        {
+          groupName: 'Backend',
+          groupItems: [
+            { type: '전체', isActive: false },
+            { type: 'Go', isActive: false },
+            { type: 'Python', isActive: false },
+            { type: 'NodeJs', isActive: false },
+            { type: 'Java', isActive: false },
+            { type: 'C#', isActive: false },
+            { type: '기타', isActive: false },
+            { type: '기타', isActive: false },
+          ],
+        },
+        {
+          groupName: 'Mobile',
+          groupItems: [
+            { type: 'android', isActive: false },
+            { type: 'iOS', isActive: false },
+            { type: 'React Native', isActive: false },
+            { type: 'Flutter', isActive: false },
+            { type: '기타', isActive: false },
+            { type: '기타', isActive: false },
+          ],
+        },
       ],
       isActive: false,
     },
     {
-      category: '취업',
-      list: ['job1', 'job2', 'job3', 'job4', 'job5', 'job6'],
+      groupName: '영어',
+      list: [
+        { type: 'TOEIC', isActive: false },
+        { type: 'TOEIC 스피킹', isActive: false },
+        { type: 'IELTS', isActive: false },
+        { type: '영어발표 · 면접', isActive: false },
+        { type: '영어회화', isActive: false },
+        { type: '영어번역 · 독해', isActive: false },
+      ],
+    },
+    {
+      category: '제2 외국어',
+      list: [
+        { type: 'TOEIC', isActive: false },
+        { type: 'TOEIC 스피킹', isActive: false },
+        { type: 'IELTS', isActive: false },
+        { type: '영어발표 · 면접', isActive: false },
+        { type: '영어회화', isActive: false },
+        { type: '영어번역 · 독해', isActive: false },
+      ],
       isActive: false,
     },
   ])

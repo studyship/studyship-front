@@ -1,34 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
-import {
-  NormalText,
-  Button,
-  RowBox,
-  BoldText,
-  Icon,
-} from 'src/Components/Atoms'
+import { NormalText, Button, RowBox, RotatePlus } from 'src/Components/Atoms'
 import { mainColorBlue, mainColorBlack } from 'src/styles/Colors'
 import { IUnit, IInterestFormViewer } from './types'
-import closeBlueIcon from 'src/styles/icons/close_blue.png'
 import checkExistenceOfItem from 'src/lib/checkExistenceOfItem'
 import { dragLock } from 'src/styles/StylesOptions'
 
 const Container = styled.div`
   padding: 0px 14px;
-`
-const TitleBox = styled(RowBox)`
-  justify-content: space-between;
-`
-const Title = styled(NormalText)`
-  margin-bottom: 4px;
-`
-const Jump = styled(NormalText)`
-  color: #b3b3b3;
-  cursor: pointer;
-`
-const Info = styled(NormalText)`
-  margin-bottom: 28px;
-  color: #666666;
 `
 const Category = styled(RowBox)`
   flex-wrap: wrap;
@@ -42,7 +21,6 @@ const TabBox = styled.div`
   padding: 8px 26px;
   width: 25%;
   border-right: 1px solid ${mainColorBlue};
-  color: ${mainColorBlue};
   font-size: 12px;
   white-space: nowrap;
   cursor: pointer;
@@ -56,6 +34,12 @@ const TabBox = styled.div`
     border-right: none;
   }
 `
+const Tab = styled(NormalText)`
+  color: ${mainColorBlue};
+  ${(props: IUnit) =>
+    props.isActive === 'true' &&
+    `background-color:${mainColorBlue}; color:white;`};
+`
 const List = styled.ul`
   display: flex;
   flex-wrap: wrap;
@@ -66,7 +50,7 @@ const Unit = styled.li`
   padding: 6px 10px;
   text-align: center;
   font-weight: normal;
-  font-size: 12px;
+  font-size: 14px;
   color: #b3b3b3;
   ${dragLock};
   ${(props: IUnit) => props.isActive === 'true' && `color:${mainColorBlack};`};
@@ -86,22 +70,19 @@ const Select = styled.div`
   justify-content: space-around;
   align-items: center;
   margin: 0.3em;
-  padding: 10px 15px;
-  border: 2px solid #bfedf3;
+  padding: 6px 10px;
+  background-color: ${mainColorBlue};
   border-radius: 50px;
 `
-const ChoiceItem = styled(BoldText)`
+const ChoiceItem = styled(NormalText)`
   margin-left: 3px;
-  margin-right: 8px;
-  color: ${mainColorBlue};
+  margin-right: 5px;
+  color: white;
 `
 const FinishBtn = styled(Button)`
   border-radius: 33px;
   font-weight: bold;
   background-color: ${mainColorBlue};
-`
-const CloseBlueIcon = styled.div`
-  cursor: pointer;
 `
 const InterestFormViewer = ({
   interestList,
@@ -113,17 +94,6 @@ const InterestFormViewer = ({
 }: IInterestFormViewer) => {
   return (
     <Container>
-      {/* <TitleBox>
-        <Title text="관심사 설정하기" fontSize="20px" />
-        <Jump
-          text="건너뛰기"
-          fontSize="14px"
-          onClick={() => {
-            handleNextStage('selfIntro')
-          }}
-        />
-      </TitleBox>
-      <Info text="무엇을 배우고 싶으세요? (최대 5개)" fontSize="14px" /> */}
       <Category>
         {interestList.map((interest, index) => (
           <TabBox
@@ -134,12 +104,11 @@ const InterestFormViewer = ({
               handleCurrentTab(interest)
             }}
           >
-            {/* <Tab
-              
-              fontSize="12px"
+            <Tab
+              isActive={`${interest.isActive}`}
               text={interest.category}
-            /> */}
-            {interest.category}
+              fontSize="14px"
+            />
           </TabBox>
         ))}
       </Category>
@@ -164,14 +133,8 @@ const InterestFormViewer = ({
         {selectedInterest.length > 0 &&
           selectedInterest.map((item, index) => (
             <Select key={`${index}key`}>
-              <ChoiceItem text={item} fontSize="15px" />
-              <CloseBlueIcon
-                onClick={() => {
-                  handleRemoveInterest(index)
-                }}
-              >
-                <Icon imgSrc={closeBlueIcon} />
-              </CloseBlueIcon>
+              <ChoiceItem text={item} fontSize="14px" />
+              <RotatePlus isChoose={true} />
             </Select>
           ))}
       </SelectBox>

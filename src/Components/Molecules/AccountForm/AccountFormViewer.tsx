@@ -9,9 +9,9 @@ const AccountFormViewer = ({
   return (
     <AccountModalTemplate
       handleModalInactive={handleModalInactive}
-      title={currentTab.title}
-      subTitle={currentTab.subTitle}
-      horizontal={currentTab.horizontal}
+      title={currentTab.title!}
+      subTitle={currentTab.subTitle!}
+      horizontal={currentTab.horizontal!}
     >
       {currentTab.form}
     </AccountModalTemplate>

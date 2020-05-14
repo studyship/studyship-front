@@ -8,12 +8,14 @@ import { TAccountModal } from './types'
 const Container = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: 400px;
-  padding: 18px 18px;
+  padding: 18px 32px;
 `
 const TopBox = styled(RowBox)`
   justify-content: space-between;
-  margin-bottom: 24px;
+  width: 100%;
+  margin-bottom: 26px;
 `
 const Logo = styled.div`
   flex: 1;
@@ -24,10 +26,10 @@ const Close = styled.div`
 `
 
 const Title = styled(NormalText)`
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 `
 const SubTitle = styled(NormalText)`
-  margin-bottom: 9px;
+  margin-bottom: 11px;
 `
 
 const AccountModalTemplateViewer = ({
@@ -47,11 +49,9 @@ const AccountModalTemplateViewer = ({
           <Icon imgSrc={closeIcon} />
         </Close>
       </TopBox>
-      {typeof title === 'object' ? (
-        title.map((item: string) => <Title text={item} fontSize="20px" />)
-      ) : (
-        <Title text={title} fontSize="20px" />
-      )}
+      {typeof title === 'object'
+        ? title.map((item: string) => <Title text={item} fontSize="20px" />)
+        : title && <Title text={title} fontSize="20px" />}
       <SubTitle text={subTitle} fontSize="14px" />
       {children}
     </Container>

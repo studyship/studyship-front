@@ -1,33 +1,24 @@
 import React from 'react'
 import styled from 'styled-components'
 import { ISelfIntroduceFormViewer } from './types'
-import { RowBox, NormalText, Button } from 'src/Components/Atoms'
+import { NormalText, Button } from 'src/Components/Atoms'
 import TextareaAutosize from 'react-textarea-autosize'
 import { mainColorBlue } from 'src/styles/Colors'
 
-const Container = styled.div``
-const TitleBox = styled(RowBox)`
-  justify-content: space-between;
-`
-const Title = styled(NormalText)`
-  margin-bottom: 4px;
-`
-const Jump = styled(NormalText)`
-  color: #b3b3b3;
-  cursor: pointer;
-`
-const Info = styled(NormalText)`
-  margin-bottom: 28px;
-  color: #666666;
-`
-const STextareaAutosize = styled(TextareaAutosize)`
-  margin-bottom: 6px;
+const Container = styled.div`
   width: 100%;
+`
+const STextareaAutosize = styled.textarea`
+  margin-bottom: 6px;
+  padding: 7px 10px;
+  width: 100%;
+  min-height: 130px;
   font-weight: normal;
-  font-size: 18px;
+  font-size: 16px;
   background-color: transparent;
   border: none;
-  border-bottom: 2px solid ${mainColorBlue};
+  border: 1px solid #e6e6e6;
+  line-height: 21px;
   resize: none;
   outline: none;
   ::placeholder {
@@ -35,9 +26,11 @@ const STextareaAutosize = styled(TextareaAutosize)`
   }
 `
 const TextLimits = styled(NormalText)`
-  width: 100%;
+  position: relative;
+  top: -30px;
+  right: 8px;
   text-align: right;
-  color: #ffc545;
+  color: ${mainColorBlue};
   margin-bottom: 25px;
 `
 const FinishBtn = styled(Button)`
@@ -50,16 +43,11 @@ const SelfIntroduceFormViewer = ({
 }: ISelfIntroduceFormViewer) => {
   return (
     <Container>
-      {/* <TitleBox>
-        <Title text="자기소개" fontSize="20px" />
-        <Jump text="건너뛰기" fontSize="14px" />
-      </TitleBox>
-      <Info text="한줄이라도 좋아요, 나를 소개 해주세요." fontSize="14px" /> */}
       <STextareaAutosize
-        placeholder="ex) 개발하는 디자이너가 되고 싶은 김수민입니다."
+        placeholder="예) 디자인과 개발 모두 평정하고싶은 꿈나무 디발자입니다. 자유로운 분위기 속에서 공부하는 것을 지향하지만 루즈해지는 분위기는 좋아하지 않습니다."
         {...bind}
       />
-      <TextLimits fontSize="18px" text={`${bind.value.length}/50`} />
+      <TextLimits fontSize="16px" text={`${bind.value.length}/300`} />
       <FinishBtn
         text="다음~?"
         onClick={() => {

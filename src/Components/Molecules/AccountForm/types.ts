@@ -8,9 +8,9 @@ type TInterests = {
   contents: Array<string>
 }
 export type TTabs = {
-  title: string | Array<string>
-  subTitle: string
-  horizontal: string
+  title?: string | Array<string>
+  subTitle?: string
+  horizontal?: string
   tab: string
   form: React.ReactNode
 }

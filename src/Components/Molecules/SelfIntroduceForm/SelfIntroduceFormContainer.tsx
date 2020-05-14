@@ -8,7 +8,7 @@ const SelfIntroduceFormContainer = ({
   handleNextStage,
 }: ISelfIntroduceForm) => {
   const { inputLengthLimits } = inputValidators
-  const { bind } = useInputText('', inputLengthLimits(50))
+  const { bind } = useInputText('', inputLengthLimits(300))
   return (
     <SelfIntroduceFormViewer handleNextStage={handleNextStage} bind={bind} />
   )
