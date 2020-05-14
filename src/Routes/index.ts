@@ -1,3 +1,4 @@
 import Home from './Home'
+import Posts from './Posts'
 
-export default Home
+export { Home, Posts }

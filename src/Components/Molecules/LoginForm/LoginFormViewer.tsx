@@ -7,8 +7,6 @@ import {
   RowBox,
   VerticalBar,
   YellowCheckbox,
-  ColumnBox,
-  RotatePlus,
 } from 'src/Components/Atoms'
 import { mainColorBlue, mainColorBlack, darkGrey } from 'src/styles/Colors'
 import { ILoginFormViewer } from './types'
@@ -56,17 +54,6 @@ const Footer = styled(NormalText)`
 `
 const Title = styled(NormalText)`
   margin-bottom: 16px;
-`
-const SentenceBox = styled(ColumnBox)`
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 28px;
-`
-const InfoSentence = styled(NormalText)`
-  line-height: 27px;
-  :nth-child(3) {
-    margin-bottom: 27px;
-  }
 `
 
 const LoginFormViewer = ({

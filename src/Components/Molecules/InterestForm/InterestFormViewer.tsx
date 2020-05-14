@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { NormalText, Button, RowBox, RotatePlus } from 'src/Components/Atoms'
+import { Button, RowBox, BoldText, Icon } from 'src/Components/Atoms'
 import { mainColorBlue, mainColorBlack } from 'src/styles/Colors'
 import { IUnit, IInterestFormViewer } from './types'
 import checkExistenceOfItem from 'src/lib/checkExistenceOfItem'

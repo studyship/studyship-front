@@ -1,5 +1,5 @@
 import React from 'react'
-import Home from 'src/Routes'
+import { Home } from 'src/Routes'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { Header } from '../Molecules'
 

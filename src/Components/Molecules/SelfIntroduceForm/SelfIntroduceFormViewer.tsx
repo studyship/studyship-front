@@ -5,10 +5,10 @@ import { NormalText, Button } from 'src/Components/Atoms'
 import TextareaAutosize from 'react-textarea-autosize'
 import { mainColorBlue } from 'src/styles/Colors'
 
-const Container = styled.div`
-  width: 100%;
-`
-const STextareaAutosize = styled.textarea`
+const Container = styled.div``
+const STextareaAutosize = styled(TextareaAutosize)`
+  padding: 7px 9px;
+  min-height: 160px;
   margin-bottom: 6px;
   padding: 7px 10px;
   width: 100%;
@@ -16,11 +16,10 @@ const STextareaAutosize = styled.textarea`
   font-weight: normal;
   font-size: 16px;
   background-color: transparent;
-  border: none;
   border: 1px solid #e6e6e6;
-  line-height: 21px;
   resize: none;
   outline: none;
+  border-radius: 5px;
   ::placeholder {
     color: #b3b3b3;
   }
