@@ -14,6 +14,7 @@ import RowBox from './RowBox'
 import YellowCheckbox from './YellowCheckbox'
 import ColumnBox from './ColumnBox'
 import RotatePlus from './RotatePlus'
+import Tag from './Tag'
 
 export {
   JumboTitle,
@@ -32,4 +33,5 @@ export {
   YellowCheckbox,
   ColumnBox,
   RotatePlus,
+  Tag,
 }
