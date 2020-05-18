@@ -1,17 +1,22 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Button, RowBox, BoldText, Icon } from 'src/Components/Atoms'
-import { mainColorBlue, mainColorBlack } from 'src/styles/Colors'
+import {
+  Button,
+  RowBox,
+  RotatePlus,
+  NormalText,
+  ColumnBox,
+  Tag,
+} from 'src/Components/Atoms'
+import { mainColorBlue } from 'src/styles/Colors'
 import { IUnit, IInterestFormViewer } from './types'
-import checkExistenceOfItem from 'src/lib/checkExistenceOfItem'
-import { dragLock } from 'src/styles/StylesOptions'
+import { getUniqueKey } from 'src/lib'
 
 const Container = styled.div`
   padding: 0px 14px;
 `
 const Category = styled(RowBox)`
   flex-wrap: wrap;
-  margin-bottom: 23px;
   border: 1px solid ${mainColorBlue};
   border-radius: 5px;
 `
@@ -40,27 +45,14 @@ const Tab = styled(NormalText)`
     props.isActive === 'true' &&
     `background-color:${mainColorBlue}; color:white;`};
 `
-const List = styled.ul`
-  display: flex;
+const List = styled(ColumnBox)``
+const UnitBox = styled(RowBox)`
   flex-wrap: wrap;
-`
-const Unit = styled.li`
-  margin-bottom: 8px;
-  margin-right: 8px;
-  padding: 6px 10px;
-  text-align: center;
-  font-weight: normal;
-  font-size: 14px;
-  color: #b3b3b3;
-  ${dragLock};
-  ${(props: IUnit) => props.isActive === 'true' && `color:${mainColorBlack};`};
-  border-radius: 15px;
-  border: 1px solid #b3b3b3;
-  cursor: pointer;
 `
 const SelectBox = styled(RowBox)`
   flex-wrap: wrap;
   min-height: 76px;
+  margin-top: 5px;
   margin-bottom: 25px;
   border: 1px solid #e6e6e6;
   border-radius: 5px;
@@ -71,18 +63,29 @@ const Select = styled.div`
   align-items: center;
   margin: 0.3em;
   padding: 6px 10px;
-  background-color: ${mainColorBlue};
+  ${(props: IUnit) =>
+    props.isActive !== 'true'
+      ? `background-color: white; color: #b3b3b3; border: 1px solid #b3b3b3;`
+      : `background-color: ${mainColorBlue}; color: white; border: 1px solid ${mainColorBlue};`};
   border-radius: 50px;
+  cursor: pointer;
 `
 const ChoiceItem = styled(NormalText)`
   margin-left: 3px;
   margin-right: 5px;
-  color: white;
+  color: inherit;
 `
 const FinishBtn = styled(Button)`
   border-radius: 33px;
   font-weight: bold;
   background-color: ${mainColorBlue};
+`
+const GroupName = styled.p`
+  margin-top: 12px;
+  margin-bottom: 4px;
+  color: #6c6b6b;
+  font-weight: 500;
+  font-size: 12px;
 `
 const InterestFormViewer = ({
   interestList,
@@ -99,13 +102,13 @@ const InterestFormViewer = ({
           <TabBox
             key={`${index}key`}
             isBorderStyle={`${index < 4 && interestList.length < 4}`}
-            isActive={`${interest.isActive}`}
+            isActive={`${interest.isActiveCategory}`}
             onClick={() => {
-              handleCurrentTab(interest)
+              handleCurrentTab(interest.category)
             }}
           >
             <Tab
-              isActive={`${interest.isActive}`}
+              isActive={`${interest.isActiveCategory}`}
               text={interest.category}
               fontSize="14px"
             />
@@ -115,27 +118,31 @@ const InterestFormViewer = ({
       <List>
         {interestList.map(
           (interest) =>
-            interest.isActive &&
-            interest.list.map((item, index) => (
-              <Unit
-                key={`${index}key`}
-                isActive={`${checkExistenceOfItem(selectedInterest, item)}`}
-                onClick={() => {
-                  handleSelectedInterest(item)
-                }}
-              >
-                {item}
-              </Unit>
+            interest.isActiveCategory &&
+            interest.list.map((group, index) => (
+              <React.Fragment key={getUniqueKey(index)}>
+                <GroupName>{group.groupName}</GroupName>
+                <UnitBox>
+                  {group.groupItems.map((item, index) => (
+                    <Tag
+                      key={getUniqueKey(index)}
+                      onClick={() => {
+                        handleSelectedInterest(item.type)
+                      }}
+                      itemName={item.type}
+                      isChoose={`${item.isActiveItem}`}
+                      isActive={`${item.isActiveItem}`}
+                    />
+                  ))}
+                </UnitBox>
+              </React.Fragment>
             )),
         )}
       </List>
       <SelectBox>
         {selectedInterest.length > 0 &&
           selectedInterest.map((item, index) => (
-            <Select key={`${index}key`}>
-              <ChoiceItem text={item} fontSize="14px" />
-              <RotatePlus isChoose={true} />
-            </Select>
+            <Tag itemName={item} isChoose="true" isActive="true" />
           ))}
       </SelectBox>
       <FinishBtn
