@@ -5,23 +5,23 @@ export interface IUnit {
 
 export interface List {
   groupName: string
-  groupItems: GroupItem[]
+  groupItems: Array<GroupItem>
 }
 
 export interface GroupItem {
   type: string
-  isActive: boolean
+  isActiveItem: boolean
 }
 
-export interface IInterestList {
+export interface InterestListTypes {
+  isActiveCategory: boolean
   category: string
-  list: Array<string>
-  isActive: boolean
+  list: Array<List>
 }
 export interface IInterestFormViewer extends IInterestForm {
-  interestList: Array<IInterestList>
+  interestList: Array<InterestListTypes>
   selectedInterest: Array<string>
-  handleCurrentTab: (interest: IInterestList) => void
+  handleCurrentTab: (category: string) => void
   handleSelectedInterest: (currentTab: string) => void
   handleRemoveInterest: (selectedIndex: number) => void
 }

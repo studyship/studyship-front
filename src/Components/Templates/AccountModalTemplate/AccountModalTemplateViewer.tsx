@@ -4,6 +4,7 @@ import { RowBox, Icon, NormalText } from 'src/Components/Atoms'
 import textLogoBlack from 'src/styles/icons/ss_logo_black_text.svg'
 import closeIcon from 'src/styles/icons/ss_logo_close.png'
 import { TAccountModal } from './types'
+import { getUniqueKey } from 'src/lib'
 
 const Container = styled.div`
   display: flex;
@@ -50,7 +51,9 @@ const AccountModalTemplateViewer = ({
         </Close>
       </TopBox>
       {typeof title === 'object'
-        ? title.map((item: string) => <Title text={item} fontSize="20px" />)
+        ? title.map((item, index) => (
+            <Title text={item} fontSize="20px" key={getUniqueKey(index)} />
+          ))
         : title && <Title text={title} fontSize="20px" />}
       <SubTitle text={subTitle} fontSize="14px" />
       {children}

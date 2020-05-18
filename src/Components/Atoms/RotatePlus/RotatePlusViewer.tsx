@@ -6,14 +6,17 @@ const Plus = styled.div`
   width: 18px;
   height: 18px;
   transition: all ease 0.5s;
-  ${(props: PlusProps) => props.isChoose && 'transform: rotate(135deg);'};
+
+  ${(props: PlusProps) =>
+    props.isChoose === 'true' && 'transform: rotate(135deg);'};
+
   cursor: pointer;
   :before,
   :after {
     content: '';
     position: absolute;
     background-color: ${(props: PlusProps) =>
-      props.isChoose ? 'white' : '#b3b3b3'};
+      props.isChoose === 'true' ? 'white' : '#b3b3b3'};
   }
   :before {
     left: 50%;
@@ -32,7 +35,7 @@ const Plus = styled.div`
 `
 
 type PlusProps = {
-  isChoose: boolean
+  isChoose: string
   plusColor?: string
   closeColor?: string
   size?: string
