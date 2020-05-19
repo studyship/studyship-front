@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import {
   Button,
   RowBox,
-  RotatePlus,
   NormalText,
   ColumnBox,
   Tag,
@@ -56,24 +55,6 @@ const SelectBox = styled(RowBox)`
   margin-bottom: 25px;
   border: 1px solid #e6e6e6;
   border-radius: 5px;
-`
-const Select = styled.div`
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  margin: 0.3em;
-  padding: 6px 10px;
-  ${(props: IUnit) =>
-    props.isActive !== 'true'
-      ? `background-color: white; color: #b3b3b3; border: 1px solid #b3b3b3;`
-      : `background-color: ${mainColorBlue}; color: white; border: 1px solid ${mainColorBlue};`};
-  border-radius: 50px;
-  cursor: pointer;
-`
-const ChoiceItem = styled(NormalText)`
-  margin-left: 3px;
-  margin-right: 5px;
-  color: inherit;
 `
 const FinishBtn = styled(Button)`
   border-radius: 33px;
@@ -142,7 +123,7 @@ const InterestFormViewer = ({
       <SelectBox>
         {selectedInterest.length > 0 &&
           selectedInterest.map((item, index) => (
-            <Tag itemName={item} isChoose="true" isActive="true" />
+            <Tag itemName={item.type} isChoose="true" isActive="true" />
           ))}
       </SelectBox>
       <FinishBtn

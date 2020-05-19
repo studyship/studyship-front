@@ -20,7 +20,7 @@ export interface InterestListTypes {
 }
 export interface IInterestFormViewer extends IInterestForm {
   interestList: Array<InterestListTypes>
-  selectedInterest: Array<string>
+  selectedInterest: Array<GroupItem>
   handleCurrentTab: (category: string) => void
   handleSelectedInterest: (currentTab: string) => void
   handleRemoveInterest: (selectedIndex: number) => void

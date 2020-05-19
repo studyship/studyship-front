@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import InterestFormViewer from './InterestFormViewer'
-import { IInterestForm } from './types'
+import { IInterestForm, List, GroupItem } from './types'
 import { deleteSelectedItemInArray } from 'src/lib'
 import { categoryOptions } from './dummyOptions'
 
 const InterestFormContainer = ({ handleNextStage }: IInterestForm) => {
-  const [selectedInterest, setSelectedInterest] = useState<Array<string>>([])
+  const [selectedInterest, setSelectedInterest] = useState<Array<GroupItem>>([])
   const [interestList, setInterestList] = useState(categoryOptions)
 
   const handleCurrentTab = (category: string) => {
@@ -23,29 +23,27 @@ const InterestFormContainer = ({ handleNextStage }: IInterestForm) => {
         list: interest.list.map((item) => {
           return {
             ...item,
-            groupItems: item.groupItems.map((groupItem) =>
-              groupItem.type === currentItem
-                ? {
-                    ...groupItem,
-                    isActiveItem: true,
-                  }
-                : {
-                    ...groupItem,
-                  },
-            ),
+            groupItems: item.groupItems.map((groupItem) => {
+              if (groupItem.type === currentItem) {
+                const updateItem = {
+                  ...groupItem,
+                  isActiveItem: true,
+                }
+                setSelectedInterest([...selectedInterest, updateItem])
+                return updateItem
+              } else {
+                return {
+                  ...groupItem,
+                }
+              }
+            }),
           }
         }),
       }
     })
     setInterestList(updateCurrentTab)
   }
-  const handleRemoveInterest = (selectedIndex: number) => {
-    const updateSelectedInterest = deleteSelectedItemInArray(
-      selectedInterest,
-      selectedIndex,
-    )
-    setSelectedInterest(updateSelectedInterest)
-  }
+  const handleRemoveInterest = (selectedIndex: number) => {}
   return (
     <InterestFormViewer
       interestList={interestList}
