@@ -123,7 +123,14 @@ const InterestFormViewer = ({
       <SelectBox>
         {selectedInterest.length > 0 &&
           selectedInterest.map((item, index) => (
-            <Tag itemName={item.type} isChoose="true" isActive="true" />
+            <Tag
+              itemName={item.type}
+              isChoose="true"
+              isActive="true"
+              onClick={() => {
+                handleRemoveInterest(index)
+              }}
+            />
           ))}
       </SelectBox>
       <FinishBtn

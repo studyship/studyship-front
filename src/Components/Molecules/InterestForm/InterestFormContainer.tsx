@@ -43,7 +43,13 @@ const InterestFormContainer = ({ handleNextStage }: IInterestForm) => {
     })
     setInterestList(updateCurrentTab)
   }
-  const handleRemoveInterest = (selectedIndex: number) => {}
+  const handleRemoveInterest = (selectedIndex: number) => {
+    const updateSelectedInterest = deleteSelectedItemInArray(
+      selectedInterest,
+      selectedIndex,
+    )
+    setSelectedInterest(updateSelectedInterest)
+  }
   return (
     <InterestFormViewer
       interestList={interestList}
