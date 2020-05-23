@@ -17,31 +17,35 @@ const InterestFormContainer = ({ handleNextStage }: IInterestForm) => {
     setInterestList(updateActiveTab)
   }
   const handleSelectedInterest = (currentItem: string) => {
-    const updateCurrentTab = interestList.map((interest) => {
-      return {
-        ...interest,
-        list: interest.list.map((item) => {
-          return {
-            ...item,
-            groupItems: item.groupItems.map((groupItem) => {
-              if (groupItem.type === currentItem) {
-                const updateItem = {
-                  ...groupItem,
-                  isActiveItem: true,
+    if (selectedInterest.length === 5) {
+      return
+    } else {
+      const updateCurrentTab = interestList.map((interest) => {
+        return {
+          ...interest,
+          list: interest.list.map((item) => {
+            return {
+              ...item,
+              groupItems: item.groupItems.map((groupItem) => {
+                if (groupItem.type === currentItem) {
+                  const updateItem = {
+                    ...groupItem,
+                    isActiveItem: true,
+                  }
+                  setSelectedInterest([...selectedInterest, updateItem])
+                  return updateItem
+                } else {
+                  return {
+                    ...groupItem,
+                  }
                 }
-                setSelectedInterest([...selectedInterest, updateItem])
-                return updateItem
-              } else {
-                return {
-                  ...groupItem,
-                }
-              }
-            }),
-          }
-        }),
-      }
-    })
-    setInterestList(updateCurrentTab)
+              }),
+            }
+          }),
+        }
+      })
+      setInterestList(updateCurrentTab)
+    }
   }
   const handleRemoveInterest = (selectedIndex: number) => {
     const updateSelectedInterest = deleteSelectedItemInArray(
