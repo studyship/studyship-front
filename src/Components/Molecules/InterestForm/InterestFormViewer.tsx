@@ -6,12 +6,16 @@ import {
   NormalText,
   ColumnBox,
   Tag,
+  UnderlineText,
 } from 'src/Components/Atoms'
 import { mainColorBlue } from 'src/styles/Colors'
 import { IUnit, IInterestFormViewer } from './types'
 import { getUniqueKey } from 'src/lib'
 
 const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 0px 14px;
 `
 const Category = styled(RowBox)`
@@ -49,6 +53,7 @@ const UnitBox = styled(RowBox)`
   flex-wrap: wrap;
 `
 const SelectBox = styled(RowBox)`
+  width: 100%;
   flex-wrap: wrap;
   min-height: 76px;
   margin-top: 5px;
@@ -57,6 +62,7 @@ const SelectBox = styled(RowBox)`
   border-radius: 5px;
 `
 const FinishBtn = styled(Button)`
+  margin-bottom: 10px;
   border-radius: 33px;
   font-weight: bold;
   background-color: ${mainColorBlue};
@@ -135,6 +141,12 @@ const InterestFormViewer = ({
       </SelectBox>
       <FinishBtn
         text="완료"
+        onClick={() => {
+          handleNextStage('selfIntro')
+        }}
+      />
+      <UnderlineText
+        text="건너뛰기"
         onClick={() => {
           handleNextStage('selfIntro')
         }}
