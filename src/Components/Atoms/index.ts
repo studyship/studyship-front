@@ -15,6 +15,7 @@ import YellowCheckbox from './YellowCheckbox'
 import ColumnBox from './ColumnBox'
 import RotatePlus from './RotatePlus'
 import Tag from './Tag'
+import UnderlineText from './UnderlineText'
 
 export {
   JumboTitle,
@@ -34,4 +35,5 @@ export {
   ColumnBox,
   RotatePlus,
   Tag,
+  UnderlineText,
 }
