@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import { ISelfIntroduceFormViewer } from './types'
 import { NormalText, Button } from 'src/Components/Atoms'
-import TextareaAutosize from 'react-textarea-autosize'
 import { mainColorBlue } from 'src/styles/Colors'
 
 const Container = styled.div`
