@@ -11,7 +11,10 @@ interface INormalText extends INormalTextStyle {
   onClick?: () => void
 }
 
-const Container = styled.h3`
+const Container = styled.p`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-weight: normal;
   font-size: ${(props: INormalTextStyle) =>
     props.fontSize ? props.fontSize : '22px'};
