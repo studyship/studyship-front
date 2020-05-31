@@ -9,8 +9,10 @@ import {
   UnderlineText,
 } from 'src/Components/Atoms'
 import { mainColorBlue } from 'src/styles/Colors'
-import { IUnit, IInterestFormViewer } from './types'
 import { getUniqueKey } from 'src/lib'
+import { HandleNextStageType, IUnit, InterestListTypes } from 'src/@types'
+import increaseArrayLenght from 'src/lib/increaseArrayLenght'
+import booleanToNumber from 'src/lib/booleanToNumber'
 
 const Container = styled.div`
   display: flex;
@@ -21,7 +23,7 @@ const Container = styled.div`
 const Category = styled(RowBox)`
   flex-wrap: wrap;
   border: 1px solid ${mainColorBlue};
-  border-radius: 5px;
+  border-radius: 2px;
 `
 const TabBox = styled.div`
   display: flex;
@@ -31,13 +33,12 @@ const TabBox = styled.div`
   border-right: 1px solid ${mainColorBlue};
   font-size: 12px;
   white-space: nowrap;
-  cursor: pointer;
+  cursor: ${(props: IUnit) =>
+    props.cursorType ? props.cursorType : 'pointer'};
   ${(props: IUnit) =>
-    props.isBorderStyle === 'true' &&
-    `border-bottom: 1px solid ${mainColorBlue};`};
+    props.isBorderStyle && `border-bottom: 1px solid ${mainColorBlue};`};
   ${(props: IUnit) =>
-    props.isActive === 'true' &&
-    `background-color:${mainColorBlue}; color:white;`};
+    props.isActive && `background-color:${mainColorBlue}; color:white;`};
   :nth-of-type(4n) {
     border-right: none;
   }
@@ -45,10 +46,11 @@ const TabBox = styled.div`
 const Tab = styled(NormalText)`
   color: ${mainColorBlue};
   ${(props: IUnit) =>
-    props.isActive === 'true' &&
-    `background-color:${mainColorBlue}; color:white;`};
+    props.isActive && `background-color:${mainColorBlue}; color:white;`};
 `
-const List = styled(ColumnBox)``
+const List = styled(ColumnBox)`
+  width: 100%;
+`
 const UnitBox = styled(RowBox)`
   flex-wrap: wrap;
 `
@@ -56,7 +58,7 @@ const SelectBox = styled(RowBox)`
   width: 100%;
   flex-wrap: wrap;
   min-height: 76px;
-  margin-top: 5px;
+  margin-top: 20px;
   margin-bottom: 25px;
   border: 1px solid #e6e6e6;
   border-radius: 5px;
@@ -74,33 +76,49 @@ const GroupName = styled.p`
   font-weight: 500;
   font-size: 12px;
 `
+
+export interface InterestFormViewerProps extends HandleNextStageType {
+  interestList: Array<InterestListTypes>
+  handleCurrentTab: (category: string) => void
+  handleSelectedInterest: (currentTab: string, toggleType: boolean) => void
+}
+
 const InterestFormViewer = ({
   interestList,
   handleCurrentTab,
   handleSelectedInterest,
-  selectedInterest,
-  handleRemoveInterest,
   handleNextStage,
-}: IInterestFormViewer) => {
+}: InterestFormViewerProps) => {
   return (
     <Container>
       <Category>
-        {interestList.map((interest, index) => (
-          <TabBox
-            key={`${index}key`}
-            isBorderStyle={`${index < 4 && interestList.length < 4}`}
-            isActive={`${interest.isActiveCategory}`}
-            onClick={() => {
-              handleCurrentTab(interest.category)
-            }}
-          >
-            <Tab
-              isActive={`${interest.isActiveCategory}`}
-              text={interest.category}
-              fontSize="14px"
-            />
-          </TabBox>
-        ))}
+        {increaseArrayLenght(interestList, 8).map((interest, index) =>
+          interest ? (
+            <TabBox
+              key={`${index}key`}
+              isBorderStyle={booleanToNumber(index < 4)}
+              isActive={booleanToNumber(interest.isActiveCategory)}
+              onClick={() => {
+                handleCurrentTab(interest.category)
+              }}
+            >
+              <Tab
+                isActive={booleanToNumber(interest.isActiveCategory)}
+                text={interest.category}
+                fontSize="14px"
+              />
+            </TabBox>
+          ) : (
+            <TabBox
+              key={`${index}key`}
+              cursorType="default"
+              isBorderStyle={booleanToNumber(index < 4)}
+              isActive={booleanToNumber(false)}
+            >
+              <Tab isActive={booleanToNumber(false)} text="-" fontSize="14px" />
+            </TabBox>
+          ),
+        )}
       </Category>
       <List>
         {interestList.map(
@@ -114,7 +132,7 @@ const InterestFormViewer = ({
                     <Tag
                       key={getUniqueKey(index)}
                       onClick={() => {
-                        handleSelectedInterest(item.type)
+                        handleSelectedInterest(item.type, true)
                       }}
                       itemName={item.type}
                       isChoose={item.isActiveItem}
@@ -127,18 +145,24 @@ const InterestFormViewer = ({
         )}
       </List>
       <SelectBox>
-        {selectedInterest.length > 0 &&
-          selectedInterest.map((item, index) => (
-            <Tag
-              key={getUniqueKey(index)}
-              itemName={item.type}
-              isChoose={true}
-              isActive={true}
-              onClick={() => {
-                handleRemoveInterest(index)
-              }}
-            />
-          ))}
+        {interestList.map((interest) =>
+          interest.list.map((group) =>
+            group.groupItems.map(
+              (item, index) =>
+                item.isActiveItem && (
+                  <Tag
+                    key={getUniqueKey(index)}
+                    itemName={item.type}
+                    isChoose={true}
+                    isActive={true}
+                    onClick={() => {
+                      handleSelectedInterest(item.type, false)
+                    }}
+                  />
+                ),
+            ),
+          ),
+        )}
       </SelectBox>
       <FinishBtn
         text="완료"
