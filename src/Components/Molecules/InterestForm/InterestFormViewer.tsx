@@ -117,8 +117,8 @@ const InterestFormViewer = ({
                         handleSelectedInterest(item.type)
                       }}
                       itemName={item.type}
-                      isChoose={`${item.isActiveItem}`}
-                      isActive={`${item.isActiveItem}`}
+                      isChoose={item.isActiveItem}
+                      isActive={item.isActiveItem}
                     />
                   ))}
                 </UnitBox>
@@ -130,9 +130,10 @@ const InterestFormViewer = ({
         {selectedInterest.length > 0 &&
           selectedInterest.map((item, index) => (
             <Tag
+              key={getUniqueKey(index)}
               itemName={item.type}
-              isChoose="true"
-              isActive="true"
+              isChoose={true}
+              isActive={true}
               onClick={() => {
                 handleRemoveInterest(index)
               }}
