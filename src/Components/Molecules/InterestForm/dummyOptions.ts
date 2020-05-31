@@ -106,4 +106,14 @@ export const categoryOptions = [
       },
     ],
   },
+  {
+    isActiveCategory: false,
+    category: '콜라보',
+    list: [
+      {
+        groupName: 'collabo',
+        groupItems: [{ type: '사이드 프로젝트', isActiveItem: false }],
+      },
+    ],
+  },
 ]
