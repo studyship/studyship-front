@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import InterestFormViewer from './InterestFormViewer'
 import { IInterestForm, List, GroupItem } from './types'
-import { deleteSelectedItemInArray } from 'src/lib'
+import { deleteSelectedItemInArray, arrayToUnique } from 'src/lib'
 import { categoryOptions } from './dummyOptions'
 
 const InterestFormContainer = ({ handleNextStage }: IInterestForm) => {
@@ -32,7 +32,7 @@ const InterestFormContainer = ({ handleNextStage }: IInterestForm) => {
                     ...groupItem,
                     isActiveItem: true,
                   }
-                  setSelectedInterest([...selectedInterest, updateItem])
+                  !groupItem.isActiveItem && handleAddInterest(updateItem)
                   return updateItem
                 } else {
                   return {
@@ -46,6 +46,10 @@ const InterestFormContainer = ({ handleNextStage }: IInterestForm) => {
       })
       setInterestList(updateCurrentTab)
     }
+  }
+  const handleAddInterest = (updateItem: GroupItem) => {
+    const updateSelectedList = [...selectedInterest, updateItem]
+    setSelectedInterest(updateSelectedList)
   }
   const handleRemoveInterest = (selectedIndex: number) => {
     const updateSelectedInterest = deleteSelectedItemInArray(

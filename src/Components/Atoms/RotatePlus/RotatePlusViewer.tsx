@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { RotatePlusProps, PluseTypes } from 'src/@types'
 
 const Plus = styled.div`
   position: relative;
@@ -7,16 +8,15 @@ const Plus = styled.div`
   height: 18px;
   transition: all ease 0.5s;
 
-  ${(props: PlusProps) =>
-    props.isChoose === 'true' && 'transform: rotate(135deg);'};
+  ${(props: PluseTypes) => props.isChoose && 'transform: rotate(135deg);'};
 
   cursor: pointer;
   :before,
   :after {
     content: '';
     position: absolute;
-    background-color: ${(props: PlusProps) =>
-      props.isChoose === 'true' ? 'white' : '#b3b3b3'};
+    background-color: ${(props: PluseTypes) =>
+      props.isChoose ? 'white' : '#b3b3b3'};
   }
   :before {
     left: 50%;
@@ -34,13 +34,7 @@ const Plus = styled.div`
   }
 `
 
-type PlusProps = {
-  isChoose: string
-  plusColor?: string
-  closeColor?: string
-  size?: string
-}
-const RotatePlusViewer = ({ isChoose }: PlusProps) => {
+const RotatePlusViewer = ({ isChoose }: RotatePlusProps) => {
   return <Plus isChoose={isChoose} />
 }
 
