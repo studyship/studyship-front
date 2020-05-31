@@ -32,11 +32,7 @@ const InterestFormContainer = ({ handleNextStage }: IInterestForm) => {
                     ...groupItem,
                     isActiveItem: true,
                   }
-                  const updateSelectedList = [...selectedInterest, updateItem]
-
-                  const uniqueSelectedList = arrayToUnique(updateSelectedList)
-                  console.log(uniqueSelectedList)
-                  setSelectedInterest(uniqueSelectedList)
+                  !groupItem.isActiveItem && handleAddInterest(updateItem)
                   return updateItem
                 } else {
                   return {
@@ -50,6 +46,10 @@ const InterestFormContainer = ({ handleNextStage }: IInterestForm) => {
       })
       setInterestList(updateCurrentTab)
     }
+  }
+  const handleAddInterest = (updateItem: GroupItem) => {
+    const updateSelectedList = [...selectedInterest, updateItem]
+    setSelectedInterest(updateSelectedList)
   }
   const handleRemoveInterest = (selectedIndex: number) => {
     const updateSelectedInterest = deleteSelectedItemInArray(
