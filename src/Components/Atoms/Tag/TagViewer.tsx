@@ -2,14 +2,16 @@ import React from 'react'
 import styled from 'styled-components'
 import { NormalText, RotatePlus } from '..'
 import { mainColorBlue } from 'src/styles/Colors'
+import booleanToNumber from 'src/lib/booleanToNumber'
 
 interface SelectProps {
-  isActive: string
+  isActive: number | boolean
 }
 
 interface TagProps extends SelectProps {
   itemName: string
-  isChoose: string
+  isActive: boolean
+  isChoose: boolean
   onClick?: () => void
 }
 
@@ -20,9 +22,9 @@ const Select = styled.div`
   margin: 0.3em;
   padding: 6px 10px;
   ${(props: SelectProps) =>
-    props.isActive !== 'true'
-      ? `background-color: white; color: #b3b3b3; border: 1px solid #b3b3b3;`
-      : `background-color: ${mainColorBlue}; color: white; border: 1px solid ${mainColorBlue};`};
+    props.isActive
+      ? `background-color: ${mainColorBlue}; color: white; border: 1px solid ${mainColorBlue};`
+      : `background-color: white; color: #b3b3b3; border: 1px solid #b3b3b3;`};
   border-radius: 50px;
   cursor: pointer;
 `
@@ -34,7 +36,7 @@ const ChoiceItem = styled(NormalText)`
 
 const TagViewer = ({ itemName, isChoose, isActive, onClick }: TagProps) => {
   return (
-    <Select isActive={isActive} onClick={onClick}>
+    <Select isActive={booleanToNumber(isActive)} onClick={onClick}>
       <ChoiceItem text={itemName} fontSize="14px" />
       <RotatePlus isChoose={isChoose} />
     </Select>
