@@ -33,7 +33,7 @@ const SubTitle = styled(NormalText)`
   margin-bottom: 11px;
 `
 
-const AccountModalTemplateViewer = ({
+const AccountModalViewer = ({
   children,
   handleModalInactive,
   title,
@@ -61,4 +61,4 @@ const AccountModalTemplateViewer = ({
   )
 }
 
-export default AccountModalTemplateViewer
+export default AccountModalViewer
