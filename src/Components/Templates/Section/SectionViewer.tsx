@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import { ISectionTemplate } from './types'
 
 const Container = styled.div`
   display: flex;
@@ -9,8 +8,12 @@ const Container = styled.div`
   min-height: 100vh;
 `
 
-const SectionTemplateViewer = ({ children }: ISectionTemplate) => {
+export interface ISectionTemplate {
+  children: React.ReactNode
+}
+
+const SectionViewer = ({ children }: ISectionTemplate) => {
   return <Container>{children}</Container>
 }
 
-export default SectionTemplateViewer
+export default SectionViewer
