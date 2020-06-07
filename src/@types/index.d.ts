@@ -33,3 +33,9 @@ export interface InterestListTypes {
 export interface HandleNextStageType {
   handleNextStage: (nextTab: string) => void
 }
+
+// tooltip
+export type TooltipProps = {
+  children: React.ReactNode
+  direction: 'up' | 'left' | 'down' | 'right'
+}
