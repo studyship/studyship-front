@@ -14,15 +14,12 @@ import { ILoginFormViewer } from './types'
 import googleIcon from 'src/styles/icons/ss_icon_google.svg'
 import kakaoIcon from 'src/styles/icons/ss_icon_kakao.svg'
 
-const Container = styled.div`
-  > input:nth-child(3) {
-    margin-bottom: 10px;
-  }
-  > input:nth-child(4) {
-    margin-bottom: 16px;
-  }
+const Container = styled.div``
+const Email = styled(Input)`
+  margin-bottom: 10px;
 `
 const LoginButton = styled(Button)`
+  margin-top: 16px;
   margin-bottom: 8px;
   background-color: ${mainColorBlue};
   border-radius: 33px;
@@ -58,7 +55,7 @@ const LoginFormViewer = ({
   return (
     <Container>
       <Title text="이메일로 로그인" fontSize="15px" />
-      <Input placeholder="이메일" />
+      <Email placeholder="이메일" />
       <Input placeholder="비밀번호" />
       <LoginButton
         text="로그인"
@@ -81,7 +78,7 @@ const LoginFormViewer = ({
             handleNextStage('choice')
           }}
         />
-        <VerticalBar horizonSapce="5px" />
+        <VerticalBar />
         <Footer fontSize="15px" text="😢비밀번호를 까먹었어요" />
       </FooterBox>
     </Container>

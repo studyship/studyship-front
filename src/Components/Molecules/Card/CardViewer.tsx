@@ -15,7 +15,7 @@ import clockIcon from 'src/styles/icons/ss_icon_clock.svg'
 import locationIcon from 'src/styles/icons/ss_icon_location.svg'
 import groupIcon from 'src/styles/icons/ss_icon_group.svg'
 import whatchIcon from 'src/styles/icons/ss_icon_whatch.svg'
-import commentIcon from 'src/styles/icons/ss_icon_message.svg'
+import commentIcon from 'src/styles/icons/ss_icon_comment.svg'
 
 const Container = styled.div`
   position: relative;
@@ -119,9 +119,6 @@ const Description = styled.div`
   justify-content: center;
   align-items: center;
 `
-const DescriptionIcon = styled.div`
-  margin-right: 3px;
-`
 const DescriptionText = styled(NormalText)`
   color: #b3b3b3b3;
 `
@@ -158,15 +155,11 @@ const CardViewer = () => {
         <DescriptionBox>
           <DescriptionInfo>
             <Description>
-              <DescriptionIcon>
-                <Icon imgSrc={clockIcon}></Icon>
-              </DescriptionIcon>
+              <Icon imgSrc={clockIcon}></Icon>
               <DescriptionText fontSize="12px" text="토, 일" />
             </Description>
             <Description>
-              <DescriptionIcon>
-                <Icon imgSrc={locationIcon}></Icon>
-              </DescriptionIcon>
+              <Icon imgSrc={locationIcon}></Icon>
               <DescriptionText fontSize="12px" text="3/5명" />
             </Description>
           </DescriptionInfo>
@@ -182,23 +175,17 @@ const CardViewer = () => {
           <NormalText fontSize="12px" text="선장" />
           <Nickname fontSize="12px" text="김수민" />
           <Description>
-            <DescriptionIcon>
-              <Icon imgSrc={groupIcon} />
-            </DescriptionIcon>
+            <Icon imgSrc={groupIcon} />
             <DescriptionText fontSize="12px" text="3/5명" />
           </Description>
         </WriterSection>
         <PostInfomation>
           <Description>
-            <DescriptionIcon>
-              <Icon imgSrc={whatchIcon} />
-            </DescriptionIcon>
+            <Icon imgSrc={whatchIcon} />
             <DescriptionText fontSize="12px" text="206" />
           </Description>
           <Description>
-            <DescriptionIcon>
-              <Icon imgSrc={commentIcon} />
-            </DescriptionIcon>
+            <Icon imgSrc={commentIcon} />
             <DescriptionText fontSize="12px" text="9" />
           </Description>
         </PostInfomation>
