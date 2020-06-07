@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import { IHomeTemplate } from './types'
 
 const Container = styled.div`
   margin-left: auto;
@@ -17,8 +16,12 @@ const Container = styled.div`
   }
 `
 
-const HomeTemplateViewer = ({ children }: IHomeTemplate) => {
+type HomeProps = {
+  children: React.ReactNode
+}
+
+const HomeViewer = ({ children }: HomeProps) => {
   return <Container>{children}</Container>
 }
 
-export default HomeTemplateViewer
+export default HomeViewer
