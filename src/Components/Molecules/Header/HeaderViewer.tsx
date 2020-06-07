@@ -94,14 +94,11 @@ const Account = styled(Button)`
   }
 `
 const IconRow = styled(RowBox)`
+  margin-left: 10px;
   > * :nth-child(2) {
-    margin-left: 5px;
-    margin-right: 5px;
+    margin-left: 15px;
+    margin-right: 15px;
   }
-`
-const IconBox = styled.div`
-  width: 20px;
-  height: 20px;
 `
 
 const HeaderViewer = ({
@@ -142,21 +139,15 @@ const HeaderViewer = ({
             <SLink to="#About">스터디 만들기</SLink>
           </List>
           <List>
-            <SLink to="#Services">About</SLink>
+            <SLink to="#Services">ABOUT</SLink>
           </List>
-          <VerticalBar />
+          <VerticalBar marginHorizontal="10px" />
           <List>
             {isLoggedIn ? (
               <IconRow>
-                <IconBox>
-                  <Icon imgSrc={messageLogo} />
-                </IconBox>
-                <IconBox>
-                  <Icon imgSrc={notificationLogo} />
-                </IconBox>
-                <IconBox>
-                  <Icon imgSrc={profileLogo} />
-                </IconBox>
+                <Icon imgSrc={messageLogo} />
+                <Icon imgSrc={notificationLogo} />
+                <Icon imgSrc={profileLogo} />
               </IconRow>
             ) : (
               <AccountBox>

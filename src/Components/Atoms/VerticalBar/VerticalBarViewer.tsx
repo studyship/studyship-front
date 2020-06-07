@@ -1,16 +1,21 @@
 import React from 'react'
 import styled from 'styled-components'
-import { IVerticalBar } from './types'
+
+type VerticalBarProps = {
+  marginHorizontal?: string
+  bgColor?: string
+  width?: string
+}
 
 const VerticalBar = styled.span`
-  margin-left: ${(props: IVerticalBar) =>
-    props.horizonSapce ? props.horizonSapce : '5px'};
-  margin-right: ${(props: IVerticalBar) =>
-    props.horizonSapce ? props.horizonSapce : '5px'};
-  color: inherit;
+  ${(props: VerticalBarProps) =>
+    props.marginHorizontal && `margin: 0px ${props.marginHorizontal}`};
+  color: ${(props: VerticalBarProps) =>
+    props.bgColor ? props.bgColor : 'black'};
+  width: ${(props: VerticalBarProps) => (props.width ? props.width : '1px')};
 `
-const VerticalBarViewer = ({ horizonSapce }: IVerticalBar) => {
-  return <VerticalBar horizonSapce={horizonSapce}>|</VerticalBar>
+const VerticalBarViewer = ({ marginHorizontal }: VerticalBarProps) => {
+  return <VerticalBar marginHorizontal={marginHorizontal}>|</VerticalBar>
 }
 
 export default VerticalBarViewer
