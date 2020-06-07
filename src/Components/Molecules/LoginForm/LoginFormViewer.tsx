@@ -7,6 +7,7 @@ import {
   RowBox,
   VerticalBar,
   YellowCheckbox,
+  SocialLoginButton,
 } from 'src/Components/Atoms'
 import { mainColorBlue, mainColorBlack, darkGrey } from 'src/styles/Colors'
 import { ILoginFormViewer } from './types'
@@ -25,14 +26,6 @@ const LoginButton = styled(Button)`
   margin-bottom: 8px;
   background-color: ${mainColorBlue};
   border-radius: 33px;
-`
-const SocialLoginButton = styled(Button)`
-  margin-bottom: 10px;
-  border-radius: 33px;
-  border-color: #e6e6e6;
-  color: black;
-  font-weight: bold;
-  font-size: 14px;
 `
 const LoginKeep = styled(RowBox)`
   margin-bottom: 45px;

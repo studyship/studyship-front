@@ -16,6 +16,7 @@ import ColumnBox from './ColumnBox'
 import RotatePlus from './RotatePlus'
 import Tag from './Tag'
 import UnderlineText from './UnderlineText'
+import SocialLoginButton from './SocialLoginButton'
 
 export {
   JumboTitle,
@@ -36,4 +37,5 @@ export {
   RotatePlus,
   Tag,
   UnderlineText,
+  SocialLoginButton,
 }
