@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import InterestFormViewer from './InterestFormViewer'
 import { categoryOptions } from './dummyOptions'
 import { useInterestList } from './hooks'

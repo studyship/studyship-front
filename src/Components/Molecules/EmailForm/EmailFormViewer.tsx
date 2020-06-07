@@ -24,14 +24,17 @@ const Container = styled.div`
 const Title = styled(NormalText)`
   margin-bottom: 9px;
 `
+const Before = styled(NormalText)`
+  margin-bottom: 9px;
+  color: #b3b3b3;
+  text-decoration: underline;
+  cursor: pointer;
+`
 const NextButton = styled(Button)`
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   border-radius: 33px;
   background-color: ${mainColorBlue};
   font-weight: bold;
-`
-const BeforeButton = styled(Button)`
-  color: #b3b3b3;
 `
 const TOU = styled(RowBox)`
   margin: 16px 0px;
@@ -65,13 +68,7 @@ const EmailFormViewer = ({
         }}
         fontSize="15px"
       />
-      <BeforeButton
-        text="이전으로"
-        fontSize="12px"
-        onClick={() => {
-          handleNextStage('choice')
-        }}
-      />
+      <Before text="이전으로" fontSize="12px" />
     </Container>
   )
 }

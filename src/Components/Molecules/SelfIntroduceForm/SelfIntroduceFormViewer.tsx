@@ -1,17 +1,17 @@
 import React from 'react'
 import styled from 'styled-components'
 import { ISelfIntroduceFormViewer } from './types'
-import { NormalText, Button } from 'src/Components/Atoms'
+import { NormalText, Button, RowBox } from 'src/Components/Atoms'
 import { mainColorBlue } from 'src/styles/Colors'
 
 const Container = styled.div`
   width: 100%;
 `
 const STextareaAutosize = styled.textarea`
+  width: 100%;
   padding: 7px 10px;
   margin-bottom: 6px;
   min-height: 130px;
-  width: 100%;
   background-color: transparent;
   border: 1px solid #e6e6e6;
   font-weight: normal;
@@ -24,6 +24,7 @@ const STextareaAutosize = styled.textarea`
   }
 `
 const TextLimits = styled(NormalText)`
+  display: block;
   position: relative;
   top: -30px;
   right: 8px;
@@ -33,6 +34,7 @@ const TextLimits = styled(NormalText)`
 `
 const FinishBtn = styled(Button)`
   background-color: ${mainColorBlue};
+  border-radius: 33px;
 `
 
 const SelfIntroduceFormViewer = ({
