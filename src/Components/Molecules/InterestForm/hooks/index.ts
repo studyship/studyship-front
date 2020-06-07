@@ -25,7 +25,7 @@ export const useInterestList = (
   }
 
   const handleSelectedInterest = (currentItem: string, toggleType: boolean) => {
-    if (listLimits < selectedListLength - 1) {
+    if (listLimits - 1 < selectedListLength) {
       return
     } else {
       const updateCurrentTab = interestList.map((interest) => {

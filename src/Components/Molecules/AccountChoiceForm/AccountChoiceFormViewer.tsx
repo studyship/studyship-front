@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Button } from 'src/Components/Atoms'
+import { Button, SocialLoginButton } from 'src/Components/Atoms'
 import { mainColorBlue } from 'src/styles/Colors'
 import googleIcon from 'src/styles/icons/ss_icon_google.svg'
 import kakaoIcon from 'src/styles/icons/ss_icon_kakao.svg'
@@ -11,14 +11,6 @@ const LoginButton = styled(Button)`
   margin-bottom: 8px;
   background-color: ${mainColorBlue};
   border-radius: 33px;
-`
-const SocialLoginButton = styled(Button)`
-  margin-bottom: 10px;
-  border-radius: 33px;
-  border-color: #e6e6e6;
-  color: black;
-  font-weight: bold;
-  font-size: 14px;
 `
 const AccountChoiceFormViewer = ({ handleNextStage }: IAccountChoiceForm) => {
   return (
