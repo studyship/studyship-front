@@ -34,8 +34,12 @@ export interface HandleNextStageType {
   handleNextStage: (nextTab: string) => void
 }
 
-// tooltip
-export type TooltipProps = {
-  children: React.ReactNode
-  direction: 'up' | 'left' | 'down' | 'right'
+// top arrow tooltip
+export interface TooltipProps extends TooltipStyleProps {
+  children: React.ReactChild
+  direction?: 'up' | 'left' | 'down' | 'right'
+}
+export type TooltipStyleProps = {
+  bgColor?: string
+  borderRadius?: string
 }
