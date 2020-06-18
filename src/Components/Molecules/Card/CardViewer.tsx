@@ -146,7 +146,7 @@ const CardViewer = () => {
         </TitleBox>
         <CategoryBox>
           <Category>디자인</Category>
-          <Category>></Category>
+          <Category>{'>'}</Category>
           <Category>UXUI</Category>
         </CategoryBox>
         <Target>

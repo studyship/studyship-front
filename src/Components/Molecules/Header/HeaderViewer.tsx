@@ -1,6 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
+import { isMobile } from 'react-device-detect'
+import { ModalTemplate } from '@devgw-react/blank-modal'
+
 import {
   Icon,
   InputHover,
@@ -8,14 +11,12 @@ import {
   RowBox,
   Button,
 } from 'src/Components/Atoms'
+import { IHeader, ITopNav } from './types'
+import { AccountForm, ProfileTooltip } from '..'
 import LogoColorS from 'src/styles/icons/SS_Logo_colorS.png'
 import notificationLogo from 'src/styles/icons/ss_icon_notification.svg'
 import profileLogo from 'src/styles/icons/ss_icon_profile.svg'
 import messageLogo from 'src/styles/icons/ss_icon_message.svg'
-import { IHeader, ITopNav } from './types'
-import { isMobile } from 'react-device-detect'
-import { ModalTemplate } from '@devgw-react/blank-modal'
-import { AccountForm } from '..'
 import {
   mainColorBlue,
   backgroundColor,
@@ -25,7 +26,7 @@ import {
 } from 'src/styles/Colors'
 
 const TopNav = styled.header`
-  position: fixed;
+  /* position: fixed; */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -35,9 +36,9 @@ const TopNav = styled.header`
   left: 0;
   z-index: 100;
   transition: 0.6s;
-  ${(props: ITopNav) =>
+  /* ${(props: ITopNav) =>
     props.screenHeight &&
-    'padding: 10px 160px; background-color:white; border-bottom:1px solid (0,0,0,.1); color:black;'}
+    'padding: 10px 160px; background-color:white; border-bottom:1px solid (0,0,0,.1); color:black;'} */
   @media screen and (max-width: 450px) {
     flex-direction: column;
     padding: 20px 20px;
@@ -147,7 +148,9 @@ const HeaderViewer = ({
               <IconRow>
                 <Icon imgSrc={messageLogo} />
                 <Icon imgSrc={notificationLogo} />
-                <Icon imgSrc={profileLogo} />
+                <ProfileTooltip>
+                  <Icon imgSrc={profileLogo} />
+                </ProfileTooltip>
               </IconRow>
             ) : (
               <AccountBox>
