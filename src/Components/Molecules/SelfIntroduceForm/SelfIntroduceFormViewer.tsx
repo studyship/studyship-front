@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { ISelfIntroduceFormViewer } from './types'
-import { NormalText, Button, RowBox } from 'src/Components/Atoms'
+import { NormalText, Button } from 'src/Components/Atoms'
 import { mainColorBlue } from 'src/styles/Colors'
 
 const Container = styled.div`

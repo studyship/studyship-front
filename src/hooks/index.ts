@@ -1,4 +1,5 @@
 import useInputText from './useInputText'
 import useInputCheckbox from './useInputCheckbox'
+import useComponentVisible from './useComponentVisible'
 
-export { useInputText, useInputCheckbox }
+export { useInputText, useInputCheckbox, useComponentVisible }
