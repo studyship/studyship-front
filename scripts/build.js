@@ -183,6 +183,8 @@ function build(previousFileSizes) {
           process.env.CI.toLowerCase() !== 'false') &&
         messages.warnings.length
       ) {
+        console.log(process.env.CI, '@@@@')
+
         console.log(
           chalk.yellow(
             '\nTreating warnings as errors because process.env.CI = false.\n' +
