@@ -33,3 +33,13 @@ export interface InterestListTypes {
 export interface HandleNextStageType {
   handleNextStage: (nextTab: string) => void
 }
+
+// top arrow tooltip
+export interface TooltipProps extends TooltipStyleProps {
+  children: React.ReactChild
+  direction?: 'up' | 'left' | 'down' | 'right'
+}
+export type TooltipStyleProps = {
+  bgColor?: string
+  borderRadius?: string
+}
