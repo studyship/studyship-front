@@ -1,14 +1,17 @@
 import React from 'react'
 import styled from 'styled-components'
+import { dragLock } from 'src/styles/StylesOptions'
 
 import { TooltipProps, TooltipStyleProps } from 'src/@types'
 
 const Container = styled.div`
+  z-index: 100;
   position: absolute;
   top: 24px;
   right: -27px;
   display: flex;
   flex-direction: column;
+  ${dragLock}
 `
 const Direction = styled.div`
   display: flex;

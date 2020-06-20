@@ -25,7 +25,6 @@ const Name = styled(BoldText)`
   align-items: flex-end;
   margin-bottom: 8px;
 `
-
 const PencilIcon = styled.div`
   margin-bottom: 8px;
 `
@@ -40,6 +39,7 @@ const Menu = styled(NormalText)`
   :nth-of-type(2n) {
     margin: 30px 0px;
   }
+  cursor: pointer;
 `
 
 type ProfileTooltipProps = {
@@ -47,13 +47,9 @@ type ProfileTooltipProps = {
 }
 
 const ProfileTooltipViewer = ({ children }: ProfileTooltipProps) => {
-  const {
-    ref,
-    isComponentVisible,
-    setIsComponentVisible,
-  } = useComponentVisible(false)
+  const { ref, isComponentVisible } = useComponentVisible(false)
   return (
-    <Container ref={ref} onClick={() => setIsComponentVisible(true)}>
+    <Container ref={ref}>
       {children}
       {isComponentVisible && (
         <TopArrowTooltip>
@@ -66,7 +62,13 @@ const ProfileTooltipViewer = ({ children }: ProfileTooltipProps) => {
             </NameWrapper>
             <HorizontalBar color="#FFC545" />
             <MenuWrapper>
-              <Menu fontSize="16px" text="프로필" />
+              <Menu
+                fontSize="16px"
+                text="프로필"
+                onClick={() => {
+                  console.log('PROFILE')
+                }}
+              />
               <Menu fontSize="16px" text="스터디 신청 현황" />
               <Menu fontSize="16px" text="북마크" />
               <Menu fontSize="16px" text="설정" />
