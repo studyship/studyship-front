@@ -11,7 +11,7 @@ import {
   RowBox,
   Button,
 } from 'src/Components/Atoms'
-import { IHeader, ITopNav } from './types'
+import { IHeader } from './types'
 import { AccountForm, ProfileTooltip } from '..'
 import LogoColorS from 'src/styles/icons/SS_Logo_colorS.png'
 import notificationLogo from 'src/styles/icons/ss_icon_notification.svg'
@@ -24,9 +24,9 @@ import {
   mainColorYellow,
   whiteColor,
 } from 'src/styles/Colors'
+import { dragLock } from 'src/styles/StylesOptions'
 
 const TopNav = styled.header`
-  /* position: fixed; */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -36,13 +36,11 @@ const TopNav = styled.header`
   left: 0;
   z-index: 100;
   transition: 0.6s;
-  /* ${(props: ITopNav) =>
-    props.screenHeight &&
-    'padding: 10px 160px; background-color:white; border-bottom:1px solid (0,0,0,.1); color:black;'} */
   @media screen and (max-width: 450px) {
     flex-direction: column;
     padding: 20px 20px;
   }
+  ${dragLock}
 `
 const Nav = styled.ul`
   position: relative;
@@ -103,7 +101,6 @@ const IconRow = styled(RowBox)`
 `
 
 const HeaderViewer = ({
-  screenHeight,
   isVisible,
   handleModalActive,
   handleModalInactive,
@@ -123,12 +120,12 @@ const HeaderViewer = ({
           currentTab={currentTab}
         />
       </ModalTemplate>
-      <TopNav screenHeight={screenHeight}>
+      <TopNav>
         <LogoLink to="#LOGO">
           {isMobile ? (
-            <Icon imgSrc={screenHeight ? LogoColorS : LogoColorS} />
+            <Icon imgSrc={LogoColorS} />
           ) : (
-            <Icon imgSrc={screenHeight ? LogoColorS : LogoColorS} />
+            <Icon imgSrc={LogoColorS} />
           )}
         </LogoLink>
         <Nav>
@@ -146,10 +143,10 @@ const HeaderViewer = ({
           <List>
             {isLoggedIn ? (
               <IconRow>
-                <Icon imgSrc={messageLogo} />
-                <Icon imgSrc={notificationLogo} />
+                <Icon imgSrc={messageLogo} cursor="pointer" />
+                <Icon imgSrc={notificationLogo} cursor="pointer" />
                 <ProfileTooltip>
-                  <Icon imgSrc={profileLogo} />
+                  <Icon imgSrc={profileLogo} cursor="pointer" />
                 </ProfileTooltip>
               </IconRow>
             ) : (
