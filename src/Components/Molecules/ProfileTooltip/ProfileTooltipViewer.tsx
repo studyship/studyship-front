@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import { BoldText, Icon, HorizontalBar, NormalText } from 'src/Components/Atoms'
 import { TopArrowTooltip } from 'src/Components/Templates'
-import { useComponentVisible } from 'src/hooks'
 import { useOutsideClickHandler } from 'ui-custom-hooks/outsideClick'
 import pencilIcon from 'src/styles/icons/ss_logo_pencil.svg'
 
