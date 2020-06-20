@@ -1,10 +1,6 @@
 import { TTabs } from '../AccountForm/types'
 
-export interface ITopNav {
-  screenHeight: boolean
-}
-
-export interface IHeader extends ITopNav {
+export interface IHeader {
   isVisible: boolean
   handleModalActive: () => void
   handleModalInactive: () => void

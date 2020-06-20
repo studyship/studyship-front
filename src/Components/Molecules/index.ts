@@ -11,6 +11,7 @@ import EmailForm from './EmailForm'
 import SelfIntroduceForm from './SelfIntroduceForm'
 import MailVertifyForm from './MailVertifyForm'
 import AccountChoiceForm from './AccountChoiceForm'
+import ProfileTooltip from './ProfileTooltip'
 
 export {
   Header,
@@ -26,4 +27,5 @@ export {
   SelfIntroduceForm,
   MailVertifyForm,
   AccountChoiceForm,
+  ProfileTooltip,
 }

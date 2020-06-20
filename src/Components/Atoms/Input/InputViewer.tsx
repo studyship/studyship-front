@@ -13,12 +13,13 @@ const Input = styled.input`
   }
 `
 
-type TInput = {
+type InputProps = {
+  className?: string
   placeholder: string
 }
 
-const InputViewer = ({ placeholder }: TInput) => {
-  return <Input placeholder={placeholder} />
+const InputViewer = ({ placeholder, className }: InputProps) => {
+  return <Input className={className} placeholder={placeholder} />
 }
 
 export default InputViewer

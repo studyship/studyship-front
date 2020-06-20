@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import HeaderViewer from './HeaderViewer'
-import { ITopNav } from './types'
 import { useModalHandler } from '@devgw-react/blank-modal'
 import {
   LoginForm,
@@ -13,7 +12,7 @@ import {
 import { useSelector } from 'react-redux'
 import { RootState } from 'src/store/modules'
 
-const HeaderContainer = ({ screenHeight }: ITopNav) => {
+const HeaderContainer = () => {
   const {
     isVisible,
     handleModalActive,
@@ -77,7 +76,6 @@ const HeaderContainer = ({ screenHeight }: ITopNav) => {
 
   return (
     <HeaderViewer
-      screenHeight={screenHeight}
       isVisible={isVisible}
       handleModalActive={handleModalActive}
       handleModalInactive={handleModalInactive}

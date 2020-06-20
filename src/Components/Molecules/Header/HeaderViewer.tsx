@@ -1,6 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
+import { isMobile } from 'react-device-detect'
+import { ModalTemplate } from '@devgw-react/blank-modal'
+
 import {
   Icon,
   InputHover,
@@ -8,14 +11,12 @@ import {
   RowBox,
   Button,
 } from 'src/Components/Atoms'
+import { IHeader } from './types'
+import { AccountForm, ProfileTooltip } from '..'
 import LogoColorS from 'src/styles/icons/SS_Logo_colorS.png'
 import notificationLogo from 'src/styles/icons/ss_icon_notification.svg'
 import profileLogo from 'src/styles/icons/ss_icon_profile.svg'
 import messageLogo from 'src/styles/icons/ss_icon_message.svg'
-import { IHeader, ITopNav } from './types'
-import { isMobile } from 'react-device-detect'
-import { ModalTemplate } from '@devgw-react/blank-modal'
-import { AccountForm } from '..'
 import {
   mainColorBlue,
   backgroundColor,
@@ -23,9 +24,9 @@ import {
   mainColorYellow,
   whiteColor,
 } from 'src/styles/Colors'
+import { dragLock } from 'src/styles/StylesOptions'
 
 const TopNav = styled.header`
-  position: fixed;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -35,13 +36,11 @@ const TopNav = styled.header`
   left: 0;
   z-index: 100;
   transition: 0.6s;
-  ${(props: ITopNav) =>
-    props.screenHeight &&
-    'padding: 10px 160px; background-color:white; border-bottom:1px solid (0,0,0,.1); color:black;'}
   @media screen and (max-width: 450px) {
     flex-direction: column;
     padding: 20px 20px;
   }
+  ${dragLock}
 `
 const Nav = styled.ul`
   position: relative;
@@ -94,18 +93,14 @@ const Account = styled(Button)`
   }
 `
 const IconRow = styled(RowBox)`
+  margin-left: 10px;
   > * :nth-child(2) {
-    margin-left: 5px;
-    margin-right: 5px;
+    margin-left: 15px;
+    margin-right: 15px;
   }
-`
-const IconBox = styled.div`
-  width: 20px;
-  height: 20px;
 `
 
 const HeaderViewer = ({
-  screenHeight,
   isVisible,
   handleModalActive,
   handleModalInactive,
@@ -125,12 +120,12 @@ const HeaderViewer = ({
           currentTab={currentTab}
         />
       </ModalTemplate>
-      <TopNav screenHeight={screenHeight}>
+      <TopNav>
         <LogoLink to="#LOGO">
           {isMobile ? (
-            <Icon imgSrc={screenHeight ? LogoColorS : LogoColorS} />
+            <Icon imgSrc={LogoColorS} />
           ) : (
-            <Icon imgSrc={screenHeight ? LogoColorS : LogoColorS} />
+            <Icon imgSrc={LogoColorS} />
           )}
         </LogoLink>
         <Nav>
@@ -142,21 +137,17 @@ const HeaderViewer = ({
             <SLink to="#About">스터디 만들기</SLink>
           </List>
           <List>
-            <SLink to="#Services">About</SLink>
+            <SLink to="#Services">ABOUT</SLink>
           </List>
-          <VerticalBar />
+          <VerticalBar marginHorizontal="10px" />
           <List>
             {isLoggedIn ? (
               <IconRow>
-                <IconBox>
-                  <Icon imgSrc={messageLogo} />
-                </IconBox>
-                <IconBox>
-                  <Icon imgSrc={notificationLogo} />
-                </IconBox>
-                <IconBox>
-                  <Icon imgSrc={profileLogo} />
-                </IconBox>
+                <Icon imgSrc={messageLogo} cursor="pointer" />
+                <Icon imgSrc={notificationLogo} cursor="pointer" />
+                <ProfileTooltip>
+                  <Icon imgSrc={profileLogo} cursor="pointer" />
+                </ProfileTooltip>
               </IconRow>
             ) : (
               <AccountBox>

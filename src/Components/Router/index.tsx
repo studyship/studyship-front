@@ -3,13 +3,10 @@ import { Home } from 'src/Routes'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { Header } from '../Molecules'
 
-interface IRouter {
-  screenHeight: boolean
-}
-export default ({ screenHeight }: IRouter) => (
+export default () => (
   <>
     <Router>
-      <Header screenHeight={screenHeight} />
+      <Header />
       <Switch>
         <Route exact path="/" component={Home} />
       </Switch>
