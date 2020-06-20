@@ -1,8 +1,8 @@
 import { useState, useRef, useEffect } from 'react'
 
-const useComponentVisible = <T extends boolean>(initialIsVisible: T) => {
+const useComponentVisible = <T extends boolean>(initialRef: T) => {
   const [isComponentVisible, setIsComponentVisible] = useState<boolean>(
-    initialIsVisible,
+    initialRef,
   )
   const ref = useRef<any>(null)
 
@@ -13,8 +13,11 @@ const useComponentVisible = <T extends boolean>(initialIsVisible: T) => {
   }
 
   const handleClickOutside = (event: MouseEvent) => {
-    if (ref.current && !ref.current.contains(event.target)) {
+    if (!ref.current.contains(event.target)) {
       setIsComponentVisible(false)
+    }
+    if (ref.current.contains(event.target) && !isComponentVisible) {
+      setIsComponentVisible(true)
     }
   }
 
