@@ -1,5 +1,6 @@
 import React from 'react'
 import { Home } from 'src/Routes'
+import { MyPage } from 'src/Routes'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { Header } from '../Molecules'
 
@@ -12,6 +13,7 @@ export default ({ screenHeight }: IRouter) => (
       <Header screenHeight={screenHeight} />
       <Switch>
         <Route exact path="/" component={Home} />
+        <Route exact path="/MyPage" component={MyPage} />
       </Switch>
     </Router>
   </>
