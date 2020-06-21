@@ -24,24 +24,8 @@ import {
   mainColorYellow,
   whiteColor,
 } from 'src/styles/Colors'
-import { dragLock } from 'src/styles/StylesOptions'
+import { Header } from 'src/Components/Templates'
 
-const TopNav = styled.header`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 40px 160px;
-  width: 100%;
-  top: 0;
-  left: 0;
-  z-index: 100;
-  transition: 0.6s;
-  @media screen and (max-width: 450px) {
-    flex-direction: column;
-    padding: 20px 20px;
-  }
-  ${dragLock}
-`
 const Nav = styled.ul`
   position: relative;
   display: flex;
@@ -100,7 +84,7 @@ const IconRow = styled(RowBox)`
   }
 `
 
-const HeaderViewer = ({
+const MainHeaderViewer = ({
   isVisible,
   handleModalActive,
   handleModalInactive,
@@ -120,7 +104,7 @@ const HeaderViewer = ({
           currentTab={currentTab}
         />
       </ModalTemplate>
-      <TopNav>
+      <Header>
         <LogoLink to="#LOGO">
           {isMobile ? (
             <Icon imgSrc={LogoColorS} />
@@ -175,9 +159,9 @@ const HeaderViewer = ({
             )}
           </List>
         </Nav>
-      </TopNav>
+      </Header>
     </>
   )
 }
 
-export default HeaderViewer
+export default MainHeaderViewer

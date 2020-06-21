@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import HeaderViewer from './HeaderViewer'
+import HeaderViewer from './MainHeaderViewer'
 import { useModalHandler } from '@devgw-react/blank-modal'
 import {
   LoginForm,
@@ -12,7 +12,7 @@ import {
 import { useSelector } from 'react-redux'
 import { RootState } from 'src/store/modules'
 
-const HeaderContainer = () => {
+const MainHeaderContainer = () => {
   const {
     isVisible,
     handleModalActive,
@@ -86,4 +86,4 @@ const HeaderContainer = () => {
   )
 }
 
-export default HeaderContainer
+export default MainHeaderContainer
