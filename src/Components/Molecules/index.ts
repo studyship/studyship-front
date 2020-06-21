@@ -12,6 +12,7 @@ import SelfIntroduceForm from './SelfIntroduceForm'
 import MailVertifyForm from './MailVertifyForm'
 import AccountChoiceForm from './AccountChoiceForm'
 import ProfileTooltip from './ProfileTooltip'
+import ProfileHeader from './ProfileHeader'
 
 export {
   MainHeader,
@@ -28,4 +29,5 @@ export {
   MailVertifyForm,
   AccountChoiceForm,
   ProfileTooltip,
+  ProfileHeader,
 }
