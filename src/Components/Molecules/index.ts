@@ -1,4 +1,4 @@
-import Header from './Header'
+import MainHeader from './MainHeader'
 import Introduce from './Introduce'
 import Content from './Content'
 import IntroSection from './IntroSection'
@@ -14,7 +14,7 @@ import AccountChoiceForm from './AccountChoiceForm'
 import ProfileTooltip from './ProfileTooltip'
 
 export {
-  Header,
+  MainHeader,
   Introduce,
   Content,
   IntroSection,
