@@ -1,13 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
-import { ISelfIntroduceFormViewer } from './types'
 import { NormalText, Button } from 'src/Components/Atoms'
 import { mainColorBlue } from 'src/styles/Colors'
+import { TextAreaBinder } from 'src/@types'
 
 const Container = styled.div`
   width: 100%;
 `
-const STextareaAutosize = styled.textarea`
+const TextareaAutosize = styled.textarea`
   width: 100%;
   padding: 7px 10px;
   margin-bottom: 6px;
@@ -37,13 +37,18 @@ const FinishBtn = styled(Button)`
   border-radius: 33px;
 `
 
+interface ISelfIntroduceFormViewer {
+  bind: TextAreaBinder
+  handleNextStage: (nextTab: string) => void
+}
+
 const SelfIntroduceFormViewer = ({
   handleNextStage,
   bind,
 }: ISelfIntroduceFormViewer) => {
   return (
     <Container>
-      <STextareaAutosize
+      <TextareaAutosize
         placeholder="예) 디자인과 개발 모두 평정하고싶은 꿈나무 디발자입니다. 자유로운 분위기 속에서 공부하는 것을 지향하지만 루즈해지는 분위기는 좋아하지 않습니다."
         {...bind}
       />

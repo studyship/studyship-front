@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import { RowBox, Icon, NormalText } from 'src/Components/Atoms'
 import textLogoBlack from 'src/styles/icons/ss_logo_black_text.svg'
 import closeIcon from 'src/styles/icons/ss_logo_close.png'
-import { TAccountModal } from './types'
 import { getUniqueKey } from 'src/lib'
 
 const Container = styled.div`
@@ -33,13 +32,21 @@ const SubTitle = styled(NormalText)`
   margin-bottom: 11px;
 `
 
+type AccountModalProps = {
+  children: React.ReactNode
+  handleModalInactive: () => void
+  title: string | Array<string>
+  subTitle: string
+  horizontal: string
+}
+
 const AccountModalViewer = ({
   children,
   handleModalInactive,
   title,
   subTitle,
   horizontal,
-}: TAccountModal) => {
+}: AccountModalProps) => {
   return (
     <Container>
       <TopBox>

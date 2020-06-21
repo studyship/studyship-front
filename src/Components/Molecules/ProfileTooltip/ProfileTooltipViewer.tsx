@@ -1,9 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
-import { BoldText, Icon, HorizontalBar, NormalText } from 'src/Components/Atoms'
+import { BoldText, Icon, HorizontalBar } from 'src/Components/Atoms'
 import { TopArrowTooltip } from 'src/Components/Templates'
 import { useOutsideClickHandler } from '@devgw-react/outside-click'
 import pencilIcon from 'src/styles/icons/ss_logo_pencil.svg'
+import { Link } from 'react-router-dom'
 
 const Container = styled.div`
   display: flex;
@@ -34,8 +35,10 @@ const MenuWrapper = styled.div`
   align-items: flex-start;
   padding-top: 30px;
 `
-const Menu = styled(NormalText)`
+const Menu = styled(Link)`
   color: #333333;
+  font-size: 16px;
+  font-weight: normal;
   :nth-of-type(2n) {
     margin: 30px 0px;
   }
@@ -62,17 +65,10 @@ const ProfileTooltipViewer = ({ children }: ProfileTooltipProps) => {
             </NameWrapper>
             <HorizontalBar color="#FFC545" />
             <MenuWrapper>
-              <Menu
-                fontSize="16px"
-                text="프로필"
-                onClick={() => {
-                  console.log('PROFILE')
-                }}
-              />
-              <Menu fontSize="16px" text="스터디 신청 현황" />
-              <Menu fontSize="16px" text="북마크" />
-              <Menu fontSize="16px" text="설정" />
-              <Menu fontSize="16px" text="로그아웃" />
+              <Menu to="/profile/1">프로필</Menu>
+              <Menu to="#">Profile</Menu>
+              <Menu to="#">Profile</Menu>
+              <Menu to="#">Profile</Menu>
             </MenuWrapper>
           </Content>
         </TopArrowTooltip>

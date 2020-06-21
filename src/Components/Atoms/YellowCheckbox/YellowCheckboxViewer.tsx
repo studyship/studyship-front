@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import checkedIcon from 'src/styles/icons/ss_icon_checked.png'
 import uncheckIcon from 'src/styles/icons/ss_icon_uncheck.png'
 import { Icon } from '..'
-import { TYellowCheckbox } from './types'
 
 const Container = styled.div``
 const Label = styled.label``
@@ -11,7 +10,14 @@ const CheckBox = styled.input`
   display: none;
 `
 
-const YellowCheckboxViewer = ({ bindCheckbox }: TYellowCheckbox) => {
+type YellowCheckboxProps = {
+  bindCheckbox: {
+    checked: boolean
+    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
+  }
+}
+
+const YellowCheckboxViewer = ({ bindCheckbox }: YellowCheckboxProps) => {
   return (
     <Container>
       <Label htmlFor="check">
