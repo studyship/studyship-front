@@ -1,4 +1,4 @@
-import Header from './Header'
+import MainHeader from './MainHeader'
 import Introduce from './Introduce'
 import Content from './Content'
 import IntroSection from './IntroSection'
@@ -12,9 +12,10 @@ import SelfIntroduceForm from './SelfIntroduceForm'
 import MailVertifyForm from './MailVertifyForm'
 import AccountChoiceForm from './AccountChoiceForm'
 import ProfileTooltip from './ProfileTooltip'
+import ProfileHeader from './ProfileHeader'
 
 export {
-  Header,
+  MainHeader,
   Introduce,
   Content,
   IntroSection,
@@ -28,4 +29,5 @@ export {
   MailVertifyForm,
   AccountChoiceForm,
   ProfileTooltip,
+  ProfileHeader,
 }
