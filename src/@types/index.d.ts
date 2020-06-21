@@ -43,3 +43,29 @@ export type TooltipStyleProps = {
   bgColor?: string
   borderRadius?: string
 }
+
+// AccountChoiceFormProps
+export interface AccountChoiceFormProps {
+  handleNextStage: (nextTab: string) => void
+}
+
+// account modal tab types
+export type TabTypes = {
+  title?: string | Array<string>
+  subTitle?: string
+  horizontal?: string
+  tab: string
+  form: React.ReactNode
+}
+
+// text input handler
+export type InputBinder = {
+  value: string
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
+}
+
+// textarea input handler
+export type TextAreaBinder = {
+  value: string
+  onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void
+}

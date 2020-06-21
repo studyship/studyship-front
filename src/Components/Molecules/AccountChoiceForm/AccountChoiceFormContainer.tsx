@@ -1,10 +1,10 @@
 import React from 'react'
 import AccountChoiceFormViewer from './AccountChoiceFormViewer'
-import { IAccountChoiceForm } from './types'
+import { AccountChoiceFormProps } from 'src/@types'
 
 const AccountChoiceFormContainer = ({
   handleNextStage,
-}: IAccountChoiceForm) => {
+}: AccountChoiceFormProps) => {
   return <AccountChoiceFormViewer handleNextStage={handleNextStage} />
 }
 

@@ -4,7 +4,7 @@ import { Button, SocialLoginButton } from 'src/Components/Atoms'
 import { mainColorBlue } from 'src/styles/Colors'
 import googleIcon from 'src/styles/icons/ss_icon_google.svg'
 import kakaoIcon from 'src/styles/icons/ss_icon_kakao.svg'
-import { IAccountChoiceForm } from './types'
+import { AccountChoiceFormProps } from 'src/@types'
 
 const Container = styled.div``
 const LoginButton = styled(Button)`
@@ -12,7 +12,10 @@ const LoginButton = styled(Button)`
   background-color: ${mainColorBlue};
   border-radius: 33px;
 `
-const AccountChoiceFormViewer = ({ handleNextStage }: IAccountChoiceForm) => {
+
+const AccountChoiceFormViewer = ({
+  handleNextStage,
+}: AccountChoiceFormProps) => {
   return (
     <Container>
       <LoginButton

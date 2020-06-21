@@ -1,11 +1,17 @@
 import React from 'react'
 import AccountFormViewer from './AccountFormViewer'
-import { TAccountForm } from './types'
+
+import { TabTypes } from 'src/@types'
+
+interface AccountFormProps {
+  handleModalInactive: () => void
+  currentTab: TabTypes
+}
 
 const AccountFormContainer = ({
   handleModalInactive,
   currentTab,
-}: TAccountForm) => {
+}: AccountFormProps) => {
   return (
     <AccountFormViewer
       handleModalInactive={handleModalInactive}

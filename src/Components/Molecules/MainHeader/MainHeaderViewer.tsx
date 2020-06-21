@@ -11,7 +11,6 @@ import {
   RowBox,
   Button,
 } from 'src/Components/Atoms'
-import { IHeader } from './types'
 import { AccountForm, ProfileTooltip } from '..'
 import LogoColorS from 'src/styles/icons/SS_Logo_colorS.png'
 import notificationLogo from 'src/styles/icons/ss_icon_notification.svg'
@@ -25,6 +24,7 @@ import {
   whiteColor,
 } from 'src/styles/Colors'
 import { Header } from 'src/Components/Templates'
+import { TabTypes } from 'src/@types'
 
 const Nav = styled.ul`
   position: relative;
@@ -84,6 +84,15 @@ const IconRow = styled(RowBox)`
   }
 `
 
+interface MainHeaderTypes {
+  isVisible: boolean
+  handleModalActive: () => void
+  handleModalInactive: () => void
+  handleNextStage: (nextTab: string) => void
+  currentTab: TabTypes
+  isLoggedIn: boolean
+}
+
 const MainHeaderViewer = ({
   isVisible,
   handleModalActive,
@@ -91,7 +100,7 @@ const MainHeaderViewer = ({
   handleNextStage,
   currentTab,
   isLoggedIn,
-}: IHeader) => {
+}: MainHeaderTypes) => {
   return (
     <>
       <ModalTemplate

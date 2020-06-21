@@ -1,12 +1,15 @@
 import React from 'react'
 import SelfIntroduceFormViewer from './SelfIntroduceFormViewer'
-import { ISelfIntroduceForm } from './types'
 import { useInputText } from 'src/hooks'
 import { inputValidators } from 'src/lib'
 
+interface SelfIntroduceFormProps {
+  handleNextStage: (nextTab: string) => void
+}
+
 const SelfIntroduceFormContainer = ({
   handleNextStage,
-}: ISelfIntroduceForm) => {
+}: SelfIntroduceFormProps) => {
   const { inputLengthLimits } = inputValidators
   const { bind } = useInputText('', inputLengthLimits(300))
   return (
