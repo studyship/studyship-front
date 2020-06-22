@@ -69,3 +69,20 @@ export type TextAreaBinder = {
   value: string
   onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void
 }
+
+/// style props
+
+// margin
+export type MarginStyleProps = {
+  marginTop?: string
+  marginBottom?: string
+  marginLeft?: string
+  marginRight?: string
+}
+// padding
+export type PaddingStyleProps = {
+  paddingTop?: string
+  paddingBottom?: string
+  paddingLeft?: string
+  paddingRight?: string
+}

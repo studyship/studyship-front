@@ -1,23 +1,24 @@
 import React from 'react'
 import styled from 'styled-components'
 
-interface INormalTextStyle {
+interface StyleProps {
   className?: string
   fontSize?: string
+  fontColor?: string
 }
 
-interface INormalText extends INormalTextStyle {
+interface NormalTextProps extends StyleProps {
   text: string
   onClick?: () => void
 }
 
-const Container = styled.p`
+const Container = styled.p<StyleProps>`
   display: flex;
   justify-content: center;
   align-items: center;
   font-weight: normal;
-  font-size: ${(props: INormalTextStyle) =>
-    props.fontSize ? props.fontSize : '22px'};
+  font-size: ${(props) => (props.fontSize ? props.fontSize : '22px')};
+  color: ${(props) => (props.fontColor ? props.fontColor : 'black')};
 `
 
 const NormalTextViewer = ({
@@ -25,9 +26,15 @@ const NormalTextViewer = ({
   fontSize,
   text,
   onClick,
-}: INormalText) => {
+  fontColor,
+}: NormalTextProps) => {
   return (
-    <Container className={className} fontSize={fontSize} onClick={onClick}>
+    <Container
+      className={className}
+      fontColor={fontColor}
+      fontSize={fontSize}
+      onClick={onClick}
+    >
       {text}
     </Container>
   )

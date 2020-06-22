@@ -2,7 +2,11 @@ import React from 'react'
 import styled from 'styled-components'
 import { Header } from 'src/Components/Templates'
 import { SelecteType } from 'src/Routes/Profile/ProfileViewer'
+import { RowBox } from 'src/Components/Atoms'
 
+const Container = styled(RowBox)`
+  border: 1px solid #e6e6e6;
+`
 const NavWrapper = styled.ul`
   display: flex;
   flex-direction: row;
@@ -28,34 +32,36 @@ const ProfileHeaderViewer = ({
   selectIndex,
 }: ProfileHeaderProps) => {
   return (
-    <Header>
-      <NavWrapper>
-        <Nav
-          onClick={() => {
-            handleSelected(SelecteType.profile)
-          }}
-          selected={SelecteType.profile === selectIndex}
-        >
-          프로필
-        </Nav>
-        <Nav
-          onClick={() => {
-            handleSelected(SelecteType.studyStatus)
-          }}
-          selected={SelecteType.studyStatus === selectIndex}
-        >
-          스터디 신청 현황
-        </Nav>
-        <Nav
-          onClick={() => {
-            handleSelected(SelecteType.setting)
-          }}
-          selected={SelecteType.setting === selectIndex}
-        >
-          설정
-        </Nav>
-      </NavWrapper>
-    </Header>
+    <Container>
+      <Header>
+        <NavWrapper>
+          <Nav
+            onClick={() => {
+              handleSelected(SelecteType.profile)
+            }}
+            selected={SelecteType.profile === selectIndex}
+          >
+            프로필
+          </Nav>
+          <Nav
+            onClick={() => {
+              handleSelected(SelecteType.studyStatus)
+            }}
+            selected={SelecteType.studyStatus === selectIndex}
+          >
+            스터디 신청 현황
+          </Nav>
+          <Nav
+            onClick={() => {
+              handleSelected(SelecteType.setting)
+            }}
+            selected={SelecteType.setting === selectIndex}
+          >
+            설정
+          </Nav>
+        </NavWrapper>
+      </Header>
+    </Container>
   )
 }
 

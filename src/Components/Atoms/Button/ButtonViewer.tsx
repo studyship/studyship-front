@@ -1,8 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Icon } from '..'
+import { PaddingStyleProps } from 'src/@types'
 
-const Button = styled.button`
+const Button = styled.button<StyleProps>`
   padding: 14px 0px;
   width: 100%;
   white-space: nowrap;
@@ -10,12 +11,13 @@ const Button = styled.button`
   vertical-align: center;
   border-radius: 5px;
   font-weight: normal;
-  font-size: ${(props: IButtonStyle) =>
-    props.fontSize ? props.fontSize : '15px'};
-  color: ${(props: IButtonStyle) =>
-    props.fontColor ? props.fontColor : '#ffffff'};
-  background-color: ${(props: IButtonStyle) =>
-    props.bgColor ? props.bgColor : props.bgColor};
+  padding-top: ${({ paddingTop }) => paddingTop && paddingTop};
+  padding-bottom: ${({ paddingBottom }) => paddingBottom && paddingBottom};
+  padding-left: ${({ paddingLeft }) => paddingLeft && paddingLeft};
+  padding-right: ${({ paddingRight }) => paddingRight && paddingRight};
+  font-size: ${({ fontSize }) => (fontSize ? fontSize : '15px')};
+  color: ${({ fontColor }) => (fontColor ? fontColor : '#ffffff')};
+  background-color: ${({ bgColor }) => (bgColor ? bgColor : bgColor)};
   border-color: transparent;
   outline: none;
   cursor: pointer;
@@ -30,12 +32,12 @@ const RowBox = styled.div`
   }
 `
 
-interface IButtonStyle {
+interface StyleProps extends PaddingStyleProps {
   fontSize?: string
   fontColor?: string
   bgColor?: string
 }
-interface IButton extends IButtonStyle {
+interface ButtonProps extends StyleProps {
   className?: string
   text: string
   onClick?: () => void
@@ -50,7 +52,11 @@ const ButtonViewer = ({
   fontColor,
   bgColor,
   imgSrc,
-}: IButton) => {
+  paddingTop,
+  paddingBottom,
+  paddingLeft,
+  paddingRight,
+}: ButtonProps) => {
   return (
     <Button
       className={className}
@@ -58,6 +64,10 @@ const ButtonViewer = ({
       fontSize={fontSize}
       fontColor={fontColor}
       bgColor={bgColor}
+      paddingTop={paddingTop}
+      paddingBottom={paddingBottom}
+      paddingLeft={paddingLeft}
+      paddingRight={paddingRight}
     >
       {imgSrc ? (
         <RowBox>

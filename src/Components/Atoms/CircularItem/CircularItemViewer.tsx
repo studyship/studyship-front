@@ -1,25 +1,53 @@
 import React from 'react'
 import styled from 'styled-components'
-import { mainColorBlue } from 'src/styles/Colors'
+import { MarginStyleProps } from 'src/@types'
 
-const Container = styled.div`
+const Container = styled.div<CircularItemProps>`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: ${(props: ICircularItem) => props.area && props.area};
-  height: ${(props: ICircularItem) => props.area && props.area};
+  width: ${({ area }) => area && area};
+  height: ${({ area }) => area && area};
+  background-color: ${({ bgColor }) => (bgColor ? bgColor : '#ffffff')};
+  border: ${({ borderStyle }) => borderStyle && borderStyle};
+  margin-top: ${({ marginTop }) => marginTop && marginTop};
+  margin-bottom: ${({ marginBottom }) => marginBottom && marginBottom};
+  margin-left: ${({ marginLeft }) => marginLeft && marginLeft};
+  margin-right: ${({ marginRight }) => marginRight && marginRight};
   border-radius: 50%;
-  background-color: ${mainColorBlue};
 `
 
-interface ICircularItem {
+interface CircularItemProps extends MarginStyleProps {
   className?: string
   children?: React.ReactNode
-  area: string
+  area?: string
+  bgColor?: string
+  borderStyle?: string
 }
 
-const CircularItemViewer = ({ children, area }: ICircularItem) => {
-  return <Container area={area}>{children}</Container>
+const CircularItemViewer = ({
+  children,
+  area,
+  bgColor,
+  borderStyle,
+  marginTop,
+  marginBottom,
+  marginLeft,
+  marginRight,
+}: CircularItemProps) => {
+  return (
+    <Container
+      area={area}
+      bgColor={bgColor}
+      borderStyle={borderStyle}
+      marginTop={marginTop}
+      marginBottom={marginBottom}
+      marginLeft={marginLeft}
+      marginRight={marginRight}
+    >
+      {children}
+    </Container>
+  )
 }
 
 export default CircularItemViewer

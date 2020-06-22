@@ -17,6 +17,7 @@ import RotatePlus from './RotatePlus'
 import Tag from './Tag'
 import UnderlineText from './UnderlineText'
 import SocialLoginButton from './SocialLoginButton'
+import TouchLabel from './TouchLabel'
 
 export {
   JumboTitle,
@@ -38,4 +39,5 @@ export {
   Tag,
   UnderlineText,
   SocialLoginButton,
+  TouchLabel,
 }

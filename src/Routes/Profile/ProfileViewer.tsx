@@ -1,9 +1,25 @@
 import React, { useState, useCallback } from 'react'
 import styled from 'styled-components'
+import { Col } from 'react-flexbox-grid'
 
-import { ProfileHeader } from 'src/Components/Molecules'
+import { Icon, RowBox, Button } from 'src/Components/Atoms'
+import { ProfileHeader, ProfileCard } from 'src/Components/Molecules'
+import { mainColorBlue } from 'src/styles/Colors'
 
-const Container = styled.div``
+const Container = styled.div`
+  margin-left: auto;
+  margin-right: auto;
+  width: 1568px;
+  @media screen and (max-width: 1919px) {
+    width: 1376px;
+  }
+  @media screen and (max-width: 1313px) {
+    width: 1100px;
+  }
+`
+const Section = styled(RowBox)`
+  padding: 40px 0px;
+`
 
 export enum SelecteType {
   profile = 0,
@@ -19,9 +35,17 @@ const ProfileViewer = () => {
   }, [])
 
   return (
-    <Container>
+    <>
       <ProfileHeader handleSelected={handleSelected} selectIndex={selected} />
-    </Container>
+      <Container>
+        <Section>
+          <Col xs={0} sm={2} md={3} lg={3}>
+            <ProfileCard />
+          </Col>
+          <Col xs={12} sm={10} md={9} lg={9} />
+        </Section>
+      </Container>
+    </>
   )
 }
 
