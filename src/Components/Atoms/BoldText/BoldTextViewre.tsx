@@ -1,25 +1,37 @@
 import React from 'react'
 import styled from 'styled-components'
 
-interface IBoldTextStyle {
+interface StyleProps {
   className?: string
-  fontSize: string
+  fontSize?: string
+  fontColor?: string
 }
 
-interface IBoldText extends IBoldTextStyle {
+interface BoldTextProps extends StyleProps {
   text: string
   onClick?: () => void
 }
 
-const Container = styled.h2`
+const Container = styled.h2<StyleProps>`
   font-weight: bold;
-  font-size: ${(props: IBoldTextStyle) =>
-    props.fontSize ? props.fontSize : '22px'};
+  font-size: ${({ fontSize }) => (fontSize ? fontSize : '22px')};
+  color: ${({ fontColor }) => (fontColor ? fontColor : 'black')};
 `
 
-const BoldTextViewer = ({ className, fontSize, text, onClick }: IBoldText) => {
+const BoldTextViewer = ({
+  className,
+  fontSize,
+  text,
+  onClick,
+  fontColor,
+}: BoldTextProps) => {
   return (
-    <Container className={className} fontSize={fontSize} onClick={onClick}>
+    <Container
+      className={className}
+      fontSize={fontSize}
+      onClick={onClick}
+      fontColor={fontColor}
+    >
       {text}
     </Container>
   )

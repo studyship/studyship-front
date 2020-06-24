@@ -8,21 +8,21 @@ interface SelectProps {
   isActive: number | boolean
 }
 
-interface TagProps extends SelectProps {
+interface ChoiceTagProps extends SelectProps {
   itemName: string
   isActive: boolean
   isChoose: boolean
   onClick?: () => void
 }
 
-const Select = styled.div`
+const Select = styled.div<SelectProps>`
   display: flex;
   justify-content: space-around;
   align-items: center;
   margin: 0.3em;
   padding: 6px 10px;
-  ${(props: SelectProps) =>
-    props.isActive
+  ${({ isActive }) =>
+    isActive
       ? `background-color: ${mainColorBlue}; color: white; border: 1px solid ${mainColorBlue};`
       : `background-color: white; color: #b3b3b3; border: 1px solid #b3b3b3;`};
   border-radius: 50px;
@@ -34,7 +34,12 @@ const ChoiceItem = styled(NormalText)`
   color: inherit;
 `
 
-const TagViewer = ({ itemName, isChoose, isActive, onClick }: TagProps) => {
+const ChoiceTagViewer = ({
+  itemName,
+  isChoose,
+  isActive,
+  onClick,
+}: ChoiceTagProps) => {
   return (
     <Select isActive={booleanToNumber(isActive)} onClick={onClick}>
       <ChoiceItem text={itemName} fontSize="14px" />
@@ -43,4 +48,4 @@ const TagViewer = ({ itemName, isChoose, isActive, onClick }: TagProps) => {
   )
 }
 
-export default TagViewer
+export default ChoiceTagViewer
