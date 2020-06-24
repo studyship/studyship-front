@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import profileIcon from 'src/styles/icons/ss_icon_profile.svg'
-import kakaoDark from 'src/styles/icons/ss_icon_kako_dark.svg'
+import kakaoDark from 'src/styles/icons/ss_icon_kakao_dark.svg'
 import {
   Icon,
   BoldText,
