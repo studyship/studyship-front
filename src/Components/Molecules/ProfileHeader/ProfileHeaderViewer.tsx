@@ -7,10 +7,12 @@ import { RowBox } from 'src/Components/Atoms'
 const Container = styled(RowBox)`
   border: 1px solid #e6e6e6;
 `
+
 const NavWrapper = styled.ul`
   display: flex;
   flex-direction: row;
   align-items: center;
+  width: 1160px;
 `
 const Nav = styled.li<StyleProps>`
   margin-right: 24px;

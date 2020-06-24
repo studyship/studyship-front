@@ -1,7 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Icon } from '..'
-import { PaddingStyleProps } from 'src/@types'
+import { PaddingStyleProps, MarginStyleProps } from 'src/@types'
+import { paddingStyles, marginStyles } from 'src/styles/mixin'
 
 const Button = styled.button<StyleProps>`
   padding: 14px 0px;
@@ -11,16 +12,14 @@ const Button = styled.button<StyleProps>`
   vertical-align: center;
   border-radius: 5px;
   font-weight: normal;
-  padding-top: ${({ paddingTop }) => paddingTop && paddingTop};
-  padding-bottom: ${({ paddingBottom }) => paddingBottom && paddingBottom};
-  padding-left: ${({ paddingLeft }) => paddingLeft && paddingLeft};
-  padding-right: ${({ paddingRight }) => paddingRight && paddingRight};
   font-size: ${({ fontSize }) => (fontSize ? fontSize : '15px')};
   color: ${({ fontColor }) => (fontColor ? fontColor : '#ffffff')};
   background-color: ${({ bgColor }) => (bgColor ? bgColor : bgColor)};
   border-color: transparent;
   outline: none;
   cursor: pointer;
+  ${paddingStyles}
+  ${marginStyles};
 `
 const RowBox = styled.div`
   display: flex;
@@ -32,7 +31,7 @@ const RowBox = styled.div`
   }
 `
 
-interface StyleProps extends PaddingStyleProps {
+interface StyleProps extends MarginStyleProps, PaddingStyleProps {
   fontSize?: string
   fontColor?: string
   bgColor?: string
@@ -52,6 +51,10 @@ const ButtonViewer = ({
   fontColor,
   bgColor,
   imgSrc,
+  marginTop,
+  marginBottom,
+  marginLeft,
+  marginRight,
   paddingTop,
   paddingBottom,
   paddingLeft,
@@ -68,6 +71,10 @@ const ButtonViewer = ({
       paddingBottom={paddingBottom}
       paddingLeft={paddingLeft}
       paddingRight={paddingRight}
+      marginTop={marginTop}
+      marginBottom={marginBottom}
+      marginLeft={marginLeft}
+      marginRight={marginRight}
     >
       {imgSrc ? (
         <RowBox>

@@ -9,13 +9,7 @@ import { mainColorBlue } from 'src/styles/Colors'
 const Container = styled.div`
   margin-left: auto;
   margin-right: auto;
-  width: 1568px;
-  @media screen and (max-width: 1919px) {
-    width: 1376px;
-  }
-  @media screen and (max-width: 1313px) {
-    width: 1100px;
-  }
+  width: 1160px;
 `
 const Section = styled(RowBox)`
   padding: 40px 0px;
@@ -39,10 +33,10 @@ const ProfileViewer = () => {
       <ProfileHeader handleSelected={handleSelected} selectIndex={selected} />
       <Container>
         <Section>
-          <Col xs={0} sm={2} md={3} lg={3}>
+          <Col xs={3} sm={3} md={3} lg={3}>
             <ProfileCard />
           </Col>
-          <Col xs={12} sm={10} md={9} lg={9} />
+          <Col xs={9} sm={9} md={9} lg={9} />
         </Section>
       </Container>
     </>

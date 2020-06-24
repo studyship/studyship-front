@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { PaddingStyleProps, MarginStyleProps } from 'src/@types'
+import { marginStyles, paddingStyles } from 'src/styles/mixin'
 
 const Label = styled.div<StyleProps>`
   display: flex;
@@ -9,14 +10,9 @@ const Label = styled.div<StyleProps>`
   margin-left: 5px;
   border: 1px solid #e6e6e6;
   border-radius: 8px;
-  margin-top: ${({ marginTop }) => marginTop && marginTop};
-  margin-bottom: ${({ marginBottom }) => marginBottom && marginBottom};
-  margin-left: ${({ marginLeft }) => marginLeft && marginLeft};
-  margin-right: ${({ marginRight }) => marginRight && marginRight};
-  padding-top: ${({ paddingTop }) => paddingTop && paddingTop};
-  padding-bottom: ${({ paddingBottom }) => paddingBottom && paddingBottom};
-  padding-left: ${({ paddingLeft }) => paddingLeft && paddingLeft};
-  padding-right: ${({ paddingRight }) => paddingRight && paddingRight};
+
+  ${paddingStyles};
+  ${marginStyles};
 `
 
 interface StyleProps extends MarginStyleProps, PaddingStyleProps {
