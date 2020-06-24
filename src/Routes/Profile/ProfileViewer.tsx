@@ -2,14 +2,22 @@ import React, { useState, useCallback } from 'react'
 import styled from 'styled-components'
 import { Col } from 'react-flexbox-grid'
 
-import { Icon, RowBox, Button } from 'src/Components/Atoms'
+import { RowBox } from 'src/Components/Atoms'
 import { ProfileHeader, ProfileCard } from 'src/Components/Molecules'
-import { mainColorBlue } from 'src/styles/Colors'
 
 const Container = styled.div`
   margin-left: auto;
   margin-right: auto;
-  width: 1160px;
+  width: 1400px;
+  @media screen and (max-width: 1919px) {
+    width: 1160;
+  }
+  @media screen and (max-width: 1313px) {
+    width: 800px;
+  }
+  @media screen and (max-width: 450px) {
+    padding: 0px 10px;
+  }
 `
 const Section = styled(RowBox)`
   padding: 40px 0px;

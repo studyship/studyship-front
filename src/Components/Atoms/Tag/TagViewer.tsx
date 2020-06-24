@@ -4,11 +4,13 @@ import { marginStyles, paddingStyles } from 'src/styles/mixin'
 import { MarginStyleProps, PaddingStyleProps } from 'src/@types'
 
 const Container = styled.div<TagProps>`
+  display: inline-block;
   border: 1px solid #60d3e0;
   border-radius: 15px;
   border: ${({ borderColor }) => borderColor && `1px solid ${borderColor}`};
   background-color: ${({ bgColor }) => (bgColor ? bgColor : '#ffffff')};
   color: ${({ fontColor }) => (fontColor ? fontColor : '#60d3e0')};
+  text-align: center;
   ${marginStyles};
   ${paddingStyles};
 `
