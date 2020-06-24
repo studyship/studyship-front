@@ -18,6 +18,7 @@ import ChoiceTag from './ChoiceTag'
 import UnderlineText from './UnderlineText'
 import SocialLoginButton from './SocialLoginButton'
 import TouchLabel from './TouchLabel'
+import Tag from './Tag'
 
 export {
   JumboTitle,
@@ -40,4 +41,5 @@ export {
   UnderlineText,
   SocialLoginButton,
   TouchLabel,
+  Tag,
 }
