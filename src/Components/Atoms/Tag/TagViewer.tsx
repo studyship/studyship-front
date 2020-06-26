@@ -1,45 +1,57 @@
 import React from 'react'
 import styled from 'styled-components'
-import { NormalText, RotatePlus } from '..'
-import { mainColorBlue } from 'src/styles/Colors'
-import booleanToNumber from 'src/lib/booleanToNumber'
+import { marginStyles, paddingStyles } from 'src/styles/mixin'
+import { MarginStyleProps, PaddingStyleProps } from 'src/@types'
 
-interface SelectProps {
-  isActive: number | boolean
-}
-
-interface TagProps extends SelectProps {
-  itemName: string
-  isActive: boolean
-  isChoose: boolean
-  onClick?: () => void
-}
-
-const Select = styled.div`
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  margin: 0.3em;
-  padding: 6px 10px;
-  ${(props: SelectProps) =>
-    props.isActive
-      ? `background-color: ${mainColorBlue}; color: white; border: 1px solid ${mainColorBlue};`
-      : `background-color: white; color: #b3b3b3; border: 1px solid #b3b3b3;`};
-  border-radius: 50px;
-  cursor: pointer;
-`
-const ChoiceItem = styled(NormalText)`
-  margin-left: 3px;
-  margin-right: 5px;
-  color: inherit;
+const Container = styled.div<TagProps>`
+  display: inline-block;
+  border: 1px solid #60d3e0;
+  border-radius: 15px;
+  border: ${({ borderColor }) => borderColor && `1px solid ${borderColor}`};
+  background-color: ${({ bgColor }) => (bgColor ? bgColor : '#ffffff')};
+  color: ${({ fontColor }) => (fontColor ? fontColor : '#60d3e0')};
+  text-align: center;
+  ${marginStyles};
+  ${paddingStyles};
 `
 
-const TagViewer = ({ itemName, isChoose, isActive, onClick }: TagProps) => {
+interface TagProps extends MarginStyleProps, PaddingStyleProps {
+  paddingVertical?: string
+  paddingHorizontal?: string
+  borderColor?: string
+  bgColor?: string
+  fontColor?: string
+  text?: string
+}
+
+const TagViewer = ({
+  marginTop,
+  marginBottom,
+  marginLeft,
+  marginRight,
+  paddingVertical,
+  paddingHorizontal,
+  borderColor,
+  bgColor,
+  fontColor,
+  text,
+}: TagProps) => {
   return (
-    <Select isActive={booleanToNumber(isActive)} onClick={onClick}>
-      <ChoiceItem text={itemName} fontSize="14px" />
-      <RotatePlus isChoose={isChoose} />
-    </Select>
+    <Container
+      marginTop={marginTop}
+      marginBottom={marginBottom}
+      marginLeft={marginLeft}
+      marginRight={marginRight}
+      paddingTop={paddingVertical}
+      paddingBottom={paddingVertical}
+      paddingLeft={paddingHorizontal}
+      paddingRight={paddingHorizontal}
+      borderColor={borderColor}
+      bgColor={bgColor}
+      fontColor={fontColor}
+    >
+      {text}
+    </Container>
   )
 }
 

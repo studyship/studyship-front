@@ -1,23 +1,31 @@
 import React from 'react'
 import styled from 'styled-components'
+import { marginStyles } from 'src/styles/mixin'
+import { MarginStyleProps } from 'src/@types'
 
-interface INormalTextStyle {
+interface StyleProps extends MarginStyleProps {
   className?: string
   fontSize?: string
+  fontColor?: string
+  wrap?: boolean
+  width?: string
 }
 
-interface INormalText extends INormalTextStyle {
+interface NormalTextProps extends StyleProps {
   text: string
   onClick?: () => void
 }
 
-const Container = styled.p`
+const Container = styled.p<StyleProps>`
   display: flex;
   justify-content: center;
   align-items: center;
+  width: ${({ width }) => width && width};
   font-weight: normal;
-  font-size: ${(props: INormalTextStyle) =>
-    props.fontSize ? props.fontSize : '22px'};
+  font-size: ${({ fontSize }) => (fontSize ? fontSize : '22px')};
+  color: ${({ fontColor }) => (fontColor ? fontColor : 'black')};
+  white-space: ${({ wrap }) => (wrap ? 'wrap' : 'nowrap')};
+  ${marginStyles};
 `
 
 const NormalTextViewer = ({
@@ -25,9 +33,27 @@ const NormalTextViewer = ({
   fontSize,
   text,
   onClick,
-}: INormalText) => {
+  fontColor,
+  marginTop,
+  marginBottom,
+  marginLeft,
+  marginRight,
+  wrap,
+  width,
+}: NormalTextProps) => {
   return (
-    <Container className={className} fontSize={fontSize} onClick={onClick}>
+    <Container
+      className={className}
+      fontColor={fontColor}
+      fontSize={fontSize}
+      onClick={onClick}
+      marginTop={marginTop}
+      marginBottom={marginBottom}
+      marginLeft={marginLeft}
+      marginRight={marginRight}
+      wrap={wrap}
+      width={width}
+    >
       {text}
     </Container>
   )

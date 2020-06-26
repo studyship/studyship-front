@@ -1,8 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Icon } from '..'
+import { PaddingStyleProps, MarginStyleProps } from 'src/@types'
+import { paddingStyles, marginStyles } from 'src/styles/mixin'
 
-const Button = styled.button`
+const Button = styled.button<StyleProps>`
   padding: 14px 0px;
   width: 100%;
   white-space: nowrap;
@@ -10,15 +12,14 @@ const Button = styled.button`
   vertical-align: center;
   border-radius: 5px;
   font-weight: normal;
-  font-size: ${(props: IButtonStyle) =>
-    props.fontSize ? props.fontSize : '15px'};
-  color: ${(props: IButtonStyle) =>
-    props.fontColor ? props.fontColor : '#ffffff'};
-  background-color: ${(props: IButtonStyle) =>
-    props.bgColor ? props.bgColor : props.bgColor};
+  font-size: ${({ fontSize }) => (fontSize ? fontSize : '15px')};
+  color: ${({ fontColor }) => (fontColor ? fontColor : '#ffffff')};
+  background-color: ${({ bgColor }) => (bgColor ? bgColor : bgColor)};
   border-color: transparent;
   outline: none;
   cursor: pointer;
+  ${paddingStyles}
+  ${marginStyles};
 `
 const RowBox = styled.div`
   display: flex;
@@ -30,12 +31,12 @@ const RowBox = styled.div`
   }
 `
 
-interface IButtonStyle {
+interface StyleProps extends MarginStyleProps, PaddingStyleProps {
   fontSize?: string
   fontColor?: string
   bgColor?: string
 }
-interface IButton extends IButtonStyle {
+interface ButtonProps extends StyleProps {
   className?: string
   text: string
   onClick?: () => void
@@ -50,7 +51,15 @@ const ButtonViewer = ({
   fontColor,
   bgColor,
   imgSrc,
-}: IButton) => {
+  marginTop,
+  marginBottom,
+  marginLeft,
+  marginRight,
+  paddingTop,
+  paddingBottom,
+  paddingLeft,
+  paddingRight,
+}: ButtonProps) => {
   return (
     <Button
       className={className}
@@ -58,6 +67,14 @@ const ButtonViewer = ({
       fontSize={fontSize}
       fontColor={fontColor}
       bgColor={bgColor}
+      paddingTop={paddingTop}
+      paddingBottom={paddingBottom}
+      paddingLeft={paddingLeft}
+      paddingRight={paddingRight}
+      marginTop={marginTop}
+      marginBottom={marginBottom}
+      marginLeft={marginLeft}
+      marginRight={marginRight}
     >
       {imgSrc ? (
         <RowBox>

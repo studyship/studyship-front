@@ -5,7 +5,7 @@ import {
   RowBox,
   NormalText,
   ColumnBox,
-  Tag,
+  ChoiceTag,
   UnderlineText,
 } from 'src/Components/Atoms'
 import { mainColorBlue } from 'src/styles/Colors'
@@ -25,7 +25,7 @@ const Category = styled(RowBox)`
   border: 1px solid ${mainColorBlue};
   border-radius: 2px;
 `
-const TabBox = styled.div`
+const TabBox = styled.div<IUnit>`
   display: flex;
   justify-content: center;
   padding: 8px 26px;
@@ -33,20 +33,19 @@ const TabBox = styled.div`
   border-right: 1px solid ${mainColorBlue};
   font-size: 12px;
   white-space: nowrap;
-  cursor: ${(props: IUnit) =>
-    props.cursorType ? props.cursorType : 'pointer'};
-  ${(props: IUnit) =>
-    props.isBorderStyle && `border-bottom: 1px solid ${mainColorBlue};`};
-  ${(props: IUnit) =>
-    props.isActive && `background-color:${mainColorBlue}; color:white;`};
+  cursor: ${({ cursorType }) => (cursorType ? cursorType : 'pointer')};
+  ${({ isBorderStyle }) =>
+    isBorderStyle && `border-bottom: 1px solid ${mainColorBlue};`};
+  ${({ isActive }) =>
+    isActive && `background-color:${mainColorBlue}; color:white;`};
   :nth-of-type(4n) {
     border-right: none;
   }
 `
-const Tab = styled(NormalText)`
+const Tab = styled(NormalText)<IUnit>`
   color: ${mainColorBlue};
-  ${(props: IUnit) =>
-    props.isActive && `background-color:${mainColorBlue}; color:white;`};
+  ${({ isActive }) =>
+    isActive && `background-color:${mainColorBlue}; color:white;`};
 `
 const List = styled(ColumnBox)`
   width: 100%;
@@ -129,7 +128,7 @@ const InterestFormViewer = ({
                 <GroupName>{group.groupName}</GroupName>
                 <UnitBox>
                   {group.groupItems.map((item, index) => (
-                    <Tag
+                    <ChoiceTag
                       key={getUniqueKey(index)}
                       onClick={() => {
                         handleSelectedInterest(item.type, true)
@@ -150,7 +149,7 @@ const InterestFormViewer = ({
             group.groupItems.map(
               (item, index) =>
                 item.isActiveItem && (
-                  <Tag
+                  <ChoiceTag
                     key={getUniqueKey(index)}
                     itemName={item.type}
                     isChoose={true}

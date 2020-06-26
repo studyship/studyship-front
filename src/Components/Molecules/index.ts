@@ -13,6 +13,10 @@ import MailVertifyForm from './MailVertifyForm'
 import AccountChoiceForm from './AccountChoiceForm'
 import ProfileTooltip from './ProfileTooltip'
 import ProfileHeader from './ProfileHeader'
+import ProfileCard from './ProfileCard'
+import ProfileInfo from './ProfileInfo'
+import DetailProfile from './DetailProfile'
+import TendencySlider from './TendencySlider'
 
 export {
   MainHeader,
@@ -30,4 +34,8 @@ export {
   AccountChoiceForm,
   ProfileTooltip,
   ProfileHeader,
+  ProfileCard,
+  ProfileInfo,
+  DetailProfile,
+  TendencySlider,
 }

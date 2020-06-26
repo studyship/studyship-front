@@ -3,6 +3,7 @@ import SectionTemplate from './Section'
 import AccountModalTemplate from './AccountModal'
 import TopArrowTooltip from './TopArrowTooltip'
 import Header from './Header'
+import LabelSection from './LabelSection'
 
 export {
   HomeTemplate,
@@ -10,4 +11,5 @@ export {
   AccountModalTemplate,
   TopArrowTooltip,
   Header,
+  LabelSection,
 }

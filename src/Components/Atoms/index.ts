@@ -14,9 +14,12 @@ import RowBox from './RowBox'
 import YellowCheckbox from './YellowCheckbox'
 import ColumnBox from './ColumnBox'
 import RotatePlus from './RotatePlus'
-import Tag from './Tag'
+import ChoiceTag from './ChoiceTag'
 import UnderlineText from './UnderlineText'
 import SocialLoginButton from './SocialLoginButton'
+import TouchLabel from './TouchLabel'
+import Tag from './Tag'
+import StepSlider from './StepSlider'
 
 export {
   JumboTitle,
@@ -35,7 +38,10 @@ export {
   YellowCheckbox,
   ColumnBox,
   RotatePlus,
-  Tag,
+  ChoiceTag,
   UnderlineText,
   SocialLoginButton,
+  TouchLabel,
+  Tag,
+  StepSlider,
 }
