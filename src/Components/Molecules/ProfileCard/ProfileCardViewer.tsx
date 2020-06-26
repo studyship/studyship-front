@@ -1,11 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { ProfileInfo } from 'src/Components/Molecules'
+import {
+  ProfileInfo,
+  DetailProfile,
+  TendencySlider,
+} from 'src/Components/Molecules'
 import { HorizontalBar, Tag, Icon } from 'src/Components/Atoms'
 import { LabelSection } from 'src/Components/Templates'
 import { getUniqueKey } from 'src/lib'
-import perfectMemberBadge from 'src/styles/icons/ss_perfect_member_badge.svg'
 import oneBuildBadge from 'src/styles/icons/ss_one_build_badge.svg'
 
 const ProfileContainer = styled.div`
@@ -17,6 +20,9 @@ const ProfileContainer = styled.div`
   background-color: #ffffff;
   border: 1px solid #e6e6e6;
   border-radius: 10px;
+`
+const TendencyWrapper = styled.div`
+  width: 100%;
 `
 
 const ProfileCardViewer = () => {
@@ -40,10 +46,29 @@ const ProfileCardViewer = () => {
         {Array.from({ length: 4 }, (item, index) => (
           <Icon
             key={getUniqueKey(index)}
-            imgSrc={perfectMemberBadge}
-            marginRight="5px"
+            imgSrc={oneBuildBadge}
+            marginRight="10px"
           />
         ))}
+      </LabelSection>
+      <LabelSection labelText="상세 프로필" marginTop="40px">
+        <DetailProfile
+          phoneNumber="000-0000-0000"
+          favorAddress="Seoul"
+          favorJob="Developer"
+        />
+      </LabelSection>
+      <LabelSection labelText="스터디 성향" marginTop="40px">
+        <TendencyWrapper>
+          {Array.from({ length: 4 }, () => (
+            <TendencySlider
+              lowText="완전 열공"
+              highText="가끔 회식도"
+              textWidth="58px"
+              fontSize="12px"
+            />
+          ))}
+        </TendencyWrapper>
       </LabelSection>
     </ProfileContainer>
   )

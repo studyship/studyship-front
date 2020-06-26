@@ -15,6 +15,8 @@ import ProfileTooltip from './ProfileTooltip'
 import ProfileHeader from './ProfileHeader'
 import ProfileCard from './ProfileCard'
 import ProfileInfo from './ProfileInfo'
+import DetailProfile from './DetailProfile'
+import TendencySlider from './TendencySlider'
 
 export {
   MainHeader,
@@ -34,4 +36,6 @@ export {
   ProfileHeader,
   ProfileCard,
   ProfileInfo,
+  DetailProfile,
+  TendencySlider,
 }

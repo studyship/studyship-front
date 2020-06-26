@@ -8,9 +8,9 @@ import { ProfileHeader, ProfileCard } from 'src/Components/Molecules'
 const Container = styled.div`
   margin-left: auto;
   margin-right: auto;
-  width: 1400px;
+  width: 1568px;
   @media screen and (max-width: 1919px) {
-    width: 1160;
+    width: 1568px;
   }
   @media screen and (max-width: 1313px) {
     width: 800px;

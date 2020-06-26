@@ -13,7 +13,7 @@ const LabelSection = styled.div<StyleProps>`
   ${paddingStyles};
 `
 const Section = styled.div`
-  display: block;
+  display: flex;
   margin-top: 16px;
 `
 

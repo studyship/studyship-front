@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components'
+import { css } from 'styled-components'
 
 import { MarginStyleProps, PaddingStyleProps } from 'src/@types'
 
