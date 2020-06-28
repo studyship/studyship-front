@@ -9,9 +9,11 @@ const Container = styled(RowBox)`
 `
 
 const NavWrapper = styled.ul`
+  flex: 1;
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: flex-start;
   width: 1160px;
 `
 const Nav = styled.li<StyleProps>`

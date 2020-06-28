@@ -21,6 +21,8 @@ const Section = styled(RowBox)`
   align-items: flex-start;
 `
 const ProfileContent = styled.div`
+  display: flex;
+  justify-content: flex-start;
   margin-top: 38px;
 `
 const CardWrapper = styled.div`
@@ -33,6 +35,8 @@ const TabWrapper = styled.div`
   justify-content: space-between;
 `
 const TabNav = styled.div`
+  font-weight: normal;
+  font-size: 16px;
   white-space: nowrap;
   cursor: pointer;
 `
@@ -55,14 +59,14 @@ const ProfileViewer = () => {
       <ProfileHeader handleSelected={handleSelected} selectIndex={selected} />
       <Container>
         <Section>
-          <Col xs={0} sm={6} md={6} lg={4}>
+          <Col xs={0} sm={4} md={4} lg={3}>
             <CardWrapper>
               <ProfileCard />
             </CardWrapper>
           </Col>
-          <Col xs={12} sm={6} md={10} lg={8}>
+          <Col xs={12} sm={6} md={10} lg={9}>
             <ProfileContent>
-              <Col md={7} lg={7}>
+              <Col md={6} lg={6}>
                 <TabWrapper>
                   <TabNav>내가 만든 스터디</TabNav>
                   <TabNav>가입한 스터디</TabNav>
