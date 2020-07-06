@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react'
 import styled from 'styled-components'
-import { Col } from 'react-flexbox-grid'
+import { Row, Col } from 'react-flexbox-grid'
 
 import { RowBox, NavTab, SelectBox } from 'src/Components/Atoms'
 import { ProfileHeader, ProfileCard } from 'src/Components/Molecules'
@@ -12,12 +12,9 @@ import { getUniqueKey } from 'src/lib'
 const Container = styled.div`
   margin-left: auto;
   margin-right: auto;
-  width: 1568px;
-  @media screen and (max-width: 1919px) {
-    width: 1568px;
-  }
+  width: 1570px;
   @media screen and (max-width: 1313px) {
-    width: 800px;
+    width: 1180px;
   }
   @media screen and (max-width: 450px) {
     padding: 0px 10px;
@@ -92,7 +89,6 @@ const ProfileViewer = () => {
               </Col>
             </ProfileContent>
           </Col>
-          <Col xs={9} sm={9} md={9} lg={9} />
         </Section>
       </Container>
     </>
