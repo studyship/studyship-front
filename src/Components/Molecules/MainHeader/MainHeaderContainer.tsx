@@ -26,7 +26,7 @@ const MainHeaderContainer = () => {
     setCurrentTab(choicedTab[0])
   }
 
-  const [tabs, setTabs] = useState([
+  const tabs = [
     {
       title: ['나랑 잘 맞는 스터디메이트,', '스터디쉽에서 간편하게 구해보세요'],
       horizontal: 'center',
@@ -71,7 +71,7 @@ const MainHeaderContainer = () => {
       tab: 'vertify',
       form: <MailVertifyForm />,
     },
-  ])
+  ]
   const [currentTab, setCurrentTab] = useState(tabs[0])
 
   return (

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { SelectedBoxOptionTypes } from 'src/@types'
 
 const useSelectBox = (initalValue: SelectedBoxOptionTypes) => {
