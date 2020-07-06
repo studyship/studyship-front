@@ -20,6 +20,8 @@ import SocialLoginButton from './SocialLoginButton'
 import TouchLabel from './TouchLabel'
 import Tag from './Tag'
 import StepSlider from './StepSlider'
+import NavTab from './NavTab'
+import SelectBox from './SelectBox'
 
 export {
   JumboTitle,
@@ -44,4 +46,6 @@ export {
   TouchLabel,
   Tag,
   StepSlider,
+  NavTab,
+  SelectBox,
 }

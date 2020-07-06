@@ -86,3 +86,20 @@ export type PaddingStyleProps = {
   paddingLeft?: string
   paddingRight?: string
 }
+// tab options type
+export type TabOptionTypes = {
+  [key: string]: any
+  id: number
+  isSeleted: boolean
+}
+// selectbox types
+export type SelectedBoxOptionTypes = {
+  value: string
+  label: string
+}
+export type SelectBoxOptionTypes = Array<SelectedBoxOptionTypes>
+// seletBox binder
+export type SeletBoxBinderTypes = {
+  onChange: (selectedOption: SelectedBoxOptionTypes) => void
+  value: string
+}

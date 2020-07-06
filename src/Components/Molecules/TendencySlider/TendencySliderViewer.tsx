@@ -19,7 +19,7 @@ interface TendencyProps extends StyleProps {
 const TendencySliderViewer = ({
   fontSize,
   textWidth,
-  wrap = false,
+  wrap,
   lowText,
   highText,
 }: TendencyProps) => {
