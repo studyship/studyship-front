@@ -2,8 +2,12 @@ import React, { useState, useCallback } from 'react'
 import styled from 'styled-components'
 import { Row, Col } from 'react-flexbox-grid'
 
-import { RowBox } from 'src/Components/Atoms'
+import { RowBox, NavTab, SelectBox } from 'src/Components/Atoms'
 import { ProfileHeader, ProfileCard } from 'src/Components/Molecules'
+
+import { tabOptions as profileTabOptions, selectBoxOptions } from './options'
+import { useHandleSelectTab, useSelectBox } from 'src/hooks'
+import { getUniqueKey } from 'src/lib'
 
 const Container = styled.div`
   margin-left: auto;
@@ -34,12 +38,6 @@ const TabWrapper = styled.div`
   flex-direction: row;
   justify-content: space-between;
 `
-const TabNav = styled.div`
-  font-weight: normal;
-  font-size: 16px;
-  white-space: nowrap;
-  cursor: pointer;
-`
 
 export enum SelecteType {
   profile = 0,
@@ -53,6 +51,9 @@ const ProfileViewer = () => {
   const handleSelected = useCallback((selectIndex: SelecteType) => {
     setSelected(selectIndex)
   }, [])
+
+  const { tabOptions, onClick } = useHandleSelectTab(profileTabOptions)
+  const { bind: selectBoxBinder } = useSelectBox(selectBoxOptions[0])
 
   return (
     <>
@@ -68,12 +69,23 @@ const ProfileViewer = () => {
             <ProfileContent>
               <Col md={6} lg={6}>
                 <TabWrapper>
-                  <TabNav>내가 만든 스터디</TabNav>
-                  <TabNav>가입한 스터디</TabNav>
-                  <TabNav>북마크</TabNav>
-                  <TabNav>내가 쓴 댓글</TabNav>
-                  <TabNav>함께한 멤버</TabNav>
+                  {tabOptions.map(({ title, isSelected, id }) => (
+                    <NavTab
+                      key={getUniqueKey(id)}
+                      text={title}
+                      isSelected={isSelected}
+                      onClick={() => {
+                        onClick(id)
+                      }}
+                      activationColor="#333333"
+                      inactivationColor="#b3b3b3"
+                    />
+                  ))}
                 </TabWrapper>
+                <SelectBox
+                  options={selectBoxOptions}
+                  selectBoxBinder={selectBoxBinder}
+                />
               </Col>
             </ProfileContent>
           </Col>
