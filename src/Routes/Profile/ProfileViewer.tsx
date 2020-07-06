@@ -2,11 +2,12 @@ import React, { useState, useCallback } from 'react'
 import styled from 'styled-components'
 import { Col } from 'react-flexbox-grid'
 
-import { RowBox, NavTab } from 'src/Components/Atoms'
+import { RowBox, NavTab, SelectBox } from 'src/Components/Atoms'
 import { ProfileHeader, ProfileCard } from 'src/Components/Molecules'
 
-import { profileTabOptions } from './options'
-import { useHandleSelectTab } from 'src/hooks'
+import { tabOptions as profileTabOptions, selectBoxOptions } from './options'
+import { useHandleSelectTab, useSelectBox } from 'src/hooks'
+import { getUniqueKey } from 'src/lib'
 
 const Container = styled.div`
   margin-left: auto;
@@ -55,6 +56,7 @@ const ProfileViewer = () => {
   }, [])
 
   const { tabOptions, onClick } = useHandleSelectTab(profileTabOptions)
+  const { bind: selectBoxBinder } = useSelectBox(selectBoxOptions[0])
 
   return (
     <>
@@ -72,6 +74,7 @@ const ProfileViewer = () => {
                 <TabWrapper>
                   {tabOptions.map(({ title, isSelected, id }) => (
                     <NavTab
+                      key={getUniqueKey(id)}
                       text={title}
                       isSelected={isSelected}
                       onClick={() => {
@@ -82,6 +85,10 @@ const ProfileViewer = () => {
                     />
                   ))}
                 </TabWrapper>
+                <SelectBox
+                  options={selectBoxOptions}
+                  selectBoxBinder={selectBoxBinder}
+                />
               </Col>
             </ProfileContent>
           </Col>

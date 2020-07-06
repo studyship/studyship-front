@@ -21,6 +21,7 @@ import TouchLabel from './TouchLabel'
 import Tag from './Tag'
 import StepSlider from './StepSlider'
 import NavTab from './NavTab'
+import SelectBox from './SelectBox'
 
 export {
   JumboTitle,
@@ -46,4 +47,5 @@ export {
   Tag,
   StepSlider,
   NavTab,
+  SelectBox,
 }

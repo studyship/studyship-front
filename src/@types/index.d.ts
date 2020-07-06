@@ -92,3 +92,14 @@ export type TabOptionTypes = {
   id: number
   isSeleted: boolean
 }
+// selectbox types
+export type SelectedBoxOptionTypes = {
+  value: string
+  label: string
+}
+export type SelectBoxOptionTypes = Array<SelectedBoxOptionTypes>
+// seletBox binder
+export type SeletBoxBinderTypes = {
+  onChange: (selectedOption: SelectedBoxOptionTypes) => void
+  value: string
+}

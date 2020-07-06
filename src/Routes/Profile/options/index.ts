@@ -1,3 +1,4 @@
-import profileTabOptions from './profileTabOptions'
+import tabOptions from './tabOptions'
+import selectBoxOptions from './selectBoxOptions'
 
-export { profileTabOptions }
+export { tabOptions, selectBoxOptions }
