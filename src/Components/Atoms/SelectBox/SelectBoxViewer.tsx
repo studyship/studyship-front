@@ -7,6 +7,7 @@ import { marginStyles } from 'src/styles/mixin'
 const SelectBox = styled(Select)<StyleProps>`
   width: ${({ width }) => (width ? width : '140px')};
   ${marginStyles};
+  border: none !important;
 `
 
 interface StyleProps extends MarginStyleProps {
@@ -35,6 +36,9 @@ const SelectBoxViewer = ({
       marginBottom={marginBottom}
       marginLeft={marginLeft}
       marginRight={marginRight}
+      styles={{
+        borderBottom: '1px dotted pink',
+      }}
       {...selectBoxBinder}
     />
   )

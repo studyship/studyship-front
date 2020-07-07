@@ -22,6 +22,7 @@ import Tag from './Tag'
 import StepSlider from './StepSlider'
 import NavTab from './NavTab'
 import SelectBox from './SelectBox'
+import CreateCard from './CreateCard'
 
 export {
   JumboTitle,
@@ -48,4 +49,5 @@ export {
   StepSlider,
   NavTab,
   SelectBox,
+  CreateCard,
 }

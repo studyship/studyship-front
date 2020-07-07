@@ -14,11 +14,11 @@ const LoginFormContainer = ({
   const { bind: bindCheckbox } = useInputCheckbox(false)
 
   const handleSubmit = () => {
-    const { checked } = bindCheckbox
-    const config = {
-      url: '',
-      checked,
-    }
+    // const { checked } = bindCheckbox
+    // const config = {
+    //   url: '',
+    //   checked,
+    // }
     dispatch({ type: SAVE_TOKEN_SUCCESS })
   }
 

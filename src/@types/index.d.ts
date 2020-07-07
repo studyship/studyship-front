@@ -1,9 +1,5 @@
-export type PluseTypes = {
-  isChoose: boolean | number
-}
-
 export type RotatePlusProps = {
-  isChoose: boolean
+  isChoose?: boolean
   plusColor?: string
   closeColor?: string
   size?: string
@@ -101,5 +97,5 @@ export type SelectBoxOptionTypes = Array<SelectedBoxOptionTypes>
 // seletBox binder
 export type SeletBoxBinderTypes = {
   onChange: (selectedOption: SelectedBoxOptionTypes) => void
-  value: string
+  value: SelectedBoxOptionTypes
 }
