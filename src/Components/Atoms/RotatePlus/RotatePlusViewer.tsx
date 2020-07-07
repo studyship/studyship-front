@@ -1,22 +1,21 @@
 import React from 'react'
 import styled from 'styled-components'
-import { RotatePlusProps, PluseTypes } from 'src/@types'
+import { RotatePlusProps } from 'src/@types'
 
-const Plus = styled.div`
+const Plus = styled.div<RotatePlusProps>`
   position: relative;
-  width: 18px;
-  height: 18px;
+  width: ${({ size }) => (size ? size : '18px')};
+  height: ${({ size }) => (size ? size : '18px')};
   transition: all ease 0.5s;
 
-  ${(props: PluseTypes) => props.isChoose && 'transform: rotate(135deg);'};
+  ${({ isChoose }) => isChoose && 'transform: rotate(135deg);'};
 
   cursor: pointer;
   :before,
   :after {
     content: '';
     position: absolute;
-    background-color: ${(props: PluseTypes) =>
-      props.isChoose ? 'white' : '#b3b3b3'};
+    background-color: ${({ isChoose }) => (isChoose ? 'white' : '#b3b3b3')};
   }
   :before {
     left: 50%;
@@ -34,8 +33,8 @@ const Plus = styled.div`
   }
 `
 
-const RotatePlusViewer = ({ isChoose }: RotatePlusProps) => {
-  return <Plus isChoose={isChoose} />
+const RotatePlusViewer = ({ isChoose, size }: RotatePlusProps) => {
+  return <Plus isChoose={isChoose || false} size={size} />
 }
 
 export default RotatePlusViewer

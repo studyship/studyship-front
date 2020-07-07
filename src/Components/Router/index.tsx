@@ -16,7 +16,7 @@ export default () => {
         <MainHeader />
         <Switch>
           <Route exact path="/" component={Home} />
-          {isLoggedIn ? <PrivateRouter /> : <PublicRouter />}
+          {!isLoggedIn ? <PrivateRouter /> : <PublicRouter />}
         </Switch>
       </Router>
     </>
