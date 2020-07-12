@@ -25,9 +25,7 @@ export const useInterestList = (
   }
 
   const handleSelectedInterest = (currentItem: string, toggleType: boolean) => {
-    if (listLimits - 1 < selectedListLength) {
-      return
-    } else {
+    if (toggleType && selectedListLength < listLimits) {
       const updateCurrentTab = interestList.map((interest) => {
         return {
           ...interest,
@@ -40,7 +38,7 @@ export const useInterestList = (
                     ...groupItem,
                     isActiveItem: toggleType,
                   }
-                  toggleType ? increaseSelectedList() : decreseSelectedList()
+                  !groupItem.isActiveItem && increaseSelectedList()
                   return updateItem
                 } else {
                   return {
@@ -53,6 +51,34 @@ export const useInterestList = (
         }
       })
       setInterestList(updateCurrentTab)
+    } else {
+      if (!toggleType) {
+        const updateCurrentTab = interestList.map((interest) => {
+          return {
+            ...interest,
+            list: interest.list.map((item) => {
+              return {
+                ...item,
+                groupItems: item.groupItems.map((groupItem) => {
+                  if (groupItem.type === currentItem) {
+                    const updateItem = {
+                      ...groupItem,
+                      isActiveItem: toggleType,
+                    }
+                    groupItem.isActiveItem && decreseSelectedList()
+                    return updateItem
+                  } else {
+                    return {
+                      ...groupItem,
+                    }
+                  }
+                }),
+              }
+            }),
+          }
+        })
+        setInterestList(updateCurrentTab)
+      }
     }
   }
   return { handleCurrentTab, handleSelectedInterest, interestList }

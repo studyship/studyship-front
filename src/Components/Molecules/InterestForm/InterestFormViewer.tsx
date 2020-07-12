@@ -125,6 +125,10 @@ const InterestFormViewer = ({
             interest.isActiveCategory &&
             interest.list.map((group, index) => (
               <React.Fragment key={getUniqueKey(index)}>
+                {/* 디자인 중분류 탭을 소분류로 화면에 분리 후 핸들링을 따로 하고 이때 하위 탭들의 액티브 값을 모두 false 로 변경한다. */}
+                {/* 소분류가 체크 될 때 중분류가 체크 되어 있는지 확인 할 수 있어야한다. 
+                group.groupName
+                */}
                 <GroupName>{group.groupName}</GroupName>
                 <UnitBox>
                   {group.groupItems.map((item, index) => (
