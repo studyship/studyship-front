@@ -11,7 +11,7 @@ import {
   RowBox,
   Button,
 } from 'src/Components/Atoms'
-import { AccountForm, ProfileTooltip } from '..'
+import { ProfileTooltip } from '..'
 import LogoColorS from 'src/styles/icons/SS_Logo_colorS.png'
 import notificationLogo from 'src/styles/icons/ss_icon_notification.svg'
 import profileLogo from 'src/styles/icons/ss_icon_profile.svg'
@@ -23,7 +23,7 @@ import {
   mainColorYellow,
   whiteColor,
 } from 'src/styles/Colors'
-import { Header } from 'src/Components/Templates'
+import { Header, AccountForm } from 'src/Components/Templates'
 import { TabTypes } from 'src/@types'
 
 const Nav = styled.ul`

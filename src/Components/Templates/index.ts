@@ -4,6 +4,7 @@ import AccountModalTemplate from './AccountModal'
 import TopArrowTooltip from './TopArrowTooltip'
 import Header from './Header'
 import LabelSection from './LabelSection'
+import AccountForm from './AccountForm'
 
 export {
   HomeTemplate,
@@ -12,4 +13,5 @@ export {
   TopArrowTooltip,
   Header,
   LabelSection,
+  AccountForm,
 }

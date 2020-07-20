@@ -6,12 +6,13 @@ export type RotatePlusProps = {
 }
 export interface IUnit {
   cursorType?: 'default' | 'pointer'
-  isActive: number
-  isBorderStyle?: number
+  isActive: boolean
+  isBorderStyle?: boolean
 }
 
 export interface List {
   groupName: string
+  isActiveItem: boolean
   groupItems: Array<GroupItem>
 }
 

@@ -12,7 +12,6 @@ import { mainColorBlue } from 'src/styles/Colors'
 import { getUniqueKey } from 'src/lib'
 import { HandleNextStageType, IUnit, InterestListTypes } from 'src/@types'
 import increaseArrayLenght from 'src/lib/increaseArrayLenght'
-import booleanToNumber from 'src/lib/booleanToNumber'
 
 const Container = styled.div`
   display: flex;
@@ -95,14 +94,14 @@ const InterestFormViewer = ({
           interest ? (
             <TabBox
               key={`${index}key`}
-              isBorderStyle={booleanToNumber(index < 4)}
-              isActive={booleanToNumber(interest.isActiveCategory)}
+              isBorderStyle={index < 4}
+              isActive={interest.isActiveCategory}
               onClick={() => {
                 handleCurrentTab(interest.category)
               }}
             >
               <Tab
-                isActive={booleanToNumber(interest.isActiveCategory)}
+                isActive={interest.isActiveCategory}
                 text={interest.category}
                 fontSize="14px"
               />
@@ -111,10 +110,10 @@ const InterestFormViewer = ({
             <TabBox
               key={`${index}key`}
               cursorType="default"
-              isBorderStyle={booleanToNumber(index < 4)}
-              isActive={booleanToNumber(false)}
+              isBorderStyle={index < 4}
+              isActive={false}
             >
-              <Tab isActive={booleanToNumber(false)} text="-" fontSize="14px" />
+              <Tab isActive={false} text="-" fontSize="14px" />
             </TabBox>
           ),
         )}
@@ -125,12 +124,15 @@ const InterestFormViewer = ({
             interest.isActiveCategory &&
             interest.list.map((group, index) => (
               <React.Fragment key={getUniqueKey(index)}>
-                {/* 디자인 중분류 탭을 소분류로 화면에 분리 후 핸들링을 따로 하고 이때 하위 탭들의 액티브 값을 모두 false 로 변경한다. */}
-                {/* 소분류가 체크 될 때 중분류가 체크 되어 있는지 확인 할 수 있어야한다. 
-                group.groupName
-                */}
                 <GroupName>{group.groupName}</GroupName>
                 <UnitBox>
+                  <ChoiceTag
+                    key={getUniqueKey(index)}
+                    onClick={() => {}}
+                    itemName="전체"
+                    isChoose={false}
+                    isActive={group.isActiveItem}
+                  />
                   {group.groupItems.map((item, index) => (
                     <ChoiceTag
                       key={getUniqueKey(index)}
