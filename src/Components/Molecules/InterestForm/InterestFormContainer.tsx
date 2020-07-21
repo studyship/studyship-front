@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { HandleNextStageType } from 'src/@types'
 import InterestFormViewer from './InterestFormViewer'
 import { categoryOptions } from './dummyOptions'

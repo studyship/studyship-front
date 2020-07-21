@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { InterestListTypes } from 'src/@types'
-import { group } from 'console'
 
 export type InterestType = {
   name: string
