@@ -17,6 +17,7 @@ import ProfileInfo from './ProfileInfo'
 import DetailProfile from './DetailProfile'
 import TendencySlider from './TendencySlider'
 import Dashboard from './Dashboard'
+import AccountAndSignIn from './AccountAndSignIn'
 
 export {
   MainHeader,
@@ -38,4 +39,5 @@ export {
   DetailProfile,
   TendencySlider,
   Dashboard,
+  AccountAndSignIn,
 }

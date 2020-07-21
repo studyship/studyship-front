@@ -1,6 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 import { RowBox, Button } from 'src/Components/Atoms'
+import {
+  backgroundColor,
+  mainColorBlack,
+  mainColorYellow,
+  whiteColor,
+} from 'src/styles/Colors'
 
 const AccountBox = styled(RowBox)`
   > * :nth-child(1) {
@@ -18,7 +24,15 @@ const Account = styled(Button)`
   }
 `
 
-const AccountAndSignInViewer = () => {
+type AccountAndSignInProps = {
+  handleModalActive: () => void
+  handleNextStage: (nextTab: string) => void
+}
+
+const AccountAndSignInViewer = ({
+  handleModalActive,
+  handleNextStage,
+}: AccountAndSignInProps) => {
   return (
     <AccountBox>
       <Account

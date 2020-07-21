@@ -4,26 +4,14 @@ import { Link } from 'react-router-dom'
 import { isMobile } from 'react-device-detect'
 import { ModalTemplate } from '@devgw-react/blank-modal'
 
-import {
-  Icon,
-  InputHover,
-  VerticalBar,
-  RowBox,
-  Button,
-} from 'src/Components/Atoms'
-import { ProfileTooltip } from '..'
+import { Icon, InputHover, VerticalBar, RowBox } from 'src/Components/Atoms'
+import { Header, AccountForm } from 'src/Components/Templates'
+import { ProfileTooltip, AccountAndSignIn } from '..'
 import LogoColorS from 'src/styles/icons/SS_Logo_colorS.png'
 import notificationLogo from 'src/styles/icons/ss_icon_notification.svg'
 import profileLogo from 'src/styles/icons/ss_icon_profile.svg'
 import messageLogo from 'src/styles/icons/ss_icon_message.svg'
-import {
-  mainColorBlue,
-  backgroundColor,
-  mainColorBlack,
-  mainColorYellow,
-  whiteColor,
-} from 'src/styles/Colors'
-import { Header, AccountForm } from 'src/Components/Templates'
+import { mainColorBlue } from 'src/styles/Colors'
 import { TabTypes } from 'src/@types'
 
 const Nav = styled.ul`
@@ -56,21 +44,6 @@ const SLink = styled(Link)`
   :hover {
     font-weight: bold;
     color: ${mainColorBlue};
-  }
-  @media screen and (max-width: 450px) {
-    margin: 0 5px;
-  }
-`
-const AccountBox = styled(RowBox)`
-  > * :nth-child(1) {
-    margin-left: 15px;
-    margin-right: 5px;
-  }
-`
-const Account = styled(Button)`
-  padding: 4px 10px;
-  :nth-child(1) {
-    border: 1px solid black;
   }
   @media screen and (max-width: 450px) {
     margin: 0 5px;
@@ -143,28 +116,10 @@ const MainHeaderViewer = ({
                 </ProfileTooltip>
               </IconRow>
             ) : (
-              <AccountBox>
-                <Account
-                  onClick={() => {
-                    handleNextStage('login')
-                    handleModalActive()
-                  }}
-                  text="로그인"
-                  bgColor={backgroundColor}
-                  fontColor={mainColorBlack}
-                  fontSize="14px"
-                />
-                <Account
-                  onClick={() => {
-                    handleNextStage('choice')
-                    handleModalActive()
-                  }}
-                  text="회원가입"
-                  bgColor={mainColorYellow}
-                  fontColor={whiteColor}
-                  fontSize="14px"
-                />
-              </AccountBox>
+              <AccountAndSignIn
+                handleNextStage={handleNextStage}
+                handleModalActive={handleModalActive}
+              />
             )}
           </List>
         </Nav>
