@@ -92,10 +92,10 @@ export const categoryOptions = [
   },
   {
     isActiveCategory: false,
-    category: '취업',
+    category: '취업 준비',
     list: [
       {
-        groupName: 'Design',
+        groupName: 'Work',
         isActiveItem: false,
         groupItems: [
           { type: '자소서 · 이력서', isActiveItem: false },
