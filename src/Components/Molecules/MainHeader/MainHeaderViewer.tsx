@@ -14,6 +14,11 @@ import messageLogo from 'src/styles/icons/ss_icon_message.svg'
 import { mainColorBlue } from 'src/styles/Colors'
 import { TabTypes } from 'src/@types'
 
+const HeaderWrapper = styled.div`
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+`
 const Nav = styled.ul`
   position: relative;
   display: flex;
@@ -87,42 +92,65 @@ const MainHeaderViewer = ({
         />
       </ModalTemplate>
       <Header>
-        <LogoLink to="#LOGO">
-          {isMobile ? (
-            <Icon imgSrc={LogoColorS} />
-          ) : (
-            <Icon imgSrc={LogoColorS} />
-          )}
-        </LogoLink>
-        <Nav>
-          <InputHover />
-          <List>
-            <SLink to="#HOME">카테고리</SLink>
-          </List>
-          <List>
-            <SLink to="#About">스터디 만들기</SLink>
-          </List>
-          <List>
-            <SLink to="#Services">ABOUT</SLink>
-          </List>
-          <VerticalBar marginHorizontal="10px" />
-          <List>
-            {isLoggedIn ? (
-              <IconRow>
-                <Icon imgSrc={messageLogo} cursor="pointer" />
-                <Icon imgSrc={notificationLogo} cursor="pointer" />
-                <ProfileTooltip>
-                  <Icon imgSrc={profileLogo} cursor="pointer" />
-                </ProfileTooltip>
-              </IconRow>
+        <HeaderWrapper>
+          <LogoLink to="#LOGO">
+            {isMobile ? (
+              <Icon imgSrc={LogoColorS} />
             ) : (
               <AccountAndSignIn
                 handleNextStage={handleNextStage}
                 handleModalActive={handleModalActive}
               />
             )}
-          </List>
-        </Nav>
+          </LogoLink>
+          <Nav>
+            <InputHover />
+            <List>
+              <SLink to="#HOME">카테고리</SLink>
+            </List>
+            <List>
+              <SLink to="#About">스터디 만들기</SLink>
+            </List>
+            <List>
+              <SLink to="#Services">ABOUT</SLink>
+            </List>
+            <VerticalBar marginHorizontal="10px" />
+            <List>
+              {isLoggedIn ? (
+                <IconRow>
+                  <Icon imgSrc={messageLogo} cursor="pointer" />
+                  <Icon imgSrc={notificationLogo} cursor="pointer" />
+                  <ProfileTooltip>
+                    <Icon imgSrc={profileLogo} cursor="pointer" />
+                  </ProfileTooltip>
+                </IconRow>
+              ) : (
+                <AccountBox>
+                  <Account
+                    onClick={() => {
+                      handleNextStage('login')
+                      handleModalActive()
+                    }}
+                    text="로그인"
+                    bgColor={backgroundColor}
+                    fontColor={mainColorBlack}
+                    fontSize="14px"
+                  />
+                  <Account
+                    onClick={() => {
+                      handleNextStage('choice')
+                      handleModalActive()
+                    }}
+                    text="회원가입"
+                    bgColor={mainColorYellow}
+                    fontColor={whiteColor}
+                    fontSize="14px"
+                  />
+                </AccountBox>
+              )}
+            </List>
+          </Nav>
+        </HeaderWrapper>
       </Header>
     </>
   )

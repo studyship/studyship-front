@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react'
 import styled from 'styled-components'
-import { Col } from 'react-flexbox-grid'
+import { Row, Col } from 'react-flexbox-grid'
 
 import { RowBox } from 'src/Components/Atoms'
 import { ProfileHeader, ProfileCard, Dashboard } from 'src/Components/Molecules'
@@ -11,12 +11,9 @@ import { useHandleSelectTab, useSelectBox } from 'src/hooks'
 const Container = styled.div`
   margin-left: auto;
   margin-right: auto;
-  width: 1568px;
-  @media screen and (max-width: 1919px) {
-    width: 1568px;
-  }
+  width: 1570px;
   @media screen and (max-width: 1313px) {
-    width: 800px;
+    width: 1180px;
   }
   @media screen and (max-width: 450px) {
     padding: 0px 10px;
@@ -71,7 +68,6 @@ const ProfileViewer = () => {
               handleNavTab={handleNavTab}
             />
           </Col>
-          <Col xs={9} sm={9} md={9} lg={9} />
         </Section>
       </Container>
     </>
