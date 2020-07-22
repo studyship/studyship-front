@@ -12,7 +12,7 @@ import { mainColorBlue } from 'src/styles/Colors'
 import { getUniqueKey } from 'src/lib'
 import { HandleNextStageType, IUnit, InterestListTypes } from 'src/@types'
 import increaseArrayLenght from 'src/lib/increaseArrayLenght'
-import booleanToNumber from 'src/lib/booleanToNumber'
+import { InterestType } from './hooks/useInterests'
 
 const Container = styled.div`
   display: flex;
@@ -79,7 +79,13 @@ const GroupName = styled.p`
 export interface InterestFormViewerProps extends HandleNextStageType {
   interestList: Array<InterestListTypes>
   handleCurrentTab: (category: string) => void
-  handleSelectedInterest: (currentTab: string, toggleType: boolean) => void
+  handleSelectedInterest: (
+    currentTab: string,
+    toggleType: boolean,
+    parentKey: string,
+  ) => void
+  handleCheckedAllType: (type: string, toggleType: boolean) => void
+  selectedInterests: Array<InterestType>
 }
 
 const InterestFormViewer = ({
@@ -87,6 +93,8 @@ const InterestFormViewer = ({
   handleCurrentTab,
   handleSelectedInterest,
   handleNextStage,
+  handleCheckedAllType,
+  selectedInterests,
 }: InterestFormViewerProps) => {
   return (
     <Container>
@@ -95,14 +103,14 @@ const InterestFormViewer = ({
           interest ? (
             <TabBox
               key={`${index}key`}
-              isBorderStyle={booleanToNumber(index < 4)}
-              isActive={booleanToNumber(interest.isActiveCategory)}
+              isBorderStyle={index < 4}
+              isActive={interest.isActiveCategory}
               onClick={() => {
                 handleCurrentTab(interest.category)
               }}
             >
               <Tab
-                isActive={booleanToNumber(interest.isActiveCategory)}
+                isActive={interest.isActiveCategory}
                 text={interest.category}
                 fontSize="14px"
               />
@@ -111,10 +119,10 @@ const InterestFormViewer = ({
             <TabBox
               key={`${index}key`}
               cursorType="default"
-              isBorderStyle={booleanToNumber(index < 4)}
-              isActive={booleanToNumber(false)}
+              isBorderStyle={index < 4}
+              isActive={false}
             >
-              <Tab isActive={booleanToNumber(false)} text="-" fontSize="14px" />
+              <Tab isActive={false} text="-" fontSize="14px" />
             </TabBox>
           ),
         )}
@@ -127,15 +135,31 @@ const InterestFormViewer = ({
               <React.Fragment key={getUniqueKey(index)}>
                 <GroupName>{group.groupName}</GroupName>
                 <UnitBox>
-                  {group.groupItems.map((item, index) => (
+                  <ChoiceTag
+                    key={getUniqueKey(index)}
+                    onClick={() => {
+                      handleCheckedAllType(
+                        group.groupName,
+                        group.isActiveItem ? false : true,
+                      )
+                    }}
+                    itemName="전체"
+                    isChoose={group.isActiveItem}
+                    isActive={group.isActiveItem}
+                  />
+                  {group.groupItems.map(({ type, isActiveItem }, index) => (
                     <ChoiceTag
                       key={getUniqueKey(index)}
                       onClick={() => {
-                        handleSelectedInterest(item.type, true)
+                        handleSelectedInterest(
+                          type,
+                          isActiveItem ? false : true,
+                          group.groupName,
+                        )
                       }}
-                      itemName={item.type}
-                      isChoose={item.isActiveItem}
-                      isActive={item.isActiveItem}
+                      itemName={type}
+                      isChoose={isActiveItem}
+                      isActive={isActiveItem}
                     />
                   ))}
                 </UnitBox>
@@ -144,24 +168,35 @@ const InterestFormViewer = ({
         )}
       </List>
       <SelectBox>
-        {interestList.map((interest) =>
+        {selectedInterests.map(({ name, groupName, isActivation }, index) => (
+          <ChoiceTag
+            key={getUniqueKey(index)}
+            itemName={name}
+            isChoose={isActivation}
+            isActive={isActivation}
+            onClick={() => {
+              handleSelectedInterest(name, false, groupName)
+            }}
+          />
+        ))}
+        {/* {interestList.map((interest) =>
           interest.list.map((group) =>
             group.groupItems.map(
-              (item, index) =>
-                item.isActiveItem && (
+              ({ type, isActiveItem }, index) =>
+                isActiveItem && (
                   <ChoiceTag
                     key={getUniqueKey(index)}
-                    itemName={item.type}
-                    isChoose={true}
-                    isActive={true}
+                    itemName={type}
+                    isChoose={isActiveItem}
+                    isActive={isActiveItem}
                     onClick={() => {
-                      handleSelectedInterest(item.type, false)
+                      handleSelectedInterest(type, false, group.groupName)
                     }}
                   />
                 ),
             ),
           ),
-        )}
+        )} */}
       </SelectBox>
       <FinishBtn
         text="완료"

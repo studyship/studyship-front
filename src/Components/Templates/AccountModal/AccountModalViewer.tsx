@@ -4,6 +4,7 @@ import { RowBox, Icon, NormalText } from 'src/Components/Atoms'
 import textLogoBlack from 'src/styles/icons/ss_logo_black_text.svg'
 import closeIcon from 'src/styles/icons/ss_logo_close.png'
 import { getUniqueKey } from 'src/lib'
+import { dragLock } from 'src/styles/StylesOptions'
 
 const Container = styled.div`
   display: flex;
@@ -11,6 +12,7 @@ const Container = styled.div`
   align-items: center;
   width: 400px;
   padding: 18px 32px;
+  ${dragLock};
 `
 const TopBox = styled(RowBox)`
   justify-content: space-between;

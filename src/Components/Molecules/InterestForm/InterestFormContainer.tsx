@@ -1,15 +1,17 @@
 import React from 'react'
+import { HandleNextStageType } from 'src/@types'
 import InterestFormViewer from './InterestFormViewer'
 import { categoryOptions } from './dummyOptions'
-import { useInterestList } from './hooks'
-import { HandleNextStageType } from 'src/@types'
+import { useInterests } from './hooks'
 
 const InterestFormContainer = ({ handleNextStage }: HandleNextStageType) => {
   const {
     handleSelectedInterest,
     handleCurrentTab,
     interestList,
-  } = useInterestList(categoryOptions, 5)
+    handleCheckedAllType,
+    selectedInterests,
+  } = useInterests(categoryOptions, 5)
 
   return (
     <InterestFormViewer
@@ -17,6 +19,8 @@ const InterestFormContainer = ({ handleNextStage }: HandleNextStageType) => {
       handleCurrentTab={handleCurrentTab}
       handleSelectedInterest={handleSelectedInterest}
       handleNextStage={handleNextStage}
+      handleCheckedAllType={handleCheckedAllType}
+      selectedInterests={selectedInterests}
     />
   )
 }
