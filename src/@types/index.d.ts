@@ -1,3 +1,5 @@
+import { PayloadAction } from 'typesafe-actions'
+
 export type RotatePlusProps = {
   isChoose?: boolean
   plusColor?: string
@@ -100,3 +102,19 @@ export type SeletBoxBinderTypes = {
   onChange: (selectedOption: SelectedBoxOptionTypes) => void
   value: SelectedBoxOptionTypes
 }
+
+// initial state of account reducer
+export type AccounReducer = {
+  interests: Interests[]
+}
+// Redux Action
+export type PayloadType<Action extends string, T> = PayloadAction<Action, T>
+
+// interests in account reducere
+export type Interests = {
+  child?: Array<Interests>
+  id: number
+  name: string
+}
+
+//
