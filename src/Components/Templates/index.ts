@@ -5,6 +5,7 @@ import TopArrowTooltip from './TopArrowTooltip'
 import Header from './Header'
 import LabelSection from './LabelSection'
 import AccountForm from './AccountForm'
+import MediaSize from './MediaSize'
 
 export {
   HomeTemplate,
@@ -14,4 +15,5 @@ export {
   Header,
   LabelSection,
   AccountForm,
+  MediaSize,
 }

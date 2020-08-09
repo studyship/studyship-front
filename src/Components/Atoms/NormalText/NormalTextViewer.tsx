@@ -22,8 +22,8 @@ const Container = styled.p<StyleProps>`
   align-items: center;
   width: ${({ width }) => width && width};
   font-weight: normal;
-  font-size: ${({ fontSize }) => (fontSize ? fontSize : '22px')};
-  color: ${({ fontColor }) => (fontColor ? fontColor : 'black')};
+  font-size: ${({ fontSize }) => fontSize ?? '22px'};
+  color: ${({ fontColor }) => fontColor ?? 'black'};
   white-space: ${({ wrap }) => (wrap ? 'wrap' : 'nowrap')};
   ${marginStyles};
 `

@@ -39,6 +39,7 @@ export interface TooltipProps extends TooltipStyleProps {
   direction?: 'up' | 'left' | 'down' | 'right'
 }
 export type TooltipStyleProps = {
+  arrowPostion?: string
   bgColor?: string
   borderRadius?: string
 }
@@ -73,6 +74,7 @@ export type TextAreaBinder = {
 
 // margin
 export type MarginStyleProps = {
+  margin?: string
   marginTop?: string
   marginBottom?: string
   marginLeft?: string
@@ -80,6 +82,7 @@ export type MarginStyleProps = {
 }
 // padding
 export type PaddingStyleProps = {
+  padding?: string
   paddingTop?: string
   paddingBottom?: string
   paddingLeft?: string

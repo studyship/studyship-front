@@ -97,10 +97,7 @@ const MainHeaderViewer = ({
             {isMobile ? (
               <Icon imgSrc={LogoColorS} />
             ) : (
-              <AccountAndSignIn
-                handleNextStage={handleNextStage}
-                handleModalActive={handleModalActive}
-              />
+              <Icon imgSrc={LogoColorS} />
             )}
           </LogoLink>
           <Nav>
@@ -109,7 +106,7 @@ const MainHeaderViewer = ({
               <SLink to="#HOME">카테고리</SLink>
             </List>
             <List>
-              <SLink to="#About">스터디 만들기</SLink>
+              <SLink to="/create">스터디 만들기</SLink>
             </List>
             <List>
               <SLink to="#Services">ABOUT</SLink>
@@ -125,28 +122,10 @@ const MainHeaderViewer = ({
                   </ProfileTooltip>
                 </IconRow>
               ) : (
-                <AccountBox>
-                  <Account
-                    onClick={() => {
-                      handleNextStage('login')
-                      handleModalActive()
-                    }}
-                    text="로그인"
-                    bgColor={backgroundColor}
-                    fontColor={mainColorBlack}
-                    fontSize="14px"
-                  />
-                  <Account
-                    onClick={() => {
-                      handleNextStage('choice')
-                      handleModalActive()
-                    }}
-                    text="회원가입"
-                    bgColor={mainColorYellow}
-                    fontColor={whiteColor}
-                    fontSize="14px"
-                  />
-                </AccountBox>
+                <AccountAndSignIn
+                  handleModalActive={handleModalActive}
+                  handleNextStage={handleNextStage}
+                />
               )}
             </List>
           </Nav>

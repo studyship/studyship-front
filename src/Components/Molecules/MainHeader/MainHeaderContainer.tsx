@@ -79,6 +79,7 @@ const MainHeaderContainer = () => {
       form: <MailVertifyForm />,
     },
   ]
+
   const [currentTab, setCurrentTab] = useState(tabs[0])
 
   useEffect(() => {

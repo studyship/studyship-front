@@ -2,7 +2,7 @@ import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
-import { Home } from 'src/Routes'
+import { Home, CreateStudy } from 'src/Routes'
 import { MainHeader } from 'src/Components/Molecules'
 import { RootState } from 'src/store/modules'
 import PrivateRouter from './PrivateRouter'
@@ -16,7 +16,8 @@ export default () => {
         <MainHeader />
         <Switch>
           <Route exact path="/" component={Home} />
-          {!isLoggedIn ? <PrivateRouter /> : <PublicRouter />}
+          <Route path="/create" component={CreateStudy} />
+          {isLoggedIn ? <PrivateRouter /> : <PublicRouter />}
         </Switch>
       </Router>
     </>

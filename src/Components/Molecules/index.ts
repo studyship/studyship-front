@@ -18,7 +18,7 @@ import DetailProfile from './DetailProfile'
 import TendencySlider from './TendencySlider'
 import Dashboard from './Dashboard'
 import AccountAndSignIn from './AccountAndSignIn'
-
+import LabelInput from './LabelInput'
 export {
   MainHeader,
   Introduce,
@@ -40,4 +40,5 @@ export {
   TendencySlider,
   Dashboard,
   AccountAndSignIn,
+  LabelInput,
 }

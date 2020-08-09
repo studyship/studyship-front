@@ -33,7 +33,7 @@ const TabBox = styled.div<IUnit>`
   border-right: 1px solid ${mainColorBlue};
   font-size: 12px;
   white-space: nowrap;
-  cursor: ${({ cursorType }) => (cursorType ? cursorType : 'pointer')};
+  cursor: ${({ cursorType }) => cursorType ?? 'pointer'};
   ${({ isBorderStyle }) =>
     isBorderStyle && `border-bottom: 1px solid ${mainColorBlue};`};
   ${({ isActive }) =>
@@ -46,9 +46,6 @@ const Tab = styled(NormalText)<IUnit>`
   color: ${mainColorBlue};
   ${({ isActive }) =>
     isActive && `background-color:${mainColorBlue}; color:white;`};
-`
-const List = styled(ColumnBox)`
-  width: 100%;
 `
 const UnitBox = styled(RowBox)`
   flex-wrap: wrap;
@@ -127,7 +124,7 @@ const InterestFormViewer = ({
           ),
         )}
       </Category>
-      <List>
+      <ColumnBox width="100%">
         {interestList.map(
           (interest) =>
             interest.isActiveCategory &&
@@ -166,7 +163,7 @@ const InterestFormViewer = ({
               </React.Fragment>
             )),
         )}
-      </List>
+      </ColumnBox>
       <SelectBox>
         {selectedInterests.map(({ name, groupName, isActivation }, index) => (
           <ChoiceTag
@@ -179,24 +176,6 @@ const InterestFormViewer = ({
             }}
           />
         ))}
-        {/* {interestList.map((interest) =>
-          interest.list.map((group) =>
-            group.groupItems.map(
-              ({ type, isActiveItem }, index) =>
-                isActiveItem && (
-                  <ChoiceTag
-                    key={getUniqueKey(index)}
-                    itemName={type}
-                    isChoose={isActiveItem}
-                    isActive={isActiveItem}
-                    onClick={() => {
-                      handleSelectedInterest(type, false, group.groupName)
-                    }}
-                  />
-                ),
-            ),
-          ),
-        )} */}
       </SelectBox>
       <FinishBtn
         text="완료"
