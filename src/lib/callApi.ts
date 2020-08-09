@@ -1,14 +1,16 @@
-import axios from 'axios'
+import axios, { Method } from 'axios'
 
-interface IConfig {
+type CallApi = {
   url: string
+  method: Method
+  [key: string]: any
 }
 
-const callApi = async (config: IConfig) => {
+const callApi = async (config: CallApi) => {
   const accessToken = localStorage.getItem('token')
   const res = await axios('myUrl', {
     baseURL: `${window.location.origin}`,
-    method: 'get',
+    method: config.method,
     data: {
       accessToken,
       ...config,

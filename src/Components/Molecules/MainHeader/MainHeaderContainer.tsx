@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import HeaderViewer from './MainHeaderViewer'
 import { useModalHandler } from '@devgw-react/blank-modal'
 import {
@@ -9,17 +9,24 @@ import {
   MailVertifyForm,
   AccountChoiceForm,
 } from '..'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { RootState } from 'src/store/modules'
+import { getInterestsThunk } from 'src/store/modules/account/thunk'
+import { getInterestCategories } from 'src/maps'
 
 const MainHeaderContainer = () => {
+  const dispatch = useDispatch()
+
   const {
     isVisible,
     handleModalActive,
     handleModalInactive,
   } = useModalHandler()
 
-  const { isLoggedIn } = useSelector((state: RootState) => state.users)
+  const {
+    users: { isLoggedIn },
+    account: { interests },
+  } = useSelector((state: RootState) => state)
 
   const handleNextStage = (nextTab: string) => {
     const choicedTab = tabs.filter((item) => item.tab === nextTab)
@@ -73,6 +80,12 @@ const MainHeaderContainer = () => {
     },
   ]
   const [currentTab, setCurrentTab] = useState(tabs[0])
+
+  useEffect(() => {
+    const config = {
+      ...getInterestCategories,
+    }
+  }, [])
 
   return (
     <HeaderViewer
