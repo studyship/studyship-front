@@ -9,6 +9,7 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
 `
+
 const CreateStudy = () => {
   return (
     <Container>
@@ -17,6 +18,14 @@ const CreateStudy = () => {
           <LabelInput
             label="스터디 이름 (20자 이내)"
             placeholder="예) 포토샵 뽀개기"
+            fontSize="13px"
+            marginBottom="38px"
+          />
+          <LabelInput
+            label="스터디 목표(30자 이내)"
+            placeholder="예) 에어비엔비 UI분석"
+            fontSize="13px"
+            marginBottom="38px"
           />
         </ColumnBox>
         <ColumnBox width="280px">
