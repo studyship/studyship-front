@@ -5,7 +5,7 @@ import { AxiosResponse } from 'axios'
 
 const iniitalState: PostsState = {
   status: 'ok',
-  data: [''],
+  data: {},
 }
 
 const postsReducer = createReducer<PostsState, PostsAction>(iniitalState, {
@@ -15,7 +15,7 @@ const postsReducer = createReducer<PostsState, PostsAction>(iniitalState, {
 
 const applyGetPosts = (
   state: PostsState,
-  action: PayloadAction<'studyship/LOAD_POST_SUCCESS', AxiosResponse<any>>,
+  action: PayloadAction<'studyship/LOAD_POST_SUCCESS', AxiosResponse<unknown>>,
 ) => {
   const { payload } = action
   return {
@@ -26,7 +26,7 @@ const applyGetPosts = (
 
 const applySetPosts = (
   state: PostsState,
-  action: PayloadAction<'studyship/SET_POST_SUCCESS', AxiosResponse<any>>,
+  action: PayloadAction<'studyship/SET_POST_SUCCESS', AxiosResponse<unknown>>,
 ) => {
   const { payload } = action
   return {

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
-import { Profile, CreateStudy } from 'src/Routes'
+import { Profile } from 'src/Routes'
 
 const PrivateRouter = () => {
   return (

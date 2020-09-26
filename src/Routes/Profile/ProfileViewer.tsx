@@ -22,8 +22,6 @@ const ProfileCardWrapper = styled.div`
 const ProfileViewer = () => {
   const { firstOptions, secondOptoins } = selectBoxOptions
   const { match } = useRouter()
-  console.log(match)
-
   const { renderTabNavs } = useActivationTabs(
     [
       {

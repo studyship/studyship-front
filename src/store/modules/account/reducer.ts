@@ -21,7 +21,7 @@ const postsReducer = createReducer<AccounReducer, AccountActions>(
 
 const applyGetInterests = (
   state: AccounReducer,
-  action: PayloadType<'account/LOAD_INTEREST_SUCCESS', AxiosResponse<any>>,
+  action: PayloadType<'account/LOAD_INTEREST_SUCCESS', AxiosResponse<unknown>>,
 ) => {
   const { payload } = action
   return {
