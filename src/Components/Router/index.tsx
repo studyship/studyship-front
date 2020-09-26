@@ -8,7 +8,7 @@ import { RootState } from 'src/store/modules'
 import PrivateRouter from './PrivateRouter'
 import PublicRouter from './PublicRouter'
 
-export default () => {
+const RootRouter = () => {
   const { isLoggedIn } = useSelector((state: RootState) => state.users)
   return (
     <>
@@ -23,3 +23,5 @@ export default () => {
     </>
   )
 }
+
+export default RootRouter

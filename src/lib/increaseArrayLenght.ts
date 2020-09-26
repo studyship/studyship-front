@@ -1,5 +1,5 @@
 const increaseArrayLenght = (array: Array<any>, increaseVolumn: number) => {
-  let increaseArray = [...array]
+  const increaseArray = [...array]
   let index = 0
   while (increaseVolumn - array.length > index) {
     increaseArray.push(undefined)

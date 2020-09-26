@@ -5,5 +5,5 @@ export type PostsAction = ActionType<typeof actions>
 
 export interface PostsState {
   status: string
-  data: any
+  data: { [key: string]: unknown }
 }
