@@ -65,7 +65,7 @@ const ProfileTooltipViewer = ({ children }: ProfileTooltipProps) => {
             </NameWrapper>
             <HorizontalBar color="#FFC545" />
             <MenuWrapper>
-              <Menu to="/profile/1">프로필</Menu>
+              <Menu to="/profile">프로필</Menu>
               <Menu to="#">Profile</Menu>
               <Menu to="#">Profile</Menu>
               <Menu to="#">Profile</Menu>

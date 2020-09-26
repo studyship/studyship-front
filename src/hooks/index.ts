@@ -3,6 +3,7 @@ import useInputCheckbox from './useInputCheckbox'
 import useComponentVisible from './useComponentVisible'
 import useHandleSelectTab from './useHandleSelectTab'
 import useSelectBox from './useSelectBox'
+import useActivationTabs from './useActivationTabs'
 
 export {
   useInputText,
@@ -10,4 +11,5 @@ export {
   useComponentVisible,
   useHandleSelectTab,
   useSelectBox,
+  useActivationTabs,
 }
