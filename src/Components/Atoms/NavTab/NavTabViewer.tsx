@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 const NavTab = styled.div<StyleProps>`
+  margin-right: 20px;
   ${({ isSelected, activationColor, inactivationColor }) =>
     isSelected ? `color:${activationColor}` : `color:${inactivationColor}`};
   font-weight: normal;

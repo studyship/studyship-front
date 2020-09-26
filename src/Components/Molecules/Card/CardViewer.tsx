@@ -22,13 +22,14 @@ const Container = styled.div`
   top: 0;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   width: 360px;
   height: 360px;
   background-color: #fff;
   border: 1px solid #e6e6e6;
   border-radius: 10px;
-  margin: 1rem;
   transition: 0.25s;
+  margin-bottom: 54px;
   cursor: pointer;
   :hover {
     position: relative;

@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { RowBox } from '..'
 import { mainColorBlue } from 'src/styles/Colors'
+import { getUniqueKey } from 'src/lib'
 
 const StepSlider = styled(RowBox)<StyleProps>`
   position: relative;
@@ -58,6 +59,7 @@ const StepSliderViewer = ({
       <DotWrapper>
         {Array.from({ length: 5 }, (_, index) => (
           <Dot
+            key={getUniqueKey(index)}
             choicedDotColor={choicedDotColor}
             dotSize={dotSize}
             isChoiced={index === choiced}

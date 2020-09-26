@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import { HomeTemplate, SectionTemplate } from 'src/Components/Templates'
 
 const Container = styled.section`
-  z-index: 0;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;

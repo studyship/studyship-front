@@ -5,7 +5,7 @@ import { isMobile } from 'react-device-detect'
 import { ModalTemplate } from '@devgw-react/blank-modal'
 
 import { Icon, InputHover, VerticalBar, RowBox } from 'src/Components/Atoms'
-import { Header, AccountForm } from 'src/Components/Templates'
+import { Header, AccountForm, MediaSize } from 'src/Components/Templates'
 import { ProfileTooltip, AccountAndSignIn } from '..'
 import LogoColorS from 'src/styles/icons/SS_Logo_colorS.png'
 import notificationLogo from 'src/styles/icons/ss_icon_notification.svg'
@@ -92,44 +92,46 @@ const MainHeaderViewer = ({
         />
       </ModalTemplate>
       <Header>
-        <HeaderWrapper>
-          <LogoLink to="#LOGO">
-            {isMobile ? (
-              <Icon imgSrc={LogoColorS} />
-            ) : (
-              <Icon imgSrc={LogoColorS} />
-            )}
-          </LogoLink>
-          <Nav>
-            <InputHover />
-            <List>
-              <SLink to="#HOME">카테고리</SLink>
-            </List>
-            <List>
-              <SLink to="/create">스터디 만들기</SLink>
-            </List>
-            <List>
-              <SLink to="#Services">ABOUT</SLink>
-            </List>
-            <VerticalBar marginHorizontal="10px" />
-            <List>
-              {isLoggedIn ? (
-                <IconRow>
-                  <Icon imgSrc={messageLogo} cursor="pointer" />
-                  <Icon imgSrc={notificationLogo} cursor="pointer" />
-                  <ProfileTooltip>
-                    <Icon imgSrc={profileLogo} cursor="pointer" />
-                  </ProfileTooltip>
-                </IconRow>
+        <MediaSize>
+          <HeaderWrapper>
+            <LogoLink to="/">
+              {isMobile ? (
+                <Icon imgSrc={LogoColorS} />
               ) : (
-                <AccountAndSignIn
-                  handleModalActive={handleModalActive}
-                  handleNextStage={handleNextStage}
-                />
+                <Icon imgSrc={LogoColorS} />
               )}
-            </List>
-          </Nav>
-        </HeaderWrapper>
+            </LogoLink>
+            <Nav>
+              <InputHover />
+              <List>
+                <SLink to="#HOME">카테고리</SLink>
+              </List>
+              <List>
+                <SLink to="/create">스터디 만들기</SLink>
+              </List>
+              <List>
+                <SLink to="#Services">ABOUT</SLink>
+              </List>
+              <VerticalBar marginHorizontal="10px" />
+              <List>
+                {isLoggedIn ? (
+                  <IconRow>
+                    <Icon imgSrc={messageLogo} cursor="pointer" />
+                    <Icon imgSrc={notificationLogo} cursor="pointer" />
+                    <ProfileTooltip>
+                      <Icon imgSrc={profileLogo} cursor="pointer" />
+                    </ProfileTooltip>
+                  </IconRow>
+                ) : (
+                  <AccountAndSignIn
+                    handleModalActive={handleModalActive}
+                    handleNextStage={handleNextStage}
+                  />
+                )}
+              </List>
+            </Nav>
+          </HeaderWrapper>
+        </MediaSize>
       </Header>
     </>
   )
