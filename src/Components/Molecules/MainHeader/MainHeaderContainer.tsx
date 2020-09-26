@@ -9,14 +9,11 @@ import {
   MailVertifyForm,
   AccountChoiceForm,
 } from '..'
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { RootState } from 'src/store/modules'
-import { getInterestsThunk } from 'src/store/modules/account/thunk'
 import { getInterestCategories } from 'src/maps'
 
 const MainHeaderContainer = () => {
-  const dispatch = useDispatch()
-
   const {
     isVisible,
     handleModalActive,
@@ -25,7 +22,6 @@ const MainHeaderContainer = () => {
 
   const {
     users: { isLoggedIn },
-    account: { interests },
   } = useSelector((state: RootState) => state)
 
   const handleNextStage = (nextTab: string) => {
@@ -86,6 +82,7 @@ const MainHeaderContainer = () => {
     const config = {
       ...getInterestCategories,
     }
+    console.log(config)
   }, [])
 
   return (

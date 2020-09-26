@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import { getUniqueKey } from 'src/lib'
 import { Link } from 'react-router-dom'
 import { MediaSize } from 'src/Components/Templates'
-import { RowBox } from 'src/Components/Atoms'
 
 const Container = styled.div`
   display: flex;
