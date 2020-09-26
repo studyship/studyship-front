@@ -60,8 +60,9 @@ const ProfileCardViewer = () => {
       </LabelSection>
       <LabelSection labelText="스터디 성향" marginTop="40px">
         <TendencyWrapper>
-          {Array.from({ length: 4 }, () => (
+          {Array.from({ length: 4 }, (_, index) => (
             <TendencySlider
+              key={getUniqueKey(index)}
               lowText="완전 열공"
               highText="가끔 회식도"
               textWidth="58px"

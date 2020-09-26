@@ -11,7 +11,7 @@ import SelfIntroduceForm from './SelfIntroduceForm'
 import MailVertifyForm from './MailVertifyForm'
 import AccountChoiceForm from './AccountChoiceForm'
 import ProfileTooltip from './ProfileTooltip'
-import ProfileHeader from './ProfileHeader'
+import SubNavigator from './SubNavigator'
 import ProfileCard from './ProfileCard'
 import ProfileInfo from './ProfileInfo'
 import DetailProfile from './DetailProfile'
@@ -19,6 +19,7 @@ import TendencySlider from './TendencySlider'
 import Dashboard from './Dashboard'
 import AccountAndSignIn from './AccountAndSignIn'
 import LabelInput from './LabelInput'
+
 export {
   MainHeader,
   Introduce,
@@ -33,7 +34,7 @@ export {
   MailVertifyForm,
   AccountChoiceForm,
   ProfileTooltip,
-  ProfileHeader,
+  SubNavigator,
   ProfileCard,
   ProfileInfo,
   DetailProfile,

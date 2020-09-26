@@ -22,7 +22,7 @@ const CardBox = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  /* overflow-x: auto; */
+  justify-content: space-between;
   margin-bottom: 90px;
   ::-webkit-scrollbar {
     display: none;

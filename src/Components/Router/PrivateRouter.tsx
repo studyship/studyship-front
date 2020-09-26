@@ -5,7 +5,7 @@ import { Profile, CreateStudy } from 'src/Routes'
 const PrivateRouter = () => {
   return (
     <>
-      <Route path="/profile/:id" component={Profile} />
+      <Route path="/profile" component={Profile} />
       {/* <Route path="/create" component={CreateStudy} /> */}
     </>
   )
