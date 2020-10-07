@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Container = styled.div`
-  width: 1128px;
+  width: 1160px;
   margin-left: auto;
   margin-right: auto;
 `
