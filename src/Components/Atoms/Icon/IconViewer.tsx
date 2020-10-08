@@ -46,30 +46,26 @@ const IconViewer = ({
   marginRight,
 }: IconProps) => {
   // 레이지로딩 시 이미지가 새로 렌더링이 되지 않는 문재 해결 해야함
-  return (
-    <SLazyLoad>
-      {getFileExtentions(imgSrc) === 'svg' ? (
-        <Svg
-          src={imgSrc}
-          cursor={cursor}
-          width={svgSize}
-          height={svgSize}
-          marginTop={marginTop}
-          marginBottom={marginBottom}
-          marginLeft={marginLeft}
-          marginRight={marginRight}
-        />
-      ) : (
-        <Png
-          src={imgSrc}
-          cursor={cursor}
-          marginTop={marginTop}
-          marginBottom={marginBottom}
-          marginLeft={marginLeft}
-          marginRight={marginRight}
-        />
-      )}
-    </SLazyLoad>
+  return getFileExtentions(imgSrc) === 'svg' ? (
+    <Svg
+      src={imgSrc}
+      cursor={cursor}
+      width={svgSize}
+      height={svgSize}
+      marginTop={marginTop}
+      marginBottom={marginBottom}
+      marginLeft={marginLeft}
+      marginRight={marginRight}
+    />
+  ) : (
+    <Png
+      src={imgSrc}
+      cursor={cursor}
+      marginTop={marginTop}
+      marginBottom={marginBottom}
+      marginLeft={marginLeft}
+      marginRight={marginRight}
+    />
   )
 }
 

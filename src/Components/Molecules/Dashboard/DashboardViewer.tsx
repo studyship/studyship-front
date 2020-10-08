@@ -9,11 +9,12 @@ import {
   SelectBoxOptionTypes,
 } from 'src/@types'
 import { getUniqueKey } from 'src/lib'
+import { Card } from '..'
 
 const Dashboard = styled.div`
+  flex: 1;
   display: flex;
-  justify-content: flex-start;
-  margin-top: 38px;
+  flex-direction: column;
 `
 const TabWrapper = styled.div`
   display: flex;
@@ -24,8 +25,8 @@ const SelectBoxWrapper = styled(RowBox)``
 const CardWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
-  margin-top: 5px;
+  justify-content: space-between;
+  margin-top: 34px;
 `
 
 type DashboardProps = {
@@ -47,44 +48,39 @@ const DashboardViewer = ({
 }: DashboardProps) => {
   return (
     <Dashboard>
-      <Col xs={12} sm={6} md={10} lg={12}>
-        <Col md={6} lg={6}>
-          <TabWrapper>
-            {tabOptions.map(({ title, isSelected, id }) => (
-              <NavTab
-                key={getUniqueKey(id)}
-                text={title}
-                isSelected={isSelected}
-                onClick={() => {
-                  handleNavTab(id)
-                }}
-                activationColor="#333333"
-                inactivationColor="#b3b3b3"
-              />
-            ))}
-          </TabWrapper>
-          <SelectBoxWrapper marginTop="35px">
-            <SelectBox
-              options={firstOptions}
-              selectBoxBinder={orderSelectBinder}
-              marginRight="10px"
-              width="100px"
+      <Col md={6} lg={6}>
+        <TabWrapper>
+          {tabOptions.map(({ title, isSelected, id }) => (
+            <NavTab
+              key={getUniqueKey(id)}
+              text={title}
+              isSelected={isSelected}
+              onClick={() => {
+                handleNavTab(id)
+              }}
+              activationColor="#333333"
+              inactivationColor="#b3b3b3"
             />
-            <SelectBox
-              options={secondOptoins}
-              selectBoxBinder={categorySelectBinder}
-              width="100px"
-            />
-          </SelectBoxWrapper>
-        </Col>
-        <CardWrapper>
-          <CreateCard
-            text="스터디 만들기"
-            marginRight="20px"
-            marginTop="30px"
+          ))}
+        </TabWrapper>
+        <SelectBoxWrapper marginTop="35px">
+          <SelectBox
+            options={firstOptions}
+            selectBoxBinder={orderSelectBinder}
+            marginRight="10px"
+            width="100px"
           />
-        </CardWrapper>
+          <SelectBox
+            options={secondOptoins}
+            selectBoxBinder={categorySelectBinder}
+            width="100px"
+          />
+        </SelectBoxWrapper>
       </Col>
+      <CardWrapper>
+        <CreateCard text="스터디 만들기" />
+        <Card />
+      </CardWrapper>
     </Dashboard>
   )
 }
