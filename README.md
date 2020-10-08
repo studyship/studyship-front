@@ -12,8 +12,9 @@
 - [x] set Redux configure
 - [x] apply reset-css
 - [x] apply font
-- [ ] Docker
-
+- [x] Docker
+- [x] eslint
+- [x] GithubAction CI
 ### Loading
 
 - [ ] Lazy loading
