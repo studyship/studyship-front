@@ -9,7 +9,7 @@ import {
   SelectBoxOptionTypes,
 } from 'src/@types'
 import { getUniqueKey } from 'src/lib'
-import { Card } from '..'
+import HoverCard from '../HoverCard'
 
 const Dashboard = styled.div`
   flex: 1;
@@ -79,7 +79,7 @@ const DashboardViewer = ({
       </Col>
       <CardWrapper>
         <CreateCard text="스터디 만들기" />
-        <Card />
+        <HoverCard />
       </CardWrapper>
     </Dashboard>
   )

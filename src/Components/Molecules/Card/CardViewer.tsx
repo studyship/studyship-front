@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import styled from 'styled-components'
 import {
   Icon,
@@ -7,6 +7,7 @@ import {
   HorizontalBar,
   CircularItem,
   RowBox,
+  Button,
 } from 'src/Components/Atoms'
 import BockmarkIcon from 'src/styles/icons/icon_bookmark_fill.svg'
 import ReactLogo from 'src/styles/images/react-logo.png'
@@ -18,7 +19,7 @@ import whatchIcon from 'src/styles/icons/ss_icon_whatch.svg'
 import commentIcon from 'src/styles/icons/ss_icon_comment.svg'
 import { useDimmer } from 'src/hooks'
 
-const Container = styled.div`
+const Container = styled.div<CardProps>`
   position: relative;
   top: 0;
   display: flex;
@@ -32,11 +33,14 @@ const Container = styled.div`
   transition: 0.25s;
   margin-bottom: 54px;
   cursor: pointer;
-  /* :hover {
+  ${({ hoverRef }) =>
+    !hoverRef &&
+    `:hover {
     position: relative;
     top: -10px;
     box-shadow: 0 7px 2px -2px rgba(0, 0, 0, 0.04);
-  } */
+  }`};
+
   @media screen and (max-width: 450px) {
     flex: 0 0 40%;
     display: flex;
@@ -131,20 +135,16 @@ const DescriptionInfo = styled(RowBox)`
 const Nickname = styled(BoldText)`
   margin-right: 13px;
 `
-const CardDimmed = styled.div`
-  position: absolute;
-  border-radius: 10px;
-  width: 100%;
-  height: 100%;
-  background-color: #000000;
-  opacity: 0.6;
-`
 
-const CardViewer = () => {
-  const { ref: dimmerRef, renderDimmer } = useDimmer<HTMLDivElement>()
+interface CardProps {
+  hoverRef?: React.RefObject<HTMLDivElement>
+  renderDimmer?: () => JSX.Element | null
+}
+
+const CardViewer = ({ hoverRef, renderDimmer }: CardProps) => {
   return (
-    <Container ref={dimmerRef}>
-      {renderDimmer()}
+    <Container ref={hoverRef} hoverRef={hoverRef}>
+      {renderDimmer && renderDimmer()}
       <ImageSection>
         <Icon imgSrc={ReactLogo} />
       </ImageSection>

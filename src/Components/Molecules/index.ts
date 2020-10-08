@@ -19,6 +19,7 @@ import TendencySlider from './TendencySlider'
 import Dashboard from './Dashboard'
 import AccountAndSignIn from './AccountAndSignIn'
 import LabelInput from './LabelInput'
+import HoverCard from './HoverCard'
 
 export {
   MainHeader,
@@ -42,4 +43,5 @@ export {
   Dashboard,
   AccountAndSignIn,
   LabelInput,
+  HoverCard,
 }
