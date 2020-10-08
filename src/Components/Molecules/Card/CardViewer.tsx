@@ -16,6 +16,7 @@ import locationIcon from 'src/styles/icons/ss_icon_location.svg'
 import groupIcon from 'src/styles/icons/ss_icon_group.svg'
 import whatchIcon from 'src/styles/icons/ss_icon_whatch.svg'
 import commentIcon from 'src/styles/icons/ss_icon_comment.svg'
+import { useDimmer } from 'src/hooks'
 
 const Container = styled.div`
   position: relative;
@@ -25,17 +26,17 @@ const Container = styled.div`
   justify-content: space-between;
   width: 360px;
   height: 360px;
-  background-color: #fff;
+  background-color: inherit;
   border: 1px solid #e6e6e6;
   border-radius: 10px;
   transition: 0.25s;
   margin-bottom: 54px;
   cursor: pointer;
-  :hover {
+  /* :hover {
     position: relative;
     top: -10px;
     box-shadow: 0 7px 2px -2px rgba(0, 0, 0, 0.04);
-  }
+  } */
   @media screen and (max-width: 450px) {
     flex: 0 0 40%;
     display: flex;
@@ -130,10 +131,20 @@ const DescriptionInfo = styled(RowBox)`
 const Nickname = styled(BoldText)`
   margin-right: 13px;
 `
+const CardDimmed = styled.div`
+  position: absolute;
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+  opacity: 0.6;
+`
 
 const CardViewer = () => {
+  const { ref: dimmerRef, renderDimmer } = useDimmer<HTMLDivElement>()
   return (
-    <Container>
+    <Container ref={dimmerRef}>
+      {renderDimmer()}
       <ImageSection>
         <Icon imgSrc={ReactLogo} />
       </ImageSection>
