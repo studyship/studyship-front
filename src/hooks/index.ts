@@ -4,6 +4,7 @@ import useComponentVisible from './useComponentVisible'
 import useHandleSelectTab from './useHandleSelectTab'
 import useSelectBox from './useSelectBox'
 import useActivationTabs from './useActivationTabs'
+import useDimmer from './useDimmer'
 
 export {
   useInputText,
@@ -12,4 +13,5 @@ export {
   useHandleSelectTab,
   useSelectBox,
   useActivationTabs,
+  useDimmer,
 }
