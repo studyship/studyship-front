@@ -5,6 +5,7 @@ import useHandleSelectTab from './useHandleSelectTab'
 import useSelectBox from './useSelectBox'
 import useActivationTabs from './useActivationTabs'
 import useDimmer from './useDimmer'
+import useHover from './useHover'
 
 export {
   useInputText,
@@ -14,4 +15,5 @@ export {
   useSelectBox,
   useActivationTabs,
   useDimmer,
+  useHover,
 }

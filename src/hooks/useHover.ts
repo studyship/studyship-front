@@ -8,21 +8,18 @@ const useHover = <T extends HTMLElement>() => {
   const handleMouseOver = () => setIsHover(true)
   const handleMouseOut = () => setIsHover(false)
 
-  useEffect(
-    () => {
-      const node = ref.current
-      if (node) {
-        node.addEventListener('mouseover', handleMouseOver)
-        node.addEventListener('mouseout', handleMouseOut)
+  useEffect(() => {
+    const node = ref.current
+    if (node) {
+      node.addEventListener('mouseenter', handleMouseOver)
+      node.addEventListener('mouseleave', handleMouseOut)
 
-        return () => {
-          node.removeEventListener('mouseover', handleMouseOver)
-          node.removeEventListener('mouseout', handleMouseOut)
-        }
+      return () => {
+        node.removeEventListener('mouseenter', handleMouseOver)
+        node.removeEventListener('mouseleave', handleMouseOut)
       }
-    },
-    [ref.current], // Recall only if ref changes
-  )
+    }
+  }, [ref.current])
 
   return { ref, isHover }
 }
