@@ -26,6 +26,7 @@ const CardWrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  flex-wrap: wrap;
   margin-top: 34px;
 `
 
@@ -78,8 +79,21 @@ const DashboardViewer = ({
         </SelectBoxWrapper>
       </Col>
       <CardWrapper>
-        <CreateCard text="스터디 만들기" />
-        <HoverCard />
+        {tabOptions.map(({ id, isSelected }) => {
+          if (id === 0 && isSelected) {
+            return (
+              <>
+                <CreateCard text="스터디 만들기" />
+                <HoverCard />
+              </>
+            )
+          }
+          if (id === 1 && isSelected) return <HoverCard />
+          if (id === 2 && isSelected) return <HoverCard />
+          if (id === 3 && isSelected) return <HoverCard />
+          if (id === 4 && isSelected) return null
+          if (id === 5 && isSelected) return null
+        })}
       </CardWrapper>
     </Dashboard>
   )
