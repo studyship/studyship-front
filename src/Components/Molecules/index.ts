@@ -22,6 +22,9 @@ import LabelInput from './LabelInput'
 import HoverCard from './HoverCard'
 import CheckRow from './CheckRow'
 import GroupSelectBox from './GroupSelectBox'
+import Thumbnail from './Thumbnail'
+import MemberCard from './MemberCard'
+import Members from './Members'
 
 export {
   MainHeader,
@@ -48,4 +51,7 @@ export {
   HoverCard,
   CheckRow,
   GroupSelectBox,
+  Thumbnail,
+  MemberCard,
+  Members,
 }
