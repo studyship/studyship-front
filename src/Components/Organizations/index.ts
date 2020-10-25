@@ -1,3 +1,4 @@
+import CardFilter from './CardFilter'
 import CheckboxArea from './CheckboxArea'
 
-export { CheckboxArea }
+export { CheckboxArea, CardFilter }
