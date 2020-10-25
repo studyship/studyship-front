@@ -6,6 +6,7 @@ import useSelectBox from './useSelectBox'
 import useActivationTabs from './useActivationTabs'
 import useDimmer from './useDimmer'
 import useHover from './useHover'
+import useCheckList from './useCheckList'
 
 export {
   useInputText,
@@ -16,4 +17,5 @@ export {
   useActivationTabs,
   useDimmer,
   useHover,
+  useCheckList,
 }
