@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Col } from 'react-flexbox-grid'
 
-import { RowBox, SelectBox, NavTab, CreateCard } from 'src/Components/Atoms'
+import { NavTab } from 'src/Components/Atoms'
 import {
   TabOptionTypes,
   SeletBoxBinderTypes,
@@ -10,8 +10,8 @@ import {
 } from 'src/@types'
 import { getUniqueKey } from 'src/lib'
 import { CardFilter, CheckboxArea } from 'src/Components/Organizations'
-import HoverCard from '../HoverCard'
-import GroupSelectBox from '../GroupSelectBox'
+import MemberCard from '../MemberCard'
+import Members from '../Members'
 
 const Dashboard = styled.div`
   flex: 1;
@@ -22,13 +22,7 @@ const TabWrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-`
-const CardWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  margin-top: 34px;
+  margin-bottom: 35px;
 `
 
 type DashboardProps = {
@@ -88,14 +82,13 @@ const DashboardViewer = ({
           ))}
         </TabWrapper>
       </Col>
-
       {tabOptions.map(({ id, isSelected }) => {
         if (id === 0 && isSelected) return <CardFilter {...selectOption} />
         if (id === 1 && isSelected) return <CardFilter {...selectOption} />
         if (id === 2 && isSelected) return <CardFilter {...selectOption} />
         if (id === 3 && isSelected) return <CardFilter {...selectOption} />
         if (id === 4 && isSelected) return <CheckboxArea checkList={checks} />
-        if (id === 5 && isSelected) return null
+        if (id === 5 && isSelected) return <Members />
       })}
     </Dashboard>
   )

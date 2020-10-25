@@ -7,7 +7,6 @@ import { BlueCheckbox, NormalText } from '../Atoms'
 const Conatiner = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 30px;
 `
 const TextArea = styled.div`
   display: flex;
