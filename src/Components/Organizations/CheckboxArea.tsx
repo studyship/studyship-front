@@ -6,8 +6,14 @@ import { BlueCheckbox, NormalText } from '../Atoms'
 
 const Conatiner = styled.div`
   display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+`
+const TextArea = styled.div`
+  display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin-bottom: 14px;
 `
 const Area = styled.div`
   display: flex;
@@ -42,6 +48,9 @@ const Column = styled.div`
     border: none;
   }
 `
+const Bold = styled(NormalText)`
+  font-weight: bold;
+`
 type CheckList = {
   id: string
   content: string
@@ -51,11 +60,6 @@ interface CheckboxAreaProps {
   columnNames?: string[]
   checkList: CheckList[]
 }
-interface RowProps {
-  id: number
-  content: string
-  createdAt: string
-}
 
 const CheckboxArea = ({
   columnNames = ['선택', '내가 쓴 댓글', '작성일'],
@@ -64,21 +68,27 @@ const CheckboxArea = ({
   const { checkedValue, renderCheckbox } = useCheckList(checkList)
 
   return (
-    <Area>
-      <Wrapper>
-        <Column>
-          {columnNames.map((name, i) => (
-            <NormalText
-              key={getUniqueKey(i)}
-              text={name}
-              fontSize="14px"
-              fontColor="#6C6B6B"
-            />
-          ))}
-        </Column>
-      </Wrapper>
-      <InnerBox>{renderCheckbox()}</InnerBox>
-    </Area>
+    <Conatiner>
+      <TextArea>
+        <Bold text="전체 선택" fontColor="#6C6B6B" fontSize="14px" />
+        <Bold text="선택 항목 삭제" fontColor="#6C6B6B" fontSize="14px" />
+      </TextArea>
+      <Area>
+        <Wrapper>
+          <Column>
+            {columnNames.map((name, i) => (
+              <NormalText
+                key={getUniqueKey(i)}
+                text={name}
+                fontSize="14px"
+                fontColor="#6C6B6B"
+              />
+            ))}
+          </Column>
+        </Wrapper>
+        <InnerBox>{renderCheckbox()}</InnerBox>
+      </Area>
+    </Conatiner>
   )
 }
 

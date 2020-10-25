@@ -21,6 +21,7 @@ import AccountAndSignIn from './AccountAndSignIn'
 import LabelInput from './LabelInput'
 import HoverCard from './HoverCard'
 import CheckRow from './CheckRow'
+import GroupSelectBox from './GroupSelectBox'
 
 export {
   MainHeader,
@@ -46,4 +47,5 @@ export {
   LabelInput,
   HoverCard,
   CheckRow,
+  GroupSelectBox,
 }
