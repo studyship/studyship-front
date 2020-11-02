@@ -1,10 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import {
-  TabOptionTypes,
-  SeletBoxBinderTypes,
-  SelectBoxOptionTypes,
-} from 'src/@types'
+import { SeletBoxBinderTypes, SelectBoxOptionTypes } from 'src/@types'
 import { RowBox, SelectBox } from '../Atoms'
 
 const SelectBoxWrapper = styled(RowBox)``
@@ -22,7 +18,7 @@ const GroupSelectBox = ({
   secondOptoins,
 }: SelectBoxType) => {
   return (
-    <SelectBoxWrapper marginTop="35px">
+    <SelectBoxWrapper>
       <SelectBox
         options={firstOptions}
         selectBoxBinder={orderSelectBinder}

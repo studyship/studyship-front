@@ -12,6 +12,7 @@ import {
   TouchLabel,
 } from 'src/Components/Atoms'
 import { mainColorBlue } from 'src/styles/Colors'
+import Thumbnail from '../Thumbnail'
 
 const Container = styled.div`
   display: flex;
@@ -29,8 +30,7 @@ const Update = styled(Button)`
 const ProfileInfoViewer = () => {
   return (
     <Container>
-      <Avatar imgSrc={profileIcon} svgSize={88} />
-      <BoldText text="sumkall" fontSize="24px" />
+      <Thumbnail />
       <TouchLabel marginTop="10px" marginBottom="10px">
         <NormalText text="designsuminkim@gmail.com" fontSize="12px" />
         <CircularItem
