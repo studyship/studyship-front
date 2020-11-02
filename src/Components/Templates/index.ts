@@ -1,6 +1,6 @@
 import HomeTemplate from './Home'
 import SectionTemplate from './Section'
-import AccountModalTemplate from './AccountModal'
+import AccountModal from './AccountModal'
 import TopArrowTooltip from './TopArrowTooltip'
 import Header from './Header'
 import LabelSection from './LabelSection'
@@ -10,7 +10,7 @@ import MediaSize from './MediaSize'
 export {
   HomeTemplate,
   SectionTemplate,
-  AccountModalTemplate,
+  AccountModal,
   TopArrowTooltip,
   Header,
   LabelSection,
