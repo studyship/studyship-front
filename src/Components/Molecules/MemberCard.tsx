@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { useRecommendModal } from 'src/hooks'
 import { Button, NormalText } from '../Atoms'
 import Thumbnail, { ThumbnailProps } from './Thumbnail'
 
@@ -22,18 +23,21 @@ const Recommend = styled(Button)`
 interface MemberCardProps extends ThumbnailProps {
   recommendation: boolean
 }
-const MemberCard = ({ recommendation }: MemberCardProps) => {
+const MemberCard = ({ recommendation, username }: MemberCardProps) => {
+  const { handleModalActive, renderModal } = useRecommendModal()
   return (
     <Container>
-      <Thumbnail />
+      {renderModal(username)}
+      <Thumbnail username={username} />
       {recommendation ? (
         <Recommend
           width="88px"
           height="28px"
-          text="추천"
+          text="추천 하기"
           bgColor="#fff"
           fontColor="#60D3E0"
           marginTop="9px"
+          onClick={handleModalActive}
         />
       ) : (
         <NormalText text="평가 완료" fontSize="18px" />
