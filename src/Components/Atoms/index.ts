@@ -23,6 +23,8 @@ import StepSlider from './StepSlider'
 import NavTab from './NavTab'
 import SelectBox from './SelectBox'
 import CreateCard from './CreateCard'
+import BlueCheckbox from './BlueCheckbox'
+import AngularButton from './AngularButton'
 
 export {
   JumboTitle,
@@ -50,4 +52,6 @@ export {
   NavTab,
   SelectBox,
   CreateCard,
+  BlueCheckbox,
+  AngularButton,
 }
