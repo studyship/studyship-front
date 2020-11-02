@@ -1,5 +1,5 @@
 import React from 'react'
-import { AccountModalTemplate } from 'src/Components/Templates'
+import { AccountModal } from 'src/Components/Templates'
 import { TabTypes } from 'src/@types'
 
 interface AccountFormProps {
@@ -12,14 +12,14 @@ const AccountFormViewer = ({
   currentTab,
 }: AccountFormProps) => {
   return (
-    <AccountModalTemplate
+    <AccountModal
       handleModalInactive={handleModalInactive}
       title={currentTab.title!}
       subTitle={currentTab.subTitle!}
       horizontal={currentTab.horizontal!}
     >
       {currentTab.form}
-    </AccountModalTemplate>
+    </AccountModal>
   )
 }
 

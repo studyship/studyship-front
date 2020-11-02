@@ -7,12 +7,14 @@ export interface ThumbnailProps {
   profileSize?: number
   fontSize?: string
   interval?: string
+  username: string
 }
 const Thumbnail = ({
   profileUrl,
   profileSize,
   fontSize,
   interval,
+  username,
 }: ThumbnailProps) => {
   return (
     <>
@@ -21,7 +23,7 @@ const Thumbnail = ({
         svgSize={profileSize}
         marginBottom={interval ?? interval}
       />
-      <NormalText text="sumkall" fontSize={fontSize ?? '24px'} />
+      <NormalText text={username} fontSize={fontSize ?? '24px'} />
     </>
   )
 }

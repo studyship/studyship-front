@@ -1,11 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import profileIcon from 'src/styles/icons/ss_icon_profile.svg'
 import kakaoDark from 'src/styles/icons/ss_icon_kakao_dark.svg'
 import {
   Icon,
-  BoldText,
   NormalText,
   CircularItem,
   Button,
@@ -30,7 +28,7 @@ const Update = styled(Button)`
 const ProfileInfoViewer = () => {
   return (
     <Container>
-      <Thumbnail />
+      <Thumbnail username="devgw" />
       <TouchLabel marginTop="10px" marginBottom="10px">
         <NormalText text="designsuminkim@gmail.com" fontSize="12px" />
         <CircularItem
