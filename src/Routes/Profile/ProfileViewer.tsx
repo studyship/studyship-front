@@ -3,11 +3,11 @@ import styled from 'styled-components'
 
 import { RowBox } from 'src/Components/Atoms'
 import { ProfileCard, Dashboard } from 'src/Components/Molecules'
-
-import { tabOptions as profileTabOptions, selectBoxOptions } from './options'
 import { useActivationTabs, useHandleSelectTab, useSelectBox } from 'src/hooks'
 import { MediaSize } from 'src/Components/Templates'
 import useRouter from 'src/hooks/useRouter'
+
+import { tabOptions as profileTabOptions, selectBoxOptions } from './options'
 
 const Section = styled(RowBox)`
   margin-top: 40px;
