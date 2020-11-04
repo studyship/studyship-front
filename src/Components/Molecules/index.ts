@@ -11,7 +11,7 @@ import SelfIntroduceForm from './SelfIntroduceForm'
 import MailVertifyForm from './MailVertifyForm'
 import AccountChoiceForm from './AccountChoiceForm'
 import ProfileTooltip from './ProfileTooltip'
-import SubNavigator from './SubNavigator'
+import InnerNavigator from './InnerNavigator'
 import ProfileCard from './ProfileCard'
 import ProfileInfo from './ProfileInfo'
 import DetailProfile from './DetailProfile'
@@ -40,7 +40,7 @@ export {
   MailVertifyForm,
   AccountChoiceForm,
   ProfileTooltip,
-  SubNavigator,
+  InnerNavigator,
   ProfileCard,
   ProfileInfo,
   DetailProfile,
