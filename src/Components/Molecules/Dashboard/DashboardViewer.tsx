@@ -88,7 +88,7 @@ const DashboardViewer = ({
         if (id === 2 && isSelected) return <CardFilter {...selectOption} />
         if (id === 3 && isSelected) return <CardFilter {...selectOption} />
         if (id === 4 && isSelected)
-          return <CheckboxArea rowElements={renderCheckbox} />
+          return <CheckboxArea rowElements={renderCheckbox()} />
         if (id === 5 && isSelected) return <Members />
       })}
     </Dashboard>

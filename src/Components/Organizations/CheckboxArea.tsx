@@ -20,11 +20,11 @@ const Bold = styled(NormalText)`
 
 interface CheckboxAreaProps {
   columnNames?: string[]
-  rowElements: () => JSX.Element[]
+  rowElements: JSX.Element[]
 }
 
 const CheckboxArea = ({
-  columnNames = ['선택', '내가 쓴 댓글', '작성일'],
+  columnNames = ['선택', '내가 쓴 댓글', '작성일', ''],
   rowElements,
 }: CheckboxAreaProps) => {
   return (

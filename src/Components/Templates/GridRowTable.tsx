@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { getUniqueKey } from 'src/lib'
 import { dragLock } from 'src/styles/StylesOptions'
-import { NormalText } from '../Atoms'
+import { BoldText } from '../Atoms'
 
 const Area = styled.div`
   display: flex;
@@ -13,9 +13,10 @@ const Area = styled.div`
   background-color: #fff;
   ${dragLock};
 `
-const Wrapper = styled.div`
+const Wrapper = styled.div<StyleProps>`
   padding: 0px 27px;
   border-bottom: 1px solid #e6e6e6;
+  background-color: ${({ bgColor }) => bgColor ?? 'tranparent'};
   :nth-last-child() {
     border: none;
   }
@@ -40,32 +41,43 @@ const InnerBox = styled.div`
 `
 interface StyleProps {
   gridColumns?: string
+  bgColor?: string
+  fontColor?: string
 }
 interface GridRowTableProps extends StyleProps {
   columnNames: string[]
-  rowElements: () => JSX.Element[]
+  rowElements: JSX.Element[]
 }
 
 const GridRowTable = ({
   gridColumns,
   columnNames,
   rowElements,
+  bgColor,
+  fontColor,
 }: GridRowTableProps) => {
   return (
     <Area>
-      <Wrapper>
-        <Column gridColumns={gridColumns}>
-          {columnNames.map((name, i) => (
-            <NormalText
-              key={getUniqueKey(i)}
-              text={name}
-              fontSize="14px"
-              fontColor="#6C6B6B"
-            />
-          ))}
+      <Wrapper bgColor={bgColor}>
+        <Column gridColumns={gridColumns} fontColor={fontColor}>
+          <BoldText
+            text={columnNames[0]}
+            fontSize="14px"
+            fontColor={fontColor ?? '#6C6B6B'}
+          />
+          <BoldText
+            text={columnNames[1]}
+            fontSize="14px"
+            fontColor={fontColor ?? '#6C6B6B'}
+          />
+          <BoldText
+            text={columnNames[2]}
+            fontSize="14px"
+            fontColor={fontColor ?? '#6C6B6B'}
+          />
         </Column>
       </Wrapper>
-      <InnerBox>{rowElements()}</InnerBox>
+      <InnerBox>{rowElements}</InnerBox>
     </Area>
   )
 }

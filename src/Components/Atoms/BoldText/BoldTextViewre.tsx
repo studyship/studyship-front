@@ -5,6 +5,7 @@ interface StyleProps {
   className?: string
   fontSize?: string
   fontColor?: string
+  justifySelf?: string
 }
 
 interface BoldTextProps extends StyleProps {
@@ -14,8 +15,9 @@ interface BoldTextProps extends StyleProps {
 
 const Container = styled.h2<StyleProps>`
   font-weight: bold;
-  font-size: ${({ fontSize }) => (fontSize ? fontSize : '22px')};
-  color: ${({ fontColor }) => (fontColor ? fontColor : 'black')};
+  font-size: ${({ fontSize }) => fontSize ?? '22px'};
+  color: ${({ fontColor }) => fontColor ?? 'black'};
+  justify-self: ${({ justifySelf }) => justifySelf && justifySelf};
 `
 
 const BoldTextViewer = ({
@@ -24,6 +26,7 @@ const BoldTextViewer = ({
   text,
   onClick,
   fontColor,
+  justifySelf,
 }: BoldTextProps) => {
   return (
     <Container
@@ -31,6 +34,7 @@ const BoldTextViewer = ({
       fontSize={fontSize}
       onClick={onClick}
       fontColor={fontColor}
+      justifySelf={justifySelf}
     >
       {text}
     </Container>
