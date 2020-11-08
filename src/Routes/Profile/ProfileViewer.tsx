@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { RowBox } from 'src/Components/Atoms'
 import { ProfileCard, Dashboard } from 'src/Components/Molecules'
 import { useHandleSelectTab, useSelectBox } from 'src/hooks'
-import { MediaSize, SubNavigator } from 'src/Components/Templates'
+import { ProfileSubNavigator } from 'src/Components/Templates'
 
 import { tabOptions as profileTabOptions, selectBoxOptions } from './options'
 
@@ -27,23 +27,21 @@ const ProfileViewer = () => {
   const { bind: categorySelectBinder } = useSelectBox(secondOptoins[0])
 
   return (
-    <SubNavigator>
-      <MediaSize>
-        <Section>
-          <ProfileCardWrapper>
-            <ProfileCard />
-          </ProfileCardWrapper>
-          <Dashboard
-            tabOptions={tabOptions}
-            orderSelectBinder={orderSelectBinder}
-            categorySelectBinder={categorySelectBinder}
-            firstOptions={firstOptions}
-            secondOptoins={secondOptoins}
-            handleNavTab={handleNavTab}
-          />
-        </Section>
-      </MediaSize>
-    </SubNavigator>
+    <ProfileSubNavigator>
+      <Section>
+        <ProfileCardWrapper>
+          <ProfileCard />
+        </ProfileCardWrapper>
+        <Dashboard
+          tabOptions={tabOptions}
+          orderSelectBinder={orderSelectBinder}
+          categorySelectBinder={categorySelectBinder}
+          firstOptions={firstOptions}
+          secondOptoins={secondOptoins}
+          handleNavTab={handleNavTab}
+        />
+      </Section>
+    </ProfileSubNavigator>
   )
 }
 
