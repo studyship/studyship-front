@@ -1,17 +1,16 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import profileIcon from 'src/styles/icons/ss_icon_profile.svg'
 import kakaoDark from 'src/styles/icons/ss_icon_kakao_dark.svg'
 import {
   Icon,
-  BoldText,
   NormalText,
   CircularItem,
   Button,
   TouchLabel,
 } from 'src/Components/Atoms'
 import { mainColorBlue } from 'src/styles/Colors'
+import Thumbnail from '../Thumbnail'
 
 const Container = styled.div`
   display: flex;
@@ -29,8 +28,7 @@ const Update = styled(Button)`
 const ProfileInfoViewer = () => {
   return (
     <Container>
-      <Avatar imgSrc={profileIcon} svgSize={88} />
-      <BoldText text="sumkall" fontSize="24px" />
+      <Thumbnail username="devgw" />
       <TouchLabel marginTop="10px" marginBottom="10px">
         <NormalText text="designsuminkim@gmail.com" fontSize="12px" />
         <CircularItem

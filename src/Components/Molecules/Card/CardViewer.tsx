@@ -17,7 +17,7 @@ import locationIcon from 'src/styles/icons/ss_icon_location.svg'
 import groupIcon from 'src/styles/icons/ss_icon_group.svg'
 import whatchIcon from 'src/styles/icons/ss_icon_whatch.svg'
 import commentIcon from 'src/styles/icons/ss_icon_comment.svg'
-import { useDimmer } from 'src/hooks'
+import { MarginStyleProps } from 'src/@types'
 
 const Container = styled.div<CardProps>`
   position: relative;
@@ -31,7 +31,7 @@ const Container = styled.div<CardProps>`
   border: 1px solid #e6e6e6;
   border-radius: 10px;
   transition: 0.25s;
-  margin-bottom: 54px;
+  margin-bottom: ${({ marginBottom }) => marginBottom ?? '54px'};
   cursor: pointer;
   ${({ hoverRef }) =>
     !hoverRef &&
@@ -136,14 +136,24 @@ const Nickname = styled(BoldText)`
   margin-right: 13px;
 `
 
-interface CardProps {
+interface CardProps extends MarginStyleProps {
   hoverRef?: React.RefObject<HTMLDivElement>
   renderDimmer?: () => JSX.Element | null
 }
 
-const CardViewer = ({ hoverRef, renderDimmer }: CardProps) => {
+const CardViewer = ({
+  hoverRef,
+  renderDimmer,
+  marginBottom,
+  marginTop,
+}: CardProps) => {
   return (
-    <Container ref={hoverRef} hoverRef={hoverRef}>
+    <Container
+      ref={hoverRef}
+      hoverRef={hoverRef}
+      marginBottom={marginBottom}
+      marginTop={marginTop}
+    >
       {renderDimmer && renderDimmer()}
       <ImageSection>
         <Icon imgSrc={ReactLogo} />

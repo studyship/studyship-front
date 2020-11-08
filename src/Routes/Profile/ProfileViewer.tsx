@@ -3,11 +3,10 @@ import styled from 'styled-components'
 
 import { RowBox } from 'src/Components/Atoms'
 import { ProfileCard, Dashboard } from 'src/Components/Molecules'
+import { useHandleSelectTab, useSelectBox } from 'src/hooks'
+import { ProfileSubNavigator } from 'src/Components/Templates'
 
 import { tabOptions as profileTabOptions, selectBoxOptions } from './options'
-import { useActivationTabs, useHandleSelectTab, useSelectBox } from 'src/hooks'
-import { MediaSize } from 'src/Components/Templates'
-import useRouter from 'src/hooks/useRouter'
 
 const Section = styled(RowBox)`
   margin-top: 40px;
@@ -21,28 +20,6 @@ const ProfileCardWrapper = styled.div`
 
 const ProfileViewer = () => {
   const { firstOptions, secondOptoins } = selectBoxOptions
-  const { match } = useRouter()
-  const { renderTabNavs } = useActivationTabs(
-    [
-      {
-        name: '프로필',
-        to: '/profile',
-        key: '/profile',
-      },
-      {
-        name: '스터디 신청 현황',
-        to: '/status',
-        key: '/status',
-      },
-      {
-        name: '설정',
-        to: '/setting',
-        key: '/setting',
-      },
-    ],
-    match.path,
-  )
-
   const { tabOptions, onClick: handleNavTab } = useHandleSelectTab(
     profileTabOptions,
   )
@@ -50,24 +27,21 @@ const ProfileViewer = () => {
   const { bind: categorySelectBinder } = useSelectBox(secondOptoins[0])
 
   return (
-    <>
-      {renderTabNavs()}
-      <MediaSize>
-        <Section>
-          <ProfileCardWrapper>
-            <ProfileCard />
-          </ProfileCardWrapper>
-          <Dashboard
-            tabOptions={tabOptions}
-            orderSelectBinder={orderSelectBinder}
-            categorySelectBinder={categorySelectBinder}
-            firstOptions={firstOptions}
-            secondOptoins={secondOptoins}
-            handleNavTab={handleNavTab}
-          />
-        </Section>
-      </MediaSize>
-    </>
+    <ProfileSubNavigator>
+      <Section>
+        <ProfileCardWrapper>
+          <ProfileCard />
+        </ProfileCardWrapper>
+        <Dashboard
+          tabOptions={tabOptions}
+          orderSelectBinder={orderSelectBinder}
+          categorySelectBinder={categorySelectBinder}
+          firstOptions={firstOptions}
+          secondOptoins={secondOptoins}
+          handleNavTab={handleNavTab}
+        />
+      </Section>
+    </ProfileSubNavigator>
   )
 }
 

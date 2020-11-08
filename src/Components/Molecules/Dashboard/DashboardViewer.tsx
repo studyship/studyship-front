@@ -1,15 +1,16 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Col } from 'react-flexbox-grid'
-
-import { RowBox, SelectBox, NavTab, CreateCard } from 'src/Components/Atoms'
+import { NavTab } from 'src/Components/Atoms'
 import {
   TabOptionTypes,
   SeletBoxBinderTypes,
   SelectBoxOptionTypes,
 } from 'src/@types'
 import { getUniqueKey } from 'src/lib'
-import HoverCard from '../HoverCard'
+import { CardFilter, CheckboxArea } from 'src/Components/Organizations'
+import { useCheckList } from 'src/hooks'
+import Members from '../Members'
 
 const Dashboard = styled.div`
   flex: 1;
@@ -20,13 +21,7 @@ const TabWrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-`
-const SelectBoxWrapper = styled(RowBox)``
-const CardWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin-top: 34px;
+  margin-bottom: 35px;
 `
 
 type DashboardProps = {
@@ -37,7 +32,23 @@ type DashboardProps = {
   secondOptoins: SelectBoxOptionTypes
   handleNavTab: (selectedId: number) => void
 }
-
+const checks = [
+  {
+    id: '1',
+    content: '내용0',
+    createdAt: '20.10.10',
+  },
+  {
+    id: '2',
+    content: '내용1',
+    createdAt: '20.10.10',
+  },
+  {
+    id: '3',
+    content: '내용2',
+    createdAt: '20.10.10',
+  },
+]
 const DashboardViewer = ({
   tabOptions,
   orderSelectBinder,
@@ -46,9 +57,16 @@ const DashboardViewer = ({
   secondOptoins,
   handleNavTab,
 }: DashboardProps) => {
+  const selectOption = {
+    firstOptions,
+    orderSelectBinder,
+    secondOptoins,
+    categorySelectBinder,
+  }
+  const { checkedValue, renderCheckbox } = useCheckList(checks)
   return (
     <Dashboard>
-      <Col md={6} lg={6}>
+      <Col md={6} lg={6} style={{ paddingLeft: '0px' }}>
         <TabWrapper>
           {tabOptions.map(({ title, isSelected, id }) => (
             <NavTab
@@ -63,24 +81,16 @@ const DashboardViewer = ({
             />
           ))}
         </TabWrapper>
-        <SelectBoxWrapper marginTop="35px">
-          <SelectBox
-            options={firstOptions}
-            selectBoxBinder={orderSelectBinder}
-            marginRight="10px"
-            width="100px"
-          />
-          <SelectBox
-            options={secondOptoins}
-            selectBoxBinder={categorySelectBinder}
-            width="100px"
-          />
-        </SelectBoxWrapper>
       </Col>
-      <CardWrapper>
-        <CreateCard text="스터디 만들기" />
-        <HoverCard />
-      </CardWrapper>
+      {tabOptions.map(({ id, isSelected }) => {
+        if (id === 0 && isSelected) return <CardFilter {...selectOption} />
+        if (id === 1 && isSelected) return <CardFilter {...selectOption} />
+        if (id === 2 && isSelected) return <CardFilter {...selectOption} />
+        if (id === 3 && isSelected) return <CardFilter {...selectOption} />
+        if (id === 4 && isSelected)
+          return <CheckboxArea rowElements={renderCheckbox()} />
+        if (id === 5 && isSelected) return <Members />
+      })}
     </Dashboard>
   )
 }

@@ -35,14 +35,16 @@ const SubTitle = styled(NormalText)`
 `
 
 type AccountModalProps = {
+  className?: string
   children: React.ReactNode
   handleModalInactive: () => void
-  title: string | Array<string>
-  subTitle: string
-  horizontal: string
+  title?: string | Array<string>
+  subTitle?: string
+  horizontal?: string
 }
 
 const AccountModalViewer = ({
+  className,
   children,
   handleModalInactive,
   title,
@@ -50,7 +52,7 @@ const AccountModalViewer = ({
   horizontal,
 }: AccountModalProps) => {
   return (
-    <Container>
+    <Container className={className}>
       <TopBox>
         <Logo>
           <Icon imgSrc={textLogoBlack} />
@@ -64,7 +66,7 @@ const AccountModalViewer = ({
             <Title text={item} fontSize="20px" key={getUniqueKey(index)} />
           ))
         : title && <Title text={title} fontSize="20px" />}
-      <SubTitle text={subTitle} fontSize="14px" />
+      {subTitle && <SubTitle text={subTitle} fontSize="14px" />}
       {children}
     </Container>
   )

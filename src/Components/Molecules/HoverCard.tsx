@@ -16,7 +16,6 @@ const HoverButton = styled(Button)`
     background-color: #ffc545;
   }
 `
-
 const HoverCard = () => {
   const { ref, renderDimmer: render } = useDimmer<HTMLDivElement>()
   const dimmerBtn = useMemo(
@@ -43,7 +42,7 @@ const HoverCard = () => {
 
   const renderDimmer = () => render(onDimmerEls)
 
-  return <Card hoverRef={ref} renderDimmer={renderDimmer} />
+  return <Card hoverRef={ref} renderDimmer={renderDimmer} marginBottom="34px" />
 }
 
 export default HoverCard

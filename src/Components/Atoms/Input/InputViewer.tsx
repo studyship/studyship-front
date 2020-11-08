@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { MarginStyleProps } from 'src/@types'
+import { marginStyles } from 'src/styles/mixin'
 
 const Input = styled.input<StyleProps>`
   font-size: 15px;
@@ -13,6 +14,7 @@ const Input = styled.input<StyleProps>`
   color: ${({ color }) => color ?? 'black'};
   border-radius: ${({ borderRadius }) => borderRadius ?? '5px'};
   padding: ${({ padding }) => padding ?? '8px 16px'};
+  ${marginStyles};
 `
 
 interface StyleProps extends MarginStyleProps {
@@ -38,6 +40,10 @@ const InputViewer = ({
   placeholderColor,
   borderRadius,
   padding,
+  marginTop,
+  marginBottom,
+  marginLeft,
+  marginRight,
 }: InputProps) => {
   return (
     <Input
@@ -49,6 +55,10 @@ const InputViewer = ({
       placeholderColor={placeholderColor}
       borderRadius={borderRadius}
       padding={padding}
+      marginTop={marginTop}
+      marginBottom={marginBottom}
+      marginLeft={marginLeft}
+      marginRight={marginRight}
     />
   )
 }

@@ -56,6 +56,7 @@ const IconViewer = ({
       marginBottom={marginBottom}
       marginLeft={marginLeft}
       marginRight={marginRight}
+      onClick={onClick}
     />
   ) : (
     <Png
@@ -65,6 +66,7 @@ const IconViewer = ({
       marginBottom={marginBottom}
       marginLeft={marginLeft}
       marginRight={marginRight}
+      onClick={onClick}
     />
   )
 }

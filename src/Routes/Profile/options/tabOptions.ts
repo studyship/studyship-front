@@ -16,11 +16,16 @@ export default [
   },
   {
     id: 3,
-    title: '내가 쓴 댓글',
+    title: '임시저장',
     isSelected: false,
   },
   {
     id: 4,
+    title: '내가 쓴 댓글',
+    isSelected: false,
+  },
+  {
+    id: 5,
     title: '함께한 멤버',
     isSelected: false,
   },
