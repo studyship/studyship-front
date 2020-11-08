@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
-import { getUniqueKey } from 'src/lib'
 import { dragLock } from 'src/styles/StylesOptions'
 import { BoldText } from '../Atoms'
+import { MarginStyleProps, PaddingStyleProps } from 'src/@types'
 
-const Area = styled.div`
+const Container = styled.div`
   display: flex;
   flex-direction: column;
   border: 1px solid #e6e6e6;
@@ -57,7 +57,7 @@ const GridRowTable = ({
   fontColor,
 }: GridRowTableProps) => {
   return (
-    <Area>
+    <Container>
       <Wrapper bgColor={bgColor}>
         <Column gridColumns={gridColumns} fontColor={fontColor}>
           <BoldText
@@ -78,7 +78,7 @@ const GridRowTable = ({
         </Column>
       </Wrapper>
       <InnerBox>{rowElements}</InnerBox>
-    </Area>
+    </Container>
   )
 }
 
