@@ -18,8 +18,8 @@ interface NormalTextProps extends StyleProps {
 
 const Container = styled.p<StyleProps>`
   display: flex;
-  justify-content: center;
-  align-items: center;
+  /* justify-content: center;
+  align-items: center; */
   width: ${({ width }) => width && width};
   font-weight: normal;
   font-size: ${({ fontSize }) => fontSize ?? '22px'};
