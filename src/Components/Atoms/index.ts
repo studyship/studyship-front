@@ -26,6 +26,7 @@ import CreateCard from './CreateCard'
 import BlueCheckbox from './BlueCheckbox'
 import AngularButton from './AngularButton'
 import Heart from './Heart'
+import Toggle from './Toggle'
 
 export {
   JumboTitle,
@@ -56,4 +57,5 @@ export {
   BlueCheckbox,
   AngularButton,
   Heart,
+  Toggle,
 }
