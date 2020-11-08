@@ -7,7 +7,7 @@ import LabelSection from './LabelSection'
 import AccountForm from './AccountForm'
 import MediaSize from './MediaSize'
 import GridRowTable from './GridRowTable'
-import SubNavigator from './SubNavigator'
+import ProfileSubNavigator from './ProfileSubNavigator'
 import GridRow from './GridRow'
 
 export {
@@ -20,6 +20,6 @@ export {
   AccountForm,
   MediaSize,
   GridRowTable,
-  SubNavigator,
+  ProfileSubNavigator,
   GridRow,
 }

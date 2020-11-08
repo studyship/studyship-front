@@ -3,10 +3,10 @@ import { useActivationTabs } from 'src/hooks'
 import useRouter from 'src/hooks/useRouter'
 import MediaSize from './MediaSize'
 
-interface SubNavigatorProps {
+interface ProfileSubNavigatorProps {
   children: JSX.Element
 }
-const SubNavigator = ({ children }: SubNavigatorProps) => {
+const ProfileSubNavigator = ({ children }: ProfileSubNavigatorProps) => {
   const { match } = useRouter()
   const { renderTabNavs } = useActivationTabs(
     [
@@ -36,4 +36,4 @@ const SubNavigator = ({ children }: SubNavigatorProps) => {
   )
 }
 
-export default SubNavigator
+export default ProfileSubNavigator

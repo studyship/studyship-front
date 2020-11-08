@@ -3,8 +3,7 @@ import { NormalText } from 'src/Components/Atoms'
 import {
   GridRow,
   GridRowTable,
-  MediaSize,
-  SubNavigator,
+  ProfileSubNavigator,
 } from 'src/Components/Templates'
 import styled from 'styled-components'
 
@@ -29,19 +28,17 @@ const StudyDashboard = () => {
   ))
 
   return (
-    <SubNavigator>
-      <MediaSize>
-        <Wrapper>
-          <GridRowTable
-            bgColor="#60DEE0"
-            fontColor="#ffffff"
-            gridColumns={gridColumns}
-            columnNames={columnNames}
-            rowElements={rowElements}
-          />
-        </Wrapper>
-      </MediaSize>
-    </SubNavigator>
+    <ProfileSubNavigator>
+      <Wrapper>
+        <GridRowTable
+          bgColor="#60DEE0"
+          fontColor="#ffffff"
+          gridColumns={gridColumns}
+          columnNames={columnNames}
+          rowElements={rowElements}
+        />
+      </Wrapper>
+    </ProfileSubNavigator>
   )
 }
 

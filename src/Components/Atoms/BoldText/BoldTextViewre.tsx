@@ -1,7 +1,9 @@
 import React from 'react'
+import { MarginStyleProps } from 'src/@types'
+import { marginStyles } from 'src/styles/mixin'
 import styled from 'styled-components'
 
-interface StyleProps {
+interface StyleProps extends MarginStyleProps {
   className?: string
   fontSize?: string
   fontColor?: string
@@ -13,11 +15,12 @@ interface BoldTextProps extends StyleProps {
   onClick?: () => void
 }
 
-const Container = styled.h2<StyleProps>`
+const Container = styled.div<StyleProps>`
   font-weight: bold;
   font-size: ${({ fontSize }) => fontSize ?? '22px'};
   color: ${({ fontColor }) => fontColor ?? 'black'};
   justify-self: ${({ justifySelf }) => justifySelf && justifySelf};
+  ${marginStyles};
 `
 
 const BoldTextViewer = ({
@@ -27,6 +30,10 @@ const BoldTextViewer = ({
   onClick,
   fontColor,
   justifySelf,
+  marginTop,
+  marginBottom,
+  marginLeft,
+  marginRight,
 }: BoldTextProps) => {
   return (
     <Container
@@ -35,6 +42,10 @@ const BoldTextViewer = ({
       onClick={onClick}
       fontColor={fontColor}
       justifySelf={justifySelf}
+      marginTop={marginTop}
+      marginBottom={marginBottom}
+      marginLeft={marginLeft}
+      marginRight={marginRight}
     >
       {text}
     </Container>

@@ -25,6 +25,7 @@ import GroupSelectBox from './GroupSelectBox'
 import Thumbnail from './Thumbnail'
 import MemberCard from './MemberCard'
 import Members from './Members'
+import RowMsgAndToggle from './RowMsgAndToggle'
 
 export {
   MainHeader,
@@ -54,4 +55,5 @@ export {
   Thumbnail,
   MemberCard,
   Members,
+  RowMsgAndToggle,
 }

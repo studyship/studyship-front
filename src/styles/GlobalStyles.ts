@@ -1,6 +1,7 @@
 import { createGlobalStyle } from 'styled-components'
 import reset from 'styled-reset'
 import { mainColorBlack, backgroundColor } from './Colors'
+import 'antd/dist/antd.css'
 
 const globalStyle = createGlobalStyle`
     ${reset}
