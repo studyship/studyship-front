@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from 'react'
-import { SubNavigator } from 'src/Components/Molecules'
+import { InnerNavigator } from 'src/Components/Molecules'
 
 export type UseChecksResult = { renderTabNavs: () => JSX.Element }
 export type TabNav = {
@@ -39,7 +39,10 @@ const useActivationTabs = (
   )
 
   const renderTabNavs = () => (
-    <SubNavigator tabOptions={tabOptions} handleActivation={handleActivation} />
+    <InnerNavigator
+      tabOptions={tabOptions}
+      handleActivation={handleActivation}
+    />
   )
 
   return { renderTabNavs }

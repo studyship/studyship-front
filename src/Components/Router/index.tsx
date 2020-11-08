@@ -17,7 +17,7 @@ const RootRouter = () => {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/create" component={CreateStudy} />
-          {isLoggedIn ? <PrivateRouter /> : <PublicRouter />}
+          {!isLoggedIn ? <PrivateRouter /> : <PublicRouter />}
         </Switch>
       </Router>
     </>

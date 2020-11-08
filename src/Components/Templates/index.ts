@@ -6,6 +6,9 @@ import Header from './Header'
 import LabelSection from './LabelSection'
 import AccountForm from './AccountForm'
 import MediaSize from './MediaSize'
+import GridRowTable from './GridRowTable'
+import SubNavigator from './SubNavigator'
+import GridRow from './GridRow'
 
 export {
   HomeTemplate,
@@ -16,4 +19,7 @@ export {
   LabelSection,
   AccountForm,
   MediaSize,
+  GridRowTable,
+  SubNavigator,
+  GridRow,
 }
