@@ -1,8 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import checkedIcon from 'src/styles/icons/ss_v_mark.svg'
-
-import { Icon } from '.'
+import { ReactComponent as CheckedIcon } from 'src/styles/icons/ss_v_mark.svg'
 
 const Container = styled.label<StyleProps>`
   display: flex;
@@ -33,7 +31,7 @@ const BlueCheckbox = ({ htmlFor, checked, onChange }: YellowCheckboxProps) => {
   return (
     <>
       <Container htmlFor={htmlFor ?? 'check'} checked={checked}>
-        <Check>{checked ? <Icon imgSrc={checkedIcon} /> : null}</Check>
+        <Check>{checked && <CheckedIcon />}</Check>
       </Container>
       <CheckBox
         type="checkbox"
