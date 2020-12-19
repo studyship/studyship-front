@@ -27,6 +27,7 @@ import BlueCheckbox from './BlueCheckbox'
 import AngularButton from './AngularButton'
 import Heart from './Heart'
 import Toggle from './Toggle'
+import DropdownMenu from './DropdownMenu'
 
 export {
   JumboTitle,
@@ -58,4 +59,5 @@ export {
   AngularButton,
   Heart,
   Toggle,
+  DropdownMenu,
 }
