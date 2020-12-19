@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import { BoldText, Icon, HorizontalBar } from 'src/Components/Atoms'
+import { BoldText, HorizontalBar } from 'src/Components/Atoms'
 import { TopArrowTooltip } from 'src/Components/Templates'
 import { useOutsideClickHandler } from '@devgw-react/outside-click'
-import pencilIcon from 'src/styles/icons/ss_logo_pencil.svg'
+import { ReactComponent as PencilIcon } from 'src/styles/icons/ss_logo_pencil.svg'
 import { Link } from 'react-router-dom'
 
 const Container = styled.div`
@@ -24,9 +24,6 @@ const NameWrapper = styled.div`
 const Name = styled(BoldText)`
   display: flex;
   align-items: flex-end;
-  margin-bottom: 8px;
-`
-const PencilIcon = styled.div`
   margin-bottom: 8px;
 `
 const MenuWrapper = styled.div`
@@ -59,9 +56,7 @@ const ProfileTooltipViewer = ({ children }: ProfileTooltipProps) => {
           <Content>
             <NameWrapper>
               <Name fontSize="18px" text="김수민" />
-              <PencilIcon>
-                <Icon imgSrc={pencilIcon} />
-              </PencilIcon>
+              <PencilIcon style={{ marginBottom: '8px' }} />
             </NameWrapper>
             <HorizontalBar color="#FFC545" />
             <MenuWrapper>

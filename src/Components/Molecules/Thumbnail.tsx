@@ -1,6 +1,6 @@
 import React from 'react'
 import defaultPofile from 'src/styles/icons/ss_icon_thin_profile.svg'
-import { BoldText, Icon, NormalText } from '../Atoms'
+import { Icon, NormalText } from '../Atoms'
 
 export interface ThumbnailProps {
   profileUrl?: string
