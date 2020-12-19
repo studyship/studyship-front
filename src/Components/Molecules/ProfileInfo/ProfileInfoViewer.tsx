@@ -1,9 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import kakaoDark from 'src/styles/icons/ss_icon_kakao_dark.svg'
+import { ReactComponent as KakaoDark } from 'src/styles/icons/ss_icon_kakao_dark.svg'
 import {
-  Icon,
   NormalText,
   CircularItem,
   Button,
@@ -17,8 +16,6 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
 `
-const Avatar = styled(Icon)``
-const Kakao = styled(Icon)``
 const Update = styled(Button)`
   background-color: ${mainColorBlue};
   border-radius: 33px;
@@ -40,7 +37,7 @@ const ProfileInfoViewer = () => {
         </CircularItem>
       </TouchLabel>
       <TouchLabel marginBottom="10px">
-        <Kakao imgSrc={kakaoDark} marginRight="5px" />
+        <KakaoDark style={{ marginRight: '5px' }} />
         <NormalText text="카카오톡 정보" fontSize="12px" />
       </TouchLabel>
       <Update text="프로필 수정" paddingBottom="10px" paddingTop="10px" />

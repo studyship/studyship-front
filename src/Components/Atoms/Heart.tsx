@@ -1,20 +1,21 @@
 import React from 'react'
-import emptyHeart from 'src/styles/icons/ss_empty_heart.svg'
-import fillHeart from 'src/styles/icons/ss_fill_heart.svg'
+import { ReactComponent as HeartIcon } from 'src/styles/icons/ss_heart.svg'
 import { Icon } from '.'
-
 interface HeartProps {
   isFill: boolean
   heartSize?: number
   onClick?: VoidFunction
 }
-
 const Heart = ({ isFill, onClick }: HeartProps) => {
   return (
-    <Icon
-      cursor="pointer"
+    <HeartIcon
       onClick={onClick}
-      imgSrc={isFill ? fillHeart : emptyHeart}
+      cursor="pointer"
+      {...(!isFill && {
+        fill: 'none',
+        stroke: '#b3b3b3',
+        strokeWidth: '3',
+      })}
     />
   )
 }

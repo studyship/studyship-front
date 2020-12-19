@@ -6,10 +6,10 @@ import {
   DetailProfile,
   TendencySlider,
 } from 'src/Components/Molecules'
-import { HorizontalBar, Tag, Icon } from 'src/Components/Atoms'
+import { HorizontalBar, Tag } from 'src/Components/Atoms'
 import { LabelSection } from 'src/Components/Templates'
 import { getUniqueKey } from 'src/lib'
-import oneBuildBadge from 'src/styles/icons/ss_one_build_badge.svg'
+import { ReactComponent as OneBuildBadge } from 'src/styles/icons/ss_one_build_badge.svg'
 
 const ProfileContainer = styled.div`
   display: flex;
@@ -44,10 +44,9 @@ const ProfileCardViewer = () => {
       </LabelSection>
       <LabelSection labelText="활동 뱃지">
         {Array.from({ length: 4 }, (item, index) => (
-          <Icon
+          <OneBuildBadge
             key={getUniqueKey(index)}
-            imgSrc={oneBuildBadge}
-            marginRight="10px"
+            style={{ marginRight: '10px' }}
           />
         ))}
       </LabelSection>
