@@ -1,16 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import { isMobile } from 'react-device-detect'
 import { ModalTemplate } from '@devgw-react/blank-modal'
 
-import { Icon, InputHover, VerticalBar, RowBox } from 'src/Components/Atoms'
+import { InputHover, VerticalBar, RowBox, Icon } from 'src/Components/Atoms'
 import { Header, AccountForm, MediaSize } from 'src/Components/Templates'
 import { ProfileTooltip, AccountAndSignIn } from '..'
-import LogoColorS from 'src/styles/icons/SS_Logo_colorS.png'
-import notificationLogo from 'src/styles/icons/ss_icon_notification.svg'
-import profileLogo from 'src/styles/icons/ss_icon_profile.svg'
-import messageLogo from 'src/styles/icons/ss_icon_message.svg'
+import colorLogo from 'src/styles/icons/SS_Logo_colorS.png'
+import { ReactComponent as MessageIcon } from 'src/styles/icons/ss_icon_message.svg'
+import { ReactComponent as NotificationIcon } from 'src/styles/icons/ss_icon_notification.svg'
+import { ReactComponent as ProfileIcon } from 'src/styles/icons/ss_icon_profile.svg'
 import { mainColorBlue } from 'src/styles/Colors'
 import { TabTypes } from 'src/@types'
 
@@ -95,11 +94,7 @@ const MainHeaderViewer = ({
         <MediaSize>
           <HeaderWrapper>
             <LogoLink to="/">
-              {isMobile ? (
-                <Icon imgSrc={LogoColorS} />
-              ) : (
-                <Icon imgSrc={LogoColorS} />
-              )}
+              <Icon imgSrc={colorLogo} />
             </LogoLink>
             <Nav>
               <InputHover />
@@ -116,10 +111,10 @@ const MainHeaderViewer = ({
               <List>
                 {isLoggedIn ? (
                   <IconRow>
-                    <Icon imgSrc={messageLogo} cursor="pointer" />
-                    <Icon imgSrc={notificationLogo} cursor="pointer" />
+                    <MessageIcon />
+                    <NotificationIcon />
                     <ProfileTooltip>
-                      <Icon imgSrc={profileLogo} cursor="pointer" />
+                      <ProfileIcon />
                     </ProfileTooltip>
                   </IconRow>
                 ) : (

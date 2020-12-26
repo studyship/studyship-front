@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import {
   Icon,
@@ -7,16 +7,15 @@ import {
   HorizontalBar,
   CircularItem,
   RowBox,
-  Button,
 } from 'src/Components/Atoms'
-import BockmarkIcon from 'src/styles/icons/icon_bookmark_fill.svg'
 import ReactLogo from 'src/styles/images/react-logo.png'
 import Darkness from 'src/styles/images/darkness.png'
-import clockIcon from 'src/styles/icons/ss_icon_clock.svg'
-import locationIcon from 'src/styles/icons/ss_icon_location.svg'
-import groupIcon from 'src/styles/icons/ss_icon_group.svg'
-import whatchIcon from 'src/styles/icons/ss_icon_whatch.svg'
-import commentIcon from 'src/styles/icons/ss_icon_comment.svg'
+import { ReactComponent as BockmarkIcon } from 'src/styles/icons/icon_bookmark_fill.svg'
+import { ReactComponent as ClockIcon } from 'src/styles/icons/ss_icon_clock.svg'
+import { ReactComponent as LocationIcon } from 'src/styles/icons/ss_icon_location.svg'
+import { ReactComponent as GroupIcon } from 'src/styles/icons/ss_icon_group.svg'
+import { ReactComponent as WhatchIcon } from 'src/styles/icons/ss_icon_whatch.svg'
+import { ReactComponent as CommentIcon } from 'src/styles/icons/ss_icon_comment.svg'
 import { MarginStyleProps } from 'src/@types'
 
 const Container = styled.div<CardProps>`
@@ -163,7 +162,7 @@ const CardViewer = ({
         <TitleBox>
           <BoldText fontSize="18px" text="스터디 제목입니다" />
           <Bookmark>
-            <Icon imgSrc={BockmarkIcon} />
+            <BockmarkIcon />
           </Bookmark>
         </TitleBox>
         <CategoryBox>
@@ -177,11 +176,11 @@ const CardViewer = ({
         <DescriptionBox>
           <DescriptionInfo>
             <Description>
-              <Icon imgSrc={clockIcon}></Icon>
+              <ClockIcon />
               <DescriptionText fontSize="12px" text="토, 일" />
             </Description>
             <Description>
-              <Icon imgSrc={locationIcon}></Icon>
+              <LocationIcon />
               <DescriptionText fontSize="12px" text="3/5명" />
             </Description>
           </DescriptionInfo>
@@ -197,17 +196,17 @@ const CardViewer = ({
           <NormalText fontSize="12px" text="선장" />
           <Nickname fontSize="12px" text="김수민" />
           <Description>
-            <Icon imgSrc={groupIcon} />
+            <GroupIcon />
             <DescriptionText fontSize="12px" text="3/5명" />
           </Description>
         </WriterSection>
         <PostInfomation>
           <Description>
-            <Icon imgSrc={whatchIcon} />
+            <WhatchIcon />
             <DescriptionText fontSize="12px" text="206" />
           </Description>
           <Description>
-            <Icon imgSrc={commentIcon} />
+            <CommentIcon />
             <DescriptionText fontSize="12px" text="9" />
           </Description>
         </PostInfomation>

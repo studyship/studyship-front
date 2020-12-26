@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { RowBox, Icon, NormalText } from 'src/Components/Atoms'
-import textLogoBlack from 'src/styles/icons/ss_logo_black_text.svg'
+import { ReactComponent as TextLogoBlack } from 'src/styles/icons/ss_logo_black_text.svg'
 import closeIcon from 'src/styles/icons/ss_logo_close.png'
 import { getUniqueKey } from 'src/lib'
 import { dragLock } from 'src/styles/StylesOptions'
@@ -55,7 +55,7 @@ const AccountModalViewer = ({
     <Container className={className}>
       <TopBox>
         <Logo>
-          <Icon imgSrc={textLogoBlack} />
+          <TextLogoBlack />
         </Logo>
         <Close onClick={handleModalInactive}>
           <Icon imgSrc={closeIcon} />
