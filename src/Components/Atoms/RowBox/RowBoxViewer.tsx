@@ -28,45 +28,8 @@ interface RowBoxProps extends StyleProps {
   className?: string
   children: React.ReactNode
 }
-const RowBoxViewer = ({
-  className,
-  children,
-  marginTop,
-  marginBottom,
-  marginLeft,
-  marginRight,
-  padding,
-  paddingTop,
-  paddingBottom,
-  paddingLeft,
-  paddingRight,
-  width,
-  height,
-  borderRadius,
-  border,
-  bgColor,
-}: RowBoxProps) => {
-  return (
-    <RowBox
-      className={className}
-      marginTop={marginTop}
-      marginBottom={marginBottom}
-      marginLeft={marginLeft}
-      marginRight={marginRight}
-      padding={padding}
-      paddingTop={paddingTop}
-      paddingBottom={paddingBottom}
-      paddingLeft={paddingLeft}
-      paddingRight={paddingRight}
-      width={width}
-      height={height}
-      borderRadius={borderRadius}
-      border={border}
-      bgColor={bgColor}
-    >
-      {children}
-    </RowBox>
-  )
+const RowBoxViewer = ({ children, ...props }: RowBoxProps) => {
+  return <RowBox {...props}>{children}</RowBox>
 }
 
 export default RowBoxViewer
