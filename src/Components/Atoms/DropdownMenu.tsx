@@ -2,10 +2,14 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { HorizontalBar, NormalText } from '.'
 import { ReactComponent as UpDownIcon } from 'src/styles/icons/ss_dropdown_arrow.svg'
+import { MarginStyleProps } from 'src/@types'
+import { marginStyles } from 'src/styles/mixin'
+import { useOutsideClickHandler } from '@devgw-react/outside-click'
 
-const Dropdown = styled.div`
+const Dropdown = styled.div<MarginStyleProps>`
   display: flex;
   flex-direction: column;
+  ${marginStyles}
 `
 const MenuWrapper = styled.div<{ enabled: boolean }>`
   display: flex;
@@ -32,12 +36,13 @@ const Content = styled.div`
   overflow-y: auto;
 `
 const Sentence = styled.div``
+
 type ContentType = {
   id: number
   name: string
   value: unknown
 }
-interface DropdownProps {
+interface DropdownProps extends MarginStyleProps {
   onClick: (value: unknown) => void
   isOpen?: boolean
   contents: ContentType[]
@@ -53,10 +58,12 @@ const DropdownMenu = ({
   placeholder = '메뉴 선택',
   defaultActiveIndex,
   enabled = true,
+  ...props
 }: DropdownProps) => {
   const [selectedMenu, setSelectedMenu] = useState('')
+  const { ref, isComponentVisible } = useOutsideClickHandler(isOpen)
   return (
-    <Dropdown>
+    <Dropdown ref={ref} {...props}>
       <MenuWrapper enabled={enabled}>
         <Menu>
           <NormalText
@@ -68,7 +75,7 @@ const DropdownMenu = ({
         </Menu>
         <HorizontalBar color="#b3b3b3" />
       </MenuWrapper>
-      {isOpen && (
+      {isComponentVisible && (
         <Content>
           {contents.map(({ name, value, id }) => (
             <Sentence
