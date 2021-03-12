@@ -57,7 +57,7 @@
     "query-string": "^6.13.2",
     "react": "^16.13.1",
     "react-app-polyfill": "^1.0.6",
-    "react-dev-utils": "^10.2.1",
+    "react-dev-utils": "^11.0.4",
     "react-device-detect": "^1.11.14",
     "react-dom": "^16.13.1",
     "react-fade-in": "^0.1.8",
